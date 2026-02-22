@@ -7,6 +7,8 @@
 
 An interactive data visualization exploring global attitudes toward artificial intelligence across **121 countries**, compiled from **46 data sources** including surveys, government readiness indices, and enterprise adoption reports.
 
+![Global AI Acceptance Index - Interactive 3D Globe](preview.png)
+
 **[View Live Demo](https://die-hu.github.io/Global-AI-Acceptance-Index/)**
 
 ---
@@ -142,6 +144,12 @@ Each country is assigned a confidence level:
 Some data points carry additional flags:
 - **Historical baseline** -- data from 2021 or earlier (pre-ChatGPT era), weighted lower
 - **Projected** -- forward-looking estimates (e.g., KPMG Q4 2026), flagged accordingly
+
+---
+
+## Research Context
+
+This project serves as an open foundation for cross-national AI acceptance research. For our full research statement and future directions, see [DECLARATION.md](DECLARATION.md).
 
 ---
 
