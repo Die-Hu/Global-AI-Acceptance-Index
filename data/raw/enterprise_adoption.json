@@ -1,0 +1,410 @@
+{
+  "metadata": {
+    "description": "Enterprise and industry AI adoption data collected from major consulting firms and technology companies",
+    "collected_date": "2026-02-21",
+    "data_sources": [
+      "McKinsey Global AI Survey",
+      "Microsoft Work Trend Index",
+      "IBM Global AI Adoption Index",
+      "Salesforce State of AI",
+      "KPMG AI Quarterly Pulse Survey",
+      "Deloitte State of AI in the Enterprise",
+      "Stanford HAI AI Index Report"
+    ]
+  },
+  "reports": [
+    {
+      "source": "McKinsey & Company",
+      "report_name": "The State of AI: Global Survey 2025",
+      "report_url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+      "survey_date": "2025-06 to 2025-07",
+      "sample_size": 1993,
+      "countries_covered": 105,
+      "methodology": "Online survey of business leaders and practitioners across industries and regions",
+      "enterprise_ai_adoption": {
+        "global_adoption_rate_pct": 88,
+        "note": "88% of organizations deploy AI in at least one function (Nov 2025 update)",
+        "previous_rates": {
+          "2024_early": 72,
+          "2024_mid": 78,
+          "2023": 55
+        },
+        "gen_ai_adoption_rate_pct": 71,
+        "gen_ai_note": "71% of respondents regularly use gen AI in at least one function",
+        "mature_deployment_pct": 1,
+        "mature_note": "Only ~1% of firms describe themselves as mature in AI deployment"
+      },
+      "adoption_by_region": {
+        "North America": {
+          "adoption_rate_pct": 82,
+          "note": "Highest absolute adoption rate (2024 data)"
+        },
+        "GCC (Gulf States)": {
+          "adoption_rate_pct": 84,
+          "note": "Up from 64% in 2023",
+          "year": 2025
+        },
+        "Asia Pacific": {
+          "global_market_share_pct": 41.8,
+          "note": "Holds ~41.8% of global AI market share in 2024"
+        },
+        "Developing Markets (India, South America, MENA)": {
+          "note": "Highest increase in AI adoption rate but lag in absolute terms"
+        },
+        "Southeast Asia (ASEAN)": {
+          "Vietnam": { "ecommerce_ai_adoption_pct": 42 },
+          "Indonesia": { "ecommerce_ai_adoption_pct": 42 },
+          "Singapore": { "ecommerce_ai_adoption_pct": 39 },
+          "Thailand": { "ecommerce_ai_adoption_pct": 39 }
+        }
+      },
+      "scaling_status": {
+        "experiment_or_pilot_pct": 65,
+        "genuinely_scaled_pct": 35,
+        "note": "Nearly two-thirds still in experiment/pilot mode"
+      },
+      "industry_breakdown": {
+        "technology_media_telecom": {
+          "note": "AI agent use most widely reported in TMT sector"
+        },
+        "healthcare": {
+          "note": "AI agent use most widely reported; projected CAGR of 36.83%"
+        },
+        "financial_services": {
+          "note": "Trailblazers in AI adoption for risk management, fraud detection"
+        },
+        "manufacturing": {
+          "adoption_pct": 51,
+          "note": "51% of manufacturers using AI in some form (NAM survey 2025); projected CAGR of 32.06%"
+        }
+      }
+    },
+    {
+      "source": "Microsoft & LinkedIn",
+      "report_name": "2024 Work Trend Index Annual Report",
+      "report_url": "https://www.microsoft.com/en-us/worklab/work-trend-index/ai-at-work-is-here-now-comes-the-hard-part",
+      "survey_date": "2024-02-15 to 2024-03-28",
+      "sample_size": 31000,
+      "countries_covered": 31,
+      "methodology": "Survey conducted by Edelman Data & Intelligence among full-time employed or self-employed knowledge workers. 1,000 workers surveyed per market. Supplemented with LinkedIn labor/hiring trends and Microsoft 365 productivity signals.",
+      "countries_surveyed": [
+        "Argentina", "Australia", "Brazil", "Canada", "China", "Colombia",
+        "Czech Republic", "Finland", "France", "Germany", "Hong Kong", "India",
+        "Indonesia", "Italy", "Japan", "Malaysia", "Mexico", "Netherlands",
+        "New Zealand", "Philippines", "Poland", "Singapore", "South Korea", "Spain",
+        "Sweden", "Switzerland", "Taiwan", "Thailand", "United Kingdom",
+        "United States", "Vietnam"
+      ],
+      "individual_ai_usage": {
+        "knowledge_workers_using_ai_pct": 75,
+        "note": "75% of knowledge workers now using AI at work",
+        "growth": "Nearly doubled in past six months"
+      },
+      "enterprise_adoption": {
+        "leaders_agree_ai_critical_pct": 79,
+        "leaders_worried_quantifying_gains_pct": 59,
+        "leaders_lack_vision_plan_pct": 60,
+        "byoai_pct": 78,
+        "byoai_note": "78% of AI users bring their own AI tools to work (BYOAI)"
+      }
+    },
+    {
+      "source": "IBM",
+      "report_name": "Global AI Adoption Index 2023",
+      "report_url": "https://newsroom.ibm.com/2024-01-10-Data-Suggests-Growth-in-Enterprise-Adoption-of-AI-is-Due-to-Widespread-Deployment-by-Early-Adopters",
+      "pdf_url": "https://filecache.mediaroom.com/mr5mr_ibmspgi/179414/download/IBM%20Global%20AI%20Adoption%20Index%20Report%20Dec.%202023.pdf",
+      "survey_date": "2023",
+      "release_date": "2024-01-10",
+      "sample_size": 8584,
+      "sample_description": "IT professionals at large organizations (1000+ employees)",
+      "countries_covered": 20,
+      "countries_surveyed": [
+        "Australia", "Canada", "China", "France", "Germany", "India", "Italy",
+        "Japan", "Singapore", "South Korea", "Spain", "UAE", "UK", "US",
+        "Brazil", "Mexico", "Peru", "Argentina", "Chile", "Colombia"
+      ],
+      "methodology": "Survey conducted by Morning Consult on behalf of IBM among IT professionals at enterprise-scale organizations (1000+ employees) across 20 countries",
+      "enterprise_ai_adoption": {
+        "actively_deployed_pct": 42,
+        "exploring_pct": 40,
+        "total_engaged_pct": 82,
+        "gen_ai_actively_deployed_pct": 38,
+        "gen_ai_exploring_pct": 42
+      },
+      "adoption_by_country": {
+        "India": { "active_deployment_pct": 59 },
+        "UAE": { "active_deployment_pct": 58 },
+        "Singapore": { "active_deployment_pct": 53 },
+        "China": { "active_deployment_pct": 50 },
+        "Spain": { "active_deployment_pct": 28 },
+        "Australia": { "active_deployment_pct": 29 },
+        "France": { "active_deployment_pct": 26 }
+      },
+      "accelerating_investment_by_country": {
+        "China": { "accelerating_pct": 85 },
+        "India": { "accelerating_pct": 74 },
+        "UAE": { "accelerating_pct": 72 }
+      },
+      "industry_breakdown": {
+        "financial_services": {
+          "note": "Highest AI deployment rate, approximately 50% of IT pros report active deployment"
+        },
+        "telecommunications": {
+          "active_deployment_pct": 37
+        }
+      },
+      "barriers_to_adoption": {
+        "lack_of_skills_expertise_pct": 33,
+        "data_complexity_pct": 25,
+        "ethical_concerns_pct": 23
+      },
+      "investment_intentions": {
+        "intend_to_accelerate_pct": 59,
+        "note": "59% of enterprises already working with AI intend to accelerate and increase investment"
+      }
+    },
+    {
+      "source": "Salesforce",
+      "report_name": "State of AI / Generative AI Statistics",
+      "report_url": "https://www.salesforce.com/news/stories/generative-ai-statistics/",
+      "survey_date": "2024-2025",
+      "enterprise_ai_adoption": {
+        "it_leaders_expect_prominent_role_pct": 86,
+        "it_leaders_prioritized_genai_18months_pct": 67,
+        "salesforce_pros_exploring_new_ai_usecases_pct": 86
+      },
+      "data_readiness": {
+        "customers_collecting_diverse_data_pct": 97,
+        "effectively_leveraging_data_pct": 24,
+        "uncertain_about_ai_pct": 45,
+        "confident_in_ai_workflows_pct": 16
+      },
+      "service_ai": {
+        "cases_handled_by_ai_current_pct": 30,
+        "cases_handled_by_ai_projected_2027_pct": 50
+      },
+      "smb_ai_adoption": {
+        "helps_scale_operations_pct": 87,
+        "improved_margins_pct": 86
+      },
+      "agentforce_adoption": {
+        "businesses_using": 5000,
+        "notable_customers": ["Indeed", "OpenTable", "Heathrow Airport"]
+      }
+    },
+    {
+      "source": "KPMG",
+      "report_name": "AI Quarterly Pulse Survey 2025-2026",
+      "report_url": "https://kpmg.com/us/en/articles/2025/ai-quarterly-pulse-survey.html",
+      "survey_date": "2025-2026 (quarterly)",
+      "enterprise_ai_adoption": {
+        "expect_measurable_roi_12months_pct": 59,
+        "leaders_agree_ai_enhanced_competitive_position_pct": 93
+      },
+      "ai_agent_deployment": {
+        "q1_2026_pct": 11,
+        "q4_2026_pct": 26,
+        "at_least_some_agents_deployed_pct": 42,
+        "note": "AI agent deployment nearly quadrupled from Q1 to Q4 2026"
+      },
+      "investment": {
+        "average_investment_q1_2025_million_usd": 114,
+        "average_investment_q3_2025_million_usd": 130,
+        "planned_increase_next_year_million_usd": 114
+      },
+      "top_challenge": "System complexity - multi-agent orchestration, reliability, and traceability"
+    },
+    {
+      "source": "Deloitte",
+      "report_name": "State of AI in the Enterprise 2026",
+      "report_url": "https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html",
+      "survey_date": "2025-08 to 2025-09",
+      "sample_size": 3235,
+      "countries_covered": 24,
+      "industries_covered": 6,
+      "industries_list": [
+        "Consumer",
+        "Energy, Resources & Industrials",
+        "Financial Services",
+        "Life Sciences & Health Care",
+        "Technology, Media & Telecom",
+        "Government & Public Services"
+      ],
+      "methodology": "Survey of business and IT leaders across 24 countries and six industries",
+      "enterprise_ai_adoption": {
+        "using_genai_in_one_or_more_functions_pct": 71,
+        "previous_year_pct": 55,
+        "workforce_access_increase_pct": 50,
+        "workers_equipped_with_ai_tools_pct": 60,
+        "note": "Workforce access to AI rose by 50% in one year, from <40% to ~60%"
+      },
+      "adoption_by_region": {
+        "Asia_Pacific": {
+          "using_physical_ai_pct": 71,
+          "expected_within_2_years_pct": 90
+        },
+        "Americas": {
+          "using_physical_ai_pct": 56
+        },
+        "EMEA": {
+          "using_physical_ai_pct": 56
+        },
+        "Australia": {
+          "genai_already_transforming_pct": 12,
+          "note": "Below global average of 25%"
+        }
+      },
+      "transformation_metrics": {
+        "deeply_transforming_business_pct": 34,
+        "productivity_gains_reported_pct": 66,
+        "want_revenue_growth_from_ai_pct": 74,
+        "achieved_revenue_growth_pct": 20
+      },
+      "production_deployment": {
+        "moved_40pct_experiments_to_production_pct": 25,
+        "expect_to_reach_40pct_in_6months_pct": 54
+      },
+      "agentic_ai": {
+        "using_at_least_moderately_pct": 23,
+        "expected_within_2_years_pct": 74
+      },
+      "physical_ai": {
+        "at_least_limited_use_pct": 58,
+        "expected_within_2_years_pct": 80,
+        "note": "Especially advanced in manufacturing, logistics, and defense"
+      }
+    },
+    {
+      "source": "Stanford HAI",
+      "report_name": "AI Index Report 2025",
+      "report_url": "https://hai.stanford.edu/ai-index/2025-ai-index-report/economy",
+      "data_type": "Investment and economic analysis",
+      "ai_investment": {
+        "global_corporate_ai_investment_2024_billion_usd": 252.3,
+        "private_investment_growth_pct": 44.5,
+        "ma_growth_pct": 12.1
+      },
+      "private_ai_investment_by_country_2024": {
+        "United States": { "billion_usd": 109.1 },
+        "China": { "billion_usd": 9.3 },
+        "United Kingdom": { "billion_usd": 4.5 },
+        "Canada": { "billion_usd": 15, "note": "Cumulative 2013-2024" },
+        "Israel": { "billion_usd": 15, "note": "Cumulative 2013-2024" }
+      },
+      "cumulative_private_investment_2013_2024": {
+        "United States": { "billion_usd": 500, "note": "Nearly half a trillion" },
+        "China": { "billion_usd": 119 },
+        "United Kingdom": { "billion_usd": 28 }
+      },
+      "ai_contribution_to_gdp": {
+        "US_ai_capex_contribution_to_gdp_h1_2025_pct": 1.1,
+        "note": "AI-related capital expenditures contributed 1.1% to US GDP growth in H1 2025"
+      },
+      "rd_spending_as_pct_of_gdp": {
+        "United States": { "rd_pct_gdp": 3.4, "absolute_billion_usd": 823.4 },
+        "China": { "rd_pct_gdp": 2.6 }
+      },
+      "notable_targets": {
+        "UAE": {
+          "target_ai_gdp_contribution_pct": 14,
+          "target_value_billion_usd": 100,
+          "target_year": 2030
+        },
+        "EU_InvestAI": {
+          "mobilization_target_billion_eur": 200,
+          "dedicated_fund_billion_eur": 20,
+          "focus": "AI gigafactories",
+          "launch_date": "2025-02"
+        }
+      },
+      "global_investment_estimate_2025": {
+        "total_billion_usd": 200,
+        "us_share_note": "US accounts for nearly half",
+        "source": "Goldman Sachs estimate"
+      }
+    }
+  ],
+  "summary_by_country": {
+    "note": "Aggregated enterprise AI adoption rates from multiple sources where available",
+    "United States": {
+      "enterprise_adoption_range": "72-88%",
+      "private_ai_investment_2024_billion_usd": 109.1,
+      "rd_spending_pct_gdp": 3.4,
+      "ai_capex_gdp_contribution_h1_2025_pct": 1.1,
+      "sources": ["McKinsey", "Stanford HAI"]
+    },
+    "India": {
+      "enterprise_adoption_pct": 59,
+      "accelerating_investment_pct": 74,
+      "sources": ["IBM Global AI Adoption Index"]
+    },
+    "UAE": {
+      "enterprise_adoption_pct": 58,
+      "accelerating_investment_pct": 72,
+      "ai_gdp_target_2030_pct": 14,
+      "sources": ["IBM Global AI Adoption Index"]
+    },
+    "China": {
+      "enterprise_adoption_pct": 50,
+      "accelerating_investment_pct": 85,
+      "private_ai_investment_2024_billion_usd": 9.3,
+      "rd_spending_pct_gdp": 2.6,
+      "sources": ["IBM Global AI Adoption Index", "Stanford HAI"]
+    },
+    "Singapore": {
+      "enterprise_adoption_pct": 53,
+      "sources": ["IBM Global AI Adoption Index"]
+    },
+    "United Kingdom": {
+      "private_ai_investment_2024_billion_usd": 4.5,
+      "sources": ["Stanford HAI"]
+    },
+    "Australia": {
+      "enterprise_adoption_pct": 29,
+      "genai_transforming_business_pct": 12,
+      "sources": ["IBM Global AI Adoption Index", "Deloitte"]
+    },
+    "France": {
+      "enterprise_adoption_pct": 26,
+      "sources": ["IBM Global AI Adoption Index"]
+    },
+    "Spain": {
+      "enterprise_adoption_pct": 28,
+      "sources": ["IBM Global AI Adoption Index"]
+    },
+    "Vietnam": {
+      "ecommerce_ai_adoption_pct": 42,
+      "sources": ["McKinsey ASEAN study"]
+    },
+    "Indonesia": {
+      "ecommerce_ai_adoption_pct": 42,
+      "sources": ["McKinsey ASEAN study"]
+    }
+  },
+  "global_trends": {
+    "overall_enterprise_adoption_2025": {
+      "mckinsey_pct": 88,
+      "deloitte_pct": 71,
+      "ibm_pct": 42,
+      "note": "Variation due to different survey methodologies, sample sizes, and definitions of 'adoption'. McKinsey includes any AI use in any function; IBM focuses on active deployment at enterprise scale (1000+ employees)."
+    },
+    "individual_ai_usage_at_work": {
+      "microsoft_knowledge_workers_pct": 75,
+      "source": "Microsoft Work Trend Index 2024"
+    },
+    "key_barriers": [
+      "Lack of AI skills and expertise",
+      "Data complexity and quality",
+      "Ethical and governance concerns",
+      "System complexity for scaling",
+      "Difficulty quantifying ROI",
+      "Lack of organizational vision and strategy"
+    ],
+    "investment_trends": {
+      "global_corporate_investment_2024_billion_usd": 252.3,
+      "average_enterprise_ai_spend_million_usd": "114-130",
+      "investment_growth_yoy_pct": 44.5,
+      "source": "Stanford HAI, KPMG"
+    }
+  }
+}

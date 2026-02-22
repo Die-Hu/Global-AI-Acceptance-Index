@@ -1,0 +1,838 @@
+{
+  "metadata": {
+    "description": "Supplementary country data for AI acceptance and high-tech adoption, compiled to fill gaps in the main dataset. Countries not covered by direct surveys use estimates based on regional indices, readiness scores, and neighboring country data.",
+    "compiled_date": "2026-02-21",
+    "compiler": "gap-filler agent",
+    "sources": [
+      "Oxford Insights Government AI Readiness Index 2024 (188 countries)",
+      "IMD World Digital Competitiveness Ranking 2024 (67 countries)",
+      "ITU ICT Development Index 2024 (170 countries)",
+      "Eurobarometer Special 554 - AI and the Future of Work (April-May 2024, 27 EU countries)",
+      "Lloyd's Register Foundation / Gallup World Risk Poll 2021 (121 countries, AI attitudes)",
+      "ILIA Latin American AI Index 2024 (19 countries)",
+      "Tortoise Media Global AI Index 2024 (83 countries)",
+      "Standard Insights AI & Automation Southeast Asia Survey 2024",
+      "ISEAS State of Southeast Asia Survey 2024",
+      "Eurostat AI Usage in Enterprises 2025"
+    ],
+    "methodology_notes": "ai_acceptance_score: For countries with direct survey data, scores are derived from survey results (e.g., % believing AI has more benefits than drawbacks, or excitement about AI). For countries without direct surveys, scores are estimated using: (1) regional survey patterns from Eurobarometer/World Risk Poll, (2) Oxford Insights readiness scores as a proxy for institutional AI engagement, (3) neighboring country data with similar development profiles. high_tech_adoption: Derived from Oxford Insights, IMD, ITU ICT, and Tortoise indices, normalized to 0-100 scale. confidence_level: 'high' = direct survey data available; 'medium' = partial data or strong proxy; 'low' = estimated from regional/development indicators."
+  },
+  "data": [
+    {
+      "country": "Kazakhstan",
+      "iso_a3": "KAZ",
+      "ai_acceptance_score": 55,
+      "high_tech_adoption": 56,
+      "source": "IMD 2024/Oxford Insights 2024",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "IMD rank 48 (55.50). Oxford Insights 2024 ~rank 76. Leads Central Asia in AI readiness. No direct public opinion survey available; score estimated from IMD digital competitiveness and regional patterns.",
+      "readiness_indices": {
+        "imd_score": 55.50,
+        "oxford_rank_approx": 76
+      }
+    },
+    {
+      "country": "Uzbekistan",
+      "iso_a3": "UZB",
+      "ai_acceptance_score": 58,
+      "high_tech_adoption": 38,
+      "source": "Oxford Insights 2024/2025",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Perfect Vision score (100) in Oxford Insights. National AI strategy approved 2024. Rank ~62 in 2025 index (54.69). Higher acceptance estimated due to strong government promotion; lower tech adoption due to infrastructure gaps."
+    },
+    {
+      "country": "Turkmenistan",
+      "iso_a3": "TKM",
+      "ai_acceptance_score": 45,
+      "high_tech_adoption": 20,
+      "source": "Regional estimate",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "No direct survey data. Estimated based on Central Asian regional patterns and very limited internet penetration. Among lowest in region for digital infrastructure."
+    },
+    {
+      "country": "Tajikistan",
+      "iso_a3": "TJK",
+      "ai_acceptance_score": 45,
+      "high_tech_adoption": 18,
+      "source": "Regional estimate",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "No direct survey data. Low-income country with limited digital infrastructure. Estimated from regional patterns and development indicators."
+    },
+    {
+      "country": "Kyrgyzstan",
+      "iso_a3": "KGZ",
+      "ai_acceptance_score": 48,
+      "high_tech_adoption": 22,
+      "source": "Regional estimate",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "No direct survey data. Slightly higher digital engagement than Tajikistan/Turkmenistan. Estimated from Central Asian development indicators."
+    },
+    {
+      "country": "Myanmar",
+      "iso_a3": "MMR",
+      "ai_acceptance_score": 55,
+      "high_tech_adoption": 20,
+      "source": "Standard Insights SE Asia Survey 2024",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "partial_survey",
+      "notes": "2024 SE Asia workplace AI survey indicates Myanmar respondents generally viewed AI as opportunity for professional growth. Political instability limits tech adoption. Score reflects positive attitude but low infrastructure."
+    },
+    {
+      "country": "Cambodia",
+      "iso_a3": "KHM",
+      "ai_acceptance_score": 55,
+      "high_tech_adoption": 25,
+      "source": "Standard Insights SE Asia Survey 2024",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "partial_survey",
+      "notes": "2024 SE Asia survey showed 40.6% job security concerns about AI, but generally positive attitudes. Moderate digital growth. Asian Barometer Wave included Cambodia."
+    },
+    {
+      "country": "Laos",
+      "iso_a3": "LAO",
+      "ai_acceptance_score": 52,
+      "high_tech_adoption": 18,
+      "source": "Regional estimate (SE Asia patterns)",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "No direct survey data. Estimated from SE Asian regional patterns. Low digital infrastructure but growing mobile connectivity."
+    },
+    {
+      "country": "Brunei",
+      "iso_a3": "BRN",
+      "ai_acceptance_score": 62,
+      "high_tech_adoption": 55,
+      "source": "ITU 2024",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "ITU ICT score 93.6, very high connectivity. No direct AI attitude survey, but high-income country with strong digital infrastructure suggests moderate-to-positive AI attitudes. Estimated from SE Asian high-income patterns."
+    },
+    {
+      "country": "Iran",
+      "iso_a3": "IRN",
+      "ai_acceptance_score": 55,
+      "high_tech_adoption": 38,
+      "source": "Oxford Insights 2024/Regional estimate",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Strong university system producing AI research. Sanctions limit tech adoption. No direct public opinion survey. Estimated based on educated population and Middle Eastern patterns."
+    },
+    {
+      "country": "Iraq",
+      "iso_a3": "IRQ",
+      "ai_acceptance_score": 50,
+      "high_tech_adoption": 22,
+      "source": "Regional estimate",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "No direct AI survey data. Arab Barometer Wave VIII included Iraq but did not focus on AI. Estimated from MENA regional patterns and development indicators."
+    },
+    {
+      "country": "Jordan",
+      "iso_a3": "JOR",
+      "ai_acceptance_score": 58,
+      "high_tech_adoption": 47,
+      "source": "IMD 2024/Oxford Insights 2024",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "IMD rank 57 (47.00). Strong tech sector and education system. Arab Barometer included Jordan. National AI strategy in place. Estimated from indices and regional patterns."
+    },
+    {
+      "country": "Lebanon",
+      "iso_a3": "LBN",
+      "ai_acceptance_score": 50,
+      "high_tech_adoption": 30,
+      "source": "Regional estimate",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Economic crisis has impacted tech sector. Educated population with historically strong tech talent. Arab Barometer included Lebanon. Estimated from MENA patterns adjusted for economic conditions."
+    },
+    {
+      "country": "Kuwait",
+      "iso_a3": "KWT",
+      "ai_acceptance_score": 68,
+      "high_tech_adoption": 65,
+      "source": "ITU 2024/Gulf patterns",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "ITU ICT score 98.4 (among highest globally). High-income GCC country. Estimated from UAE/Saudi patterns and very high digital infrastructure scores."
+    },
+    {
+      "country": "Qatar",
+      "iso_a3": "QAT",
+      "ai_acceptance_score": 72,
+      "high_tech_adoption": 73,
+      "source": "IMD 2024/ITU 2024/Oxford Insights 2025",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "IMD rank 28 (73.00). ITU score 98.4. Oxford Insights 2025 rank 54. Emerging as MENA AI leader. Strong government AI investment. Estimated from indices and GCC regional patterns."
+    },
+    {
+      "country": "Bahrain",
+      "iso_a3": "BHR",
+      "ai_acceptance_score": 67,
+      "high_tech_adoption": 62,
+      "source": "IMD 2024/ITU 2024",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "IMD rank 42 (62.00). ITU score 97.5. GCC country with strong digital infrastructure. Estimated from indices and Gulf state patterns."
+    },
+    {
+      "country": "Oman",
+      "iso_a3": "OMN",
+      "ai_acceptance_score": 63,
+      "high_tech_adoption": 55,
+      "source": "Regional estimate (GCC patterns)",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "GCC country with national AI strategy. Moderate digital infrastructure compared to UAE/Saudi. Estimated from GCC patterns and development indicators."
+    },
+    {
+      "country": "Yemen",
+      "iso_a3": "YEM",
+      "ai_acceptance_score": 35,
+      "high_tech_adoption": 10,
+      "source": "Regional estimate",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Ongoing conflict severely limits digital infrastructure and access. Among lowest globally for tech adoption. Estimated from conflict-affected country patterns."
+    },
+    {
+      "country": "Tanzania",
+      "iso_a3": "TZA",
+      "ai_acceptance_score": 40,
+      "high_tech_adoption": 18,
+      "source": "Lloyd's Register Foundation World Risk Poll 2021",
+      "year": 2021,
+      "confidence": "high",
+      "data_type": "measured",
+      "notes": "World Risk Poll: 62% believe AI will mostly harm people (highest concern in East Africa). Only ~25% believe AI will mostly help. Score reflects high concern/low acceptance.",
+      "survey_data": {
+        "ai_mostly_harm_pct": 62,
+        "ai_mostly_help_pct": 25,
+        "source": "World Risk Poll 2021"
+      }
+    },
+    {
+      "country": "DR Congo",
+      "iso_a3": "COD",
+      "ai_acceptance_score": 38,
+      "high_tech_adoption": 8,
+      "source": "World Risk Poll 2021 regional/Oxford Insights 2024",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Central/Western Africa region in World Risk Poll showed majority saying AI will mostly harm. Very low digital infrastructure. Among lowest globally for tech readiness."
+    },
+    {
+      "country": "Angola",
+      "iso_a3": "AGO",
+      "ai_acceptance_score": 42,
+      "high_tech_adoption": 15,
+      "source": "Regional estimate (Sub-Saharan Africa)",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "No direct AI survey data. Oil-wealthy but limited digital infrastructure. Estimated from Sub-Saharan African regional patterns."
+    },
+    {
+      "country": "Algeria",
+      "iso_a3": "DZA",
+      "ai_acceptance_score": 52,
+      "high_tech_adoption": 30,
+      "source": "Regional estimate (North Africa)",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "No direct AI survey. North Africa region in World Risk Poll showed higher harm concerns. National AI strategy emerging. Estimated from North African patterns and Morocco comparison."
+    },
+    {
+      "country": "Tunisia",
+      "iso_a3": "TUN",
+      "ai_acceptance_score": 55,
+      "high_tech_adoption": 35,
+      "source": "Oxford Insights 2024/Regional estimate",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "Among top Sub-Saharan/North African countries in Oxford Insights. Strong tech sector relative to region. Arab Barometer included Tunisia. Estimated from indices and North African patterns."
+    },
+    {
+      "country": "Senegal",
+      "iso_a3": "SEN",
+      "ai_acceptance_score": 48,
+      "high_tech_adoption": 22,
+      "source": "Oxford Insights 2024",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Among top countries in West Africa for AI readiness (Oxford Insights). Francophone West Africa with growing tech ecosystem. Estimated from readiness indices."
+    },
+    {
+      "country": "Cote d'Ivoire",
+      "iso_a3": "CIV",
+      "ai_acceptance_score": 45,
+      "high_tech_adoption": 18,
+      "source": "Regional estimate (West Africa)",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "No direct AI survey data. Growing economy and digital sector in Francophone West Africa. Estimated from regional patterns."
+    },
+    {
+      "country": "Rwanda",
+      "iso_a3": "RWA",
+      "ai_acceptance_score": 58,
+      "high_tech_adoption": 28,
+      "source": "Oxford Insights 2024",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "Oxford Insights: Rwanda leads Sub-Saharan Africa in government AI support (score 71.44). Strong digital governance and vision. Higher acceptance estimated due to government promotion of tech."
+    },
+    {
+      "country": "Uganda",
+      "iso_a3": "UGA",
+      "ai_acceptance_score": 40,
+      "high_tech_adoption": 18,
+      "source": "Lloyd's Register Foundation World Risk Poll 2021",
+      "year": 2021,
+      "confidence": "high",
+      "data_type": "measured",
+      "notes": "World Risk Poll: 57% believe AI will mostly harm people. Relatively low acceptance of AI. Growing tech hub in Kampala but limited national infrastructure.",
+      "survey_data": {
+        "ai_mostly_harm_pct": 57,
+        "source": "World Risk Poll 2021"
+      }
+    },
+    {
+      "country": "Cameroon",
+      "iso_a3": "CMR",
+      "ai_acceptance_score": 42,
+      "high_tech_adoption": 15,
+      "source": "Regional estimate (Central/West Africa)",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "World Risk Poll regional data: Central/Western Africa majority said AI will mostly harm. Afrobarometer 2025 survey included Cameroon. Estimated from regional patterns."
+    },
+    {
+      "country": "Mali",
+      "iso_a3": "MLI",
+      "ai_acceptance_score": 35,
+      "high_tech_adoption": 10,
+      "source": "Regional estimate (West Africa)",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Conflict-affected country with very limited digital infrastructure. Low-income country. Estimated from regional patterns and development indicators."
+    },
+    {
+      "country": "Madagascar",
+      "iso_a3": "MDG",
+      "ai_acceptance_score": 38,
+      "high_tech_adoption": 10,
+      "source": "Regional estimate",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Low-income country with limited internet penetration. No direct AI survey data. Estimated from East African regional patterns."
+    },
+    {
+      "country": "Mozambique",
+      "iso_a3": "MOZ",
+      "ai_acceptance_score": 40,
+      "high_tech_adoption": 12,
+      "source": "Regional estimate (East Africa)",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Low-income country with growing mobile connectivity. No direct AI survey. Estimated from East African regional patterns."
+    },
+    {
+      "country": "Zimbabwe",
+      "iso_a3": "ZWE",
+      "ai_acceptance_score": 45,
+      "high_tech_adoption": 18,
+      "source": "Regional estimate (Southern Africa)",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Educated population but economic challenges limit tech adoption. No direct AI survey. Estimated from Southern African patterns and South Africa comparison."
+    },
+    {
+      "country": "Zambia",
+      "iso_a3": "ZMB",
+      "ai_acceptance_score": 45,
+      "high_tech_adoption": 16,
+      "source": "Regional estimate (Southern/East Africa)",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Growing digital economy. No direct AI survey data. Estimated from regional patterns."
+    },
+    {
+      "country": "Sudan",
+      "iso_a3": "SDN",
+      "ai_acceptance_score": 35,
+      "high_tech_adoption": 10,
+      "source": "Regional estimate",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Ongoing conflict severely limits digital infrastructure. Very low internet penetration. Estimated from conflict-affected country patterns."
+    },
+    {
+      "country": "Sri Lanka",
+      "iso_a3": "LKA",
+      "ai_acceptance_score": 58,
+      "high_tech_adoption": 38,
+      "source": "Oxford Insights 2024/Asian Barometer",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "Strong IT sector and education system. Asian Barometer has included Sri Lanka. Oxford Insights shows growing AI readiness. Estimated from South Asian patterns and India comparison."
+    },
+    {
+      "country": "Nepal",
+      "iso_a3": "NPL",
+      "ai_acceptance_score": 50,
+      "high_tech_adoption": 20,
+      "source": "Regional estimate (South Asia)",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Growing IT sector but limited infrastructure. Asian Barometer included Nepal. Estimated from South Asian patterns."
+    },
+    {
+      "country": "Ecuador",
+      "iso_a3": "ECU",
+      "ai_acceptance_score": 58,
+      "high_tech_adoption": 38,
+      "source": "ILIA 2024/Regional estimate",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "ILIA 2024 evaluated Ecuador among 19 Latin American countries. Estimated from Latin American regional patterns and Peru/Colombia comparisons."
+    },
+    {
+      "country": "Venezuela",
+      "iso_a3": "VEN",
+      "ai_acceptance_score": 50,
+      "high_tech_adoption": 22,
+      "source": "IMD 2024",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "IMD rank 67 (22.00) - lowest in their ranking. Economic crisis limits tech adoption. Educated population. Estimated from Latin American patterns adjusted for economic conditions."
+    },
+    {
+      "country": "Paraguay",
+      "iso_a3": "PRY",
+      "ai_acceptance_score": 55,
+      "high_tech_adoption": 30,
+      "source": "ILIA 2024/Regional estimate",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "ILIA 2024 included Paraguay. Growing digital economy. Estimated from Latin American regional patterns."
+    },
+    {
+      "country": "Uruguay",
+      "iso_a3": "URY",
+      "ai_acceptance_score": 55,
+      "high_tech_adoption": 52,
+      "source": "ILIA 2024",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "partial_survey",
+      "notes": "ILIA 2024 score: 64.98 (3rd in Latin America). Perfect Vision score (100) in Oxford Insights. Strong digital infrastructure for the region. High human capital score (62.11)."
+    },
+    {
+      "country": "Cuba",
+      "iso_a3": "CUB",
+      "ai_acceptance_score": 45,
+      "high_tech_adoption": 18,
+      "source": "Regional estimate",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Limited internet access and economic constraints. Strong education system. No direct AI survey data. Estimated from Caribbean patterns and infrastructure limitations."
+    },
+    {
+      "country": "Dominican Republic",
+      "iso_a3": "DOM",
+      "ai_acceptance_score": 58,
+      "high_tech_adoption": 35,
+      "source": "ILIA 2024",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "ILIA 2024: noted as having good governance for AI. Growing digital economy. Estimated from Latin American patterns and ILIA assessment."
+    },
+    {
+      "country": "Guatemala",
+      "iso_a3": "GTM",
+      "ai_acceptance_score": 50,
+      "high_tech_adoption": 22,
+      "source": "Regional estimate (Central America)",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Limited digital infrastructure. No direct AI survey. ILIA 2024 covered Guatemala. Estimated from Central American patterns."
+    },
+    {
+      "country": "Honduras",
+      "iso_a3": "HND",
+      "ai_acceptance_score": 48,
+      "high_tech_adoption": 18,
+      "source": "Regional estimate (Central America)",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Limited digital infrastructure. No direct AI survey. Estimated from Central American patterns."
+    },
+    {
+      "country": "Bolivia",
+      "iso_a3": "BOL",
+      "ai_acceptance_score": 52,
+      "high_tech_adoption": 25,
+      "source": "ILIA 2024/Regional estimate",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "ILIA 2024 included Bolivia. Moderate digital development. Estimated from Andean regional patterns."
+    },
+    {
+      "country": "Costa Rica",
+      "iso_a3": "CRI",
+      "ai_acceptance_score": 58,
+      "high_tech_adoption": 45,
+      "source": "Oxford Insights 2024/ILIA 2024",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "Perfect Vision score (100) in Oxford Insights. ILIA 2024: infrastructure score 55.86, computational capacity 51.11. Strong tech sector. Estimated from indices and regional data."
+    },
+    {
+      "country": "Panama",
+      "iso_a3": "PAN",
+      "ai_acceptance_score": 57,
+      "high_tech_adoption": 40,
+      "source": "ILIA 2024",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "ILIA 2024: leader in open source production in Latin America. Growing digital economy as regional financial hub. Estimated from ILIA assessment and regional patterns."
+    },
+    {
+      "country": "Slovakia",
+      "iso_a3": "SVK",
+      "ai_acceptance_score": 40,
+      "high_tech_adoption": 57,
+      "source": "IMD 2024/Eurobarometer 554",
+      "year": 2024,
+      "confidence": "high",
+      "data_type": "partial_survey",
+      "notes": "IMD rank 46 (57.00). Eurobarometer 554: 79% fear AI will replace more jobs than create (2nd highest in EU after Greece). High concern drives lower acceptance score despite decent tech infrastructure.",
+      "survey_data": {
+        "fear_job_replacement_pct": 79,
+        "source": "Eurobarometer 554 (2024)"
+      }
+    },
+    {
+      "country": "Slovenia",
+      "iso_a3": "SVN",
+      "ai_acceptance_score": 45,
+      "high_tech_adoption": 55,
+      "source": "IMD 2024/Eurobarometer 554",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "IMD rank 61 (43.00). EU member. Moderate AI acceptance typical of Central European EU countries. Estimated from Eurobarometer EU average (60% positive) and regional patterns."
+    },
+    {
+      "country": "Croatia",
+      "iso_a3": "HRV",
+      "ai_acceptance_score": 46,
+      "high_tech_adoption": 56,
+      "source": "IMD 2024/Eurobarometer 554",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "IMD rank 47 (56.00). EU member since 2013. Moderate AI attitudes similar to other Central-South European EU countries. Estimated from Eurobarometer patterns."
+    },
+    {
+      "country": "Serbia",
+      "iso_a3": "SRB",
+      "ai_acceptance_score": 48,
+      "high_tech_adoption": 42,
+      "source": "Oxford Insights 2024/Regional estimate",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "EU candidate country. Growing tech sector, especially in Belgrade. Not covered by Eurobarometer. Estimated from Western Balkans patterns and readiness indices."
+    },
+    {
+      "country": "Bulgaria",
+      "iso_a3": "BGR",
+      "ai_acceptance_score": 42,
+      "high_tech_adoption": 54,
+      "source": "IMD 2024/Eurostat 2025/Eurobarometer 554",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "partial_survey",
+      "notes": "IMD rank 50 (54.00). Eurostat 2025: GenAI for work 8.43%, private use 20.15%, business AI adoption 8.55%. Relatively low AI usage despite EU membership. Acceptance estimated from Eurobarometer and usage data.",
+      "survey_data": {
+        "genai_work_use_pct": 8.43,
+        "genai_private_use_pct": 20.15,
+        "business_ai_adoption_pct": 8.55,
+        "source": "Eurostat 2025"
+      }
+    },
+    {
+      "country": "Latvia",
+      "iso_a3": "LVA",
+      "ai_acceptance_score": 40,
+      "high_tech_adoption": 62,
+      "source": "IMD 2024/ITU 2024/Eurobarometer 554",
+      "year": 2024,
+      "confidence": "high",
+      "data_type": "partial_survey",
+      "notes": "IMD rank 35 (67.50). ITU score 95.1. Eurobarometer 554: 32% distrust AI vs 31% trust (trust deficit). High tech infrastructure but cautious AI attitudes.",
+      "survey_data": {
+        "trust_ai_pct": 31,
+        "distrust_ai_pct": 32,
+        "source": "Eurobarometer 554 (2024)"
+      }
+    },
+    {
+      "country": "Lithuania",
+      "iso_a3": "LTU",
+      "ai_acceptance_score": 46,
+      "high_tech_adoption": 65,
+      "source": "IMD 2024/ITU 2024",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "IMD rank 25 (74.50). ITU score 95.3. Strong digital infrastructure. EU member with growing tech sector. Estimated from Baltic/EU patterns."
+    },
+    {
+      "country": "Luxembourg",
+      "iso_a3": "LUX",
+      "ai_acceptance_score": 44,
+      "high_tech_adoption": 74,
+      "source": "IMD 2024/Eurostat 2025",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "partial_survey",
+      "notes": "IMD rank 26 (74.00). Eurostat 2025: GenAI private use 35.71%, business AI adoption 33.61%. High-income EU country. Moderate AI acceptance typical of Western Europe.",
+      "survey_data": {
+        "genai_private_use_pct": 35.71,
+        "business_ai_adoption_pct": 33.61,
+        "source": "Eurostat 2025"
+      }
+    },
+    {
+      "country": "Iceland",
+      "iso_a3": "ISL",
+      "ai_acceptance_score": 44,
+      "high_tech_adoption": 72,
+      "source": "IMD 2024/ITU 2024",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "IMD rank 19 (79.00). ITU score 95.9. Nordic country with very high digital infrastructure. Estimated from Nordic/Scandinavian patterns (lower AI excitement typical of Nordics)."
+    },
+    {
+      "country": "Malta",
+      "iso_a3": "MLT",
+      "ai_acceptance_score": 52,
+      "high_tech_adoption": 68,
+      "source": "ITU 2024/Eurostat 2025/Eurobarometer 554",
+      "year": 2024,
+      "confidence": "high",
+      "data_type": "partial_survey",
+      "notes": "ITU score 95.0. Eurobarometer 554: 65% optimistic about AI solving global challenges (3rd highest in EU). Eurostat 2025: GenAI for education 20.22%, work 29.64%, private 37.20%. National AI strategy. Strong fintech sector.",
+      "survey_data": {
+        "ai_optimism_pct": 65,
+        "genai_education_pct": 20.22,
+        "genai_work_pct": 29.64,
+        "genai_private_pct": 37.20,
+        "source": "Eurobarometer 554/Eurostat 2025"
+      }
+    },
+    {
+      "country": "Cyprus",
+      "iso_a3": "CYP",
+      "ai_acceptance_score": 44,
+      "high_tech_adoption": 52,
+      "source": "IMD 2024/Eurostat 2025/Eurobarometer 554",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "partial_survey",
+      "notes": "IMD rank 60 (44.00). Eurobarometer 554: 77% concerned about AI job replacement (3rd highest in EU). Eurostat 2025: highest GenAI private use in EU (43.13%) but low business adoption (9.27%). Mixed pattern of personal enthusiasm but institutional caution.",
+      "survey_data": {
+        "fear_job_replacement_pct": 77,
+        "genai_private_use_pct": 43.13,
+        "business_ai_adoption_pct": 9.27,
+        "source": "Eurobarometer 554/Eurostat 2025"
+      }
+    },
+    {
+      "country": "North Macedonia",
+      "iso_a3": "MKD",
+      "ai_acceptance_score": 46,
+      "high_tech_adoption": 35,
+      "source": "Regional estimate (Western Balkans)",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "EU candidate country. Not covered by Eurobarometer. Growing IT outsourcing sector. Estimated from Western Balkans patterns."
+    },
+    {
+      "country": "Bosnia and Herzegovina",
+      "iso_a3": "BIH",
+      "ai_acceptance_score": 44,
+      "high_tech_adoption": 30,
+      "source": "Regional estimate (Western Balkans)",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "EU candidate country. Growing IT sector. Not covered by Eurobarometer. Estimated from Western Balkans patterns."
+    },
+    {
+      "country": "Montenegro",
+      "iso_a3": "MNE",
+      "ai_acceptance_score": 46,
+      "high_tech_adoption": 38,
+      "source": "Regional estimate (Western Balkans)",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "EU candidate country. Small economy with growing digital sector. Estimated from Western Balkans patterns."
+    },
+    {
+      "country": "Albania",
+      "iso_a3": "ALB",
+      "ai_acceptance_score": 48,
+      "high_tech_adoption": 32,
+      "source": "Regional estimate (Western Balkans)",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "EU candidate country. Growing tech sector and outsourcing industry. Estimated from Western Balkans patterns."
+    },
+    {
+      "country": "Papua New Guinea",
+      "iso_a3": "PNG",
+      "ai_acceptance_score": 38,
+      "high_tech_adoption": 10,
+      "source": "Regional estimate (Pacific)",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Very limited internet penetration and digital infrastructure. Among lowest globally for tech readiness. Estimated from Pacific Island patterns."
+    },
+    {
+      "country": "Fiji",
+      "iso_a3": "FJI",
+      "ai_acceptance_score": 45,
+      "high_tech_adoption": 25,
+      "source": "Regional estimate (Pacific)",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Better digital infrastructure than most Pacific Islands. Growing digital economy. Estimated from Pacific regional patterns."
+    },
+    {
+      "country": "Mongolia",
+      "iso_a3": "MNG",
+      "ai_acceptance_score": 52,
+      "high_tech_adoption": 38,
+      "source": "IMD 2024",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "IMD rank 64 (38.00). Asian Barometer has included Mongolia. Growing tech sector. Estimated from East Asian development patterns."
+    },
+    {
+      "country": "Botswana",
+      "iso_a3": "BWA",
+      "ai_acceptance_score": 50,
+      "high_tech_adoption": 42,
+      "source": "IMD 2024",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "estimated",
+      "notes": "IMD rank 62 (42.00). Among most developed economies in Sub-Saharan Africa. Strong governance. Estimated from Southern African patterns."
+    },
+    {
+      "country": "Hong Kong",
+      "iso_a3": "HKG",
+      "ai_acceptance_score": 65,
+      "high_tech_adoption": 82,
+      "source": "IMD 2024/ITU 2024/Microsoft 2024",
+      "year": 2024,
+      "confidence": "medium",
+      "data_type": "partial_survey",
+      "notes": "IMD rank 7 (88.11). ITU score 97.6. Microsoft Work Trend Index 2024 included Hong Kong. Strong financial tech hub. Estimated from East Asian patterns and index data."
+    },
+    {
+      "country": "Georgia",
+      "iso_a3": "GEO",
+      "ai_acceptance_score": 50,
+      "high_tech_adoption": 40,
+      "source": "Oxford Insights 2024/Regional estimate",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Growing tech hub in Tbilisi. Moderate digital infrastructure. Estimated from Caucasus/Eastern European patterns."
+    },
+    {
+      "country": "Azerbaijan",
+      "iso_a3": "AZE",
+      "ai_acceptance_score": 52,
+      "high_tech_adoption": 38,
+      "source": "Oxford Insights 2024",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Oxford Insights 2025: jumped 41 places in global AI readiness index. Oil-wealthy with growing digital ambitions. Estimated from Caucasus patterns."
+    },
+    {
+      "country": "Armenia",
+      "iso_a3": "ARM",
+      "ai_acceptance_score": 52,
+      "high_tech_adoption": 42,
+      "source": "Oxford Insights 2024/Regional estimate",
+      "year": 2024,
+      "confidence": "low",
+      "data_type": "estimated",
+      "notes": "Growing IT sector and tech startup scene. Strong engineering education. Estimated from Caucasus/Eastern European patterns."
+    }
+  ]
+}

@@ -1,0 +1,987 @@
+{
+  "metadata": {
+    "description": "International survey institution data on global AI attitudes and acceptance",
+    "collected_date": "2026-02-21",
+    "collector": "survey-researcher agent"
+  },
+  "sources": [
+    {
+      "name": "Ipsos AI Monitor 2024",
+      "organization": "Ipsos",
+      "report_url": "https://www.ipsos.com/en-us/ipsos-ai-monitor-2024",
+      "methodology": "Online survey via Ipsos Global Advisor platform. Data weighted to reflect demographic profile of adult population per census data. In markets with lower internet penetration, results represent a more urban, educated, and affluent population.",
+      "total_sample_size": 23685,
+      "sample_size_per_country": "~1000 per country",
+      "survey_period": "April 19 - May 3, 2024",
+      "num_countries": 32,
+      "survey_questions": [
+        "Q1: I am excited about products and services that use artificial intelligence (AI)",
+        "Q2: Products and services using AI make me nervous",
+        "Q3: Products and services using artificial intelligence have more benefits than drawbacks",
+        "Q4: I have a good understanding of what AI is",
+        "Q5: I think my current job will be completely replaced by AI in the next 5 years",
+        "Q6: AI will make the problem of disinformation on the internet better/worse"
+      ],
+      "global_averages": {
+        "excited_about_ai": 53,
+        "nervous_about_ai": 50,
+        "more_benefits_than_drawbacks": 55,
+        "good_understanding_of_ai": 67,
+        "expect_job_replacement": 36,
+        "ai_worsen_disinformation": 37,
+        "ai_improve_disinformation": 30
+      },
+      "countries": [
+        {
+          "country": "China",
+          "iso_a3": "CHN",
+          "results": {
+            "excited_about_ai": 80,
+            "nervous_about_ai": 25,
+            "more_benefits_than_drawbacks": 78
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Indonesia",
+          "iso_a3": "IDN",
+          "results": {
+            "excited_about_ai": 76,
+            "nervous_about_ai": 48,
+            "more_benefits_than_drawbacks": 74,
+            "good_understanding_of_ai": 86,
+            "expect_job_replacement": 66
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Thailand",
+          "iso_a3": "THA",
+          "results": {
+            "excited_about_ai": 76,
+            "nervous_about_ai": 52,
+            "more_benefits_than_drawbacks": 67,
+            "good_understanding_of_ai": 75,
+            "expect_job_replacement": 69
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "South Korea",
+          "iso_a3": "KOR",
+          "results": {
+            "excited_about_ai": 73,
+            "nervous_about_ai": 37,
+            "more_benefits_than_drawbacks": 69
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Mexico",
+          "iso_a3": "MEX",
+          "results": {
+            "excited_about_ai": 70,
+            "nervous_about_ai": 47,
+            "more_benefits_than_drawbacks": 67,
+            "good_understanding_of_ai": 80
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Turkey",
+          "iso_a3": "TUR",
+          "results": {
+            "excited_about_ai": 70,
+            "nervous_about_ai": 53,
+            "more_benefits_than_drawbacks": 65,
+            "good_understanding_of_ai": 74,
+            "expect_job_replacement": 63
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Malaysia",
+          "iso_a3": "MYS",
+          "results": {
+            "excited_about_ai": 68,
+            "nervous_about_ai": 50,
+            "more_benefits_than_drawbacks": 59,
+            "expect_job_replacement": 62
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Peru",
+          "iso_a3": "PER",
+          "results": {
+            "excited_about_ai": 67,
+            "nervous_about_ai": 50,
+            "more_benefits_than_drawbacks": 73,
+            "good_understanding_of_ai": 76
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Singapore",
+          "iso_a3": "SGP",
+          "results": {
+            "excited_about_ai": 64,
+            "nervous_about_ai": 56,
+            "more_benefits_than_drawbacks": 66
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Colombia",
+          "iso_a3": "COL",
+          "results": {
+            "excited_about_ai": 63,
+            "nervous_about_ai": 48,
+            "more_benefits_than_drawbacks": 64
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "India",
+          "iso_a3": "IND",
+          "results": {
+            "excited_about_ai": 63,
+            "nervous_about_ai": 51,
+            "more_benefits_than_drawbacks": 59,
+            "expect_job_replacement": 54
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%",
+          "note": "Sample represents more urban, educated, affluent population due to lower internet penetration"
+        },
+        {
+          "country": "South Africa",
+          "iso_a3": "ZAF",
+          "results": {
+            "excited_about_ai": 61,
+            "nervous_about_ai": 54,
+            "more_benefits_than_drawbacks": 65,
+            "good_understanding_of_ai": 76
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Brazil",
+          "iso_a3": "BRA",
+          "results": {
+            "excited_about_ai": 56,
+            "nervous_about_ai": 44,
+            "more_benefits_than_drawbacks": 55
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Argentina",
+          "iso_a3": "ARG",
+          "results": {
+            "excited_about_ai": 52,
+            "nervous_about_ai": 47,
+            "more_benefits_than_drawbacks": 64
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Italy",
+          "iso_a3": "ITA",
+          "results": {
+            "excited_about_ai": 49,
+            "nervous_about_ai": 40,
+            "more_benefits_than_drawbacks": 47
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Hungary",
+          "iso_a3": "HUN",
+          "results": {
+            "excited_about_ai": 47,
+            "nervous_about_ai": 43,
+            "more_benefits_than_drawbacks": 50
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Japan",
+          "iso_a3": "JPN",
+          "results": {
+            "excited_about_ai": 47,
+            "nervous_about_ai": 9,
+            "more_benefits_than_drawbacks": 42
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Germany",
+          "iso_a3": "DEU",
+          "results": {
+            "excited_about_ai": 46,
+            "nervous_about_ai": 44,
+            "more_benefits_than_drawbacks": 46
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Chile",
+          "iso_a3": "CHL",
+          "results": {
+            "excited_about_ai": 46,
+            "nervous_about_ai": 51,
+            "more_benefits_than_drawbacks": 57
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Spain",
+          "iso_a3": "ESP",
+          "results": {
+            "excited_about_ai": 45,
+            "nervous_about_ai": 48,
+            "more_benefits_than_drawbacks": 44
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Poland",
+          "iso_a3": "POL",
+          "results": {
+            "excited_about_ai": 44,
+            "nervous_about_ai": 34,
+            "more_benefits_than_drawbacks": 39
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "New Zealand",
+          "iso_a3": "NZL",
+          "results": {
+            "excited_about_ai": 43,
+            "nervous_about_ai": 66,
+            "more_benefits_than_drawbacks": 52
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Switzerland",
+          "iso_a3": "CHE",
+          "results": {
+            "excited_about_ai": 42,
+            "nervous_about_ai": 51
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Netherlands",
+          "iso_a3": "NLD",
+          "results": {
+            "excited_about_ai": 40,
+            "nervous_about_ai": 49,
+            "more_benefits_than_drawbacks": 38
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Ireland",
+          "iso_a3": "IRL",
+          "results": {
+            "excited_about_ai": 40,
+            "nervous_about_ai": 67,
+            "more_benefits_than_drawbacks": 40
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "France",
+          "iso_a3": "FRA",
+          "results": {
+            "excited_about_ai": 39,
+            "nervous_about_ai": 49
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Australia",
+          "iso_a3": "AUS",
+          "results": {
+            "excited_about_ai": 39,
+            "nervous_about_ai": 64,
+            "more_benefits_than_drawbacks": 47
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "United Kingdom",
+          "iso_a3": "GBR",
+          "results": {
+            "excited_about_ai": 38,
+            "nervous_about_ai": 64,
+            "more_benefits_than_drawbacks": 40
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Canada",
+          "iso_a3": "CAN",
+          "results": {
+            "excited_about_ai": 37,
+            "nervous_about_ai": 63,
+            "more_benefits_than_drawbacks": 40
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Sweden",
+          "iso_a3": "SWE",
+          "results": {
+            "excited_about_ai": 36,
+            "nervous_about_ai": 56
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "United States",
+          "iso_a3": "USA",
+          "results": {
+            "excited_about_ai": 34,
+            "nervous_about_ai": 64,
+            "more_benefits_than_drawbacks": 39
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        },
+        {
+          "country": "Belgium",
+          "iso_a3": "BEL",
+          "results": {
+            "excited_about_ai": 33,
+            "nervous_about_ai": 51
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%"
+        }
+      ]
+    },
+    {
+      "name": "Google/Ipsos Multi-Country AI Survey 2025",
+      "organization": "Google / Ipsos",
+      "report_url": "https://www.ipsos.com/en-us/google-ipsos-multi-country-ai-survey-2025",
+      "methodology": "Online survey via Ipsos Global Advisor platform",
+      "total_sample_size": 21043,
+      "sample_size_per_country": "~1000 per country (US ~1036)",
+      "survey_period": "September 17 - October 8, 2024",
+      "num_countries": 21,
+      "survey_questions": [
+        "Questions on AI usage, excitement vs concern about AI, value of medical AI applications"
+      ],
+      "global_averages": {
+        "excitement_outweighs_concern": 57,
+        "concern_outweighs_excitement": 43,
+        "medical_ai_valuable": 80
+      },
+      "key_findings": {
+        "emerging_markets_usage_increase": "+11 points",
+        "asia_pacific_usage_increase": "+10 points",
+        "europe_usage_increase": "+8 points",
+        "us_usage_increase": "+9 points"
+      },
+      "countries_surveyed": [
+        "Canada", "Belgium", "France", "Germany", "Netherlands", "Poland",
+        "Spain", "Italy", "United Kingdom", "Australia", "India", "Japan",
+        "Singapore", "South Korea", "Brazil", "Chile", "Mexico", "Nigeria",
+        "South Africa", "United Arab Emirates", "United States"
+      ]
+    },
+    {
+      "name": "Pew Research Center Global AI Survey 2025",
+      "organization": "Pew Research Center",
+      "report_url": "https://www.pewresearch.org/global/2025/10/15/how-people-around-the-world-view-ai/",
+      "methodology": "Nationally representative surveys. Phone surveys in developed countries (Canada, France, Germany, Greece, Hungary, Italy, Japan, Netherlands, Poland, South Korea, Spain, Sweden, UK). Face-to-face surveys in developing countries (Argentina, Brazil, India, Indonesia, Israel, Kenya, Mexico, Nigeria, South Africa, Turkey). US: online panel survey.",
+      "total_sample_size": 31938,
+      "sample_size_notes": "28,333 adults for non-US surveys + 3,605 US adults (March 2025)",
+      "survey_period": "January 8 - April 26, 2025 (non-US); March 24-30, 2025 and June 9-15, 2025 (US)",
+      "num_countries": 25,
+      "survey_questions": [
+        "Q1: How much have you heard or read about artificial intelligence, often known as AI?",
+        "Q2: Thinking about the increased use of artificial intelligence in daily life, would you say you are: More excited than concerned / More concerned than excited / Equally concerned and excited",
+        "Q3: How much do you trust [your country] to regulate the use of AI?",
+        "Q4: How much do you trust the European Union to regulate the use of AI?",
+        "Q5: How much do you trust the United States to regulate the use of AI?",
+        "Q6: How much do you trust China to regulate the use of AI?"
+      ],
+      "global_medians": {
+        "more_concerned_than_excited": 34,
+        "more_excited_than_concerned": 16,
+        "equally_concerned_and_excited": 42,
+        "heard_a_lot_about_ai": 34,
+        "heard_a_little_about_ai": 47,
+        "heard_nothing_about_ai": 14,
+        "trust_own_country_regulate": 55,
+        "trust_eu_regulate": 53,
+        "trust_us_regulate": 37,
+        "trust_china_regulate": 27
+      },
+      "countries": [
+        {
+          "country": "United States",
+          "iso_a3": "USA",
+          "results": {
+            "more_concerned_than_excited": 52,
+            "more_excited_than_concerned": 10,
+            "equally_concerned_and_excited": 36,
+            "heard_a_lot_about_ai": 48,
+            "trust_own_country_regulate": 44
+          },
+          "sample_size": 3605,
+          "survey_method": "Online panel"
+        },
+        {
+          "country": "Italy",
+          "iso_a3": "ITA",
+          "results": {
+            "more_concerned_than_excited": 50,
+            "heard_a_lot_about_ai": 36
+          },
+          "sample_size": 1000,
+          "survey_method": "Phone"
+        },
+        {
+          "country": "Australia",
+          "iso_a3": "AUS",
+          "results": {
+            "more_concerned_than_excited": 49,
+            "heard_a_lot_about_ai": 40
+          },
+          "sample_size": 1000,
+          "survey_method": "Phone"
+        },
+        {
+          "country": "Brazil",
+          "iso_a3": "BRA",
+          "results": {
+            "more_concerned_than_excited": 48,
+            "heard_a_lot_about_ai": 25
+          },
+          "sample_size": 1000,
+          "survey_method": "Face-to-face"
+        },
+        {
+          "country": "Greece",
+          "iso_a3": "GRC",
+          "results": {
+            "more_concerned_than_excited": 47,
+            "heard_a_lot_about_ai": 40,
+            "trust_own_country_regulate": 22
+          },
+          "sample_size": 1000,
+          "survey_method": "Phone",
+          "notes": "59% of those 50+ are more concerned; only 18% of those under 35 are more concerned"
+        },
+        {
+          "country": "Canada",
+          "iso_a3": "CAN",
+          "results": {
+            "more_concerned_than_excited": 45,
+            "more_excited_than_concerned": 9,
+            "heard_a_lot_about_ai": 42
+          },
+          "sample_size": 1000,
+          "survey_method": "Phone"
+        },
+        {
+          "country": "United Kingdom",
+          "iso_a3": "GBR",
+          "results": {
+            "more_concerned_than_excited": 42,
+            "heard_a_lot_about_ai": 44
+          },
+          "sample_size": 1000,
+          "survey_method": "Phone",
+          "notes": "47% of women more concerned vs 32% of men"
+        },
+        {
+          "country": "France",
+          "iso_a3": "FRA",
+          "results": {
+            "heard_a_lot_about_ai": 52
+          },
+          "sample_size": 1000,
+          "survey_method": "Phone"
+        },
+        {
+          "country": "Germany",
+          "iso_a3": "DEU",
+          "results": {
+            "heard_a_lot_about_ai": 49
+          },
+          "sample_size": 1000,
+          "survey_method": "Phone"
+        },
+        {
+          "country": "Japan",
+          "iso_a3": "JPN",
+          "results": {
+            "heard_a_lot_about_ai": 53
+          },
+          "sample_size": 1000,
+          "survey_method": "Phone"
+        },
+        {
+          "country": "South Korea",
+          "iso_a3": "KOR",
+          "results": {
+            "more_concerned_than_excited": 16,
+            "heard_a_lot_about_ai": 45
+          },
+          "sample_size": 1000,
+          "survey_method": "Phone"
+        },
+        {
+          "country": "Israel",
+          "iso_a3": "ISR",
+          "results": {
+            "more_excited_than_concerned": 29,
+            "more_concerned_than_excited": 16,
+            "trust_own_country_regulate": 72
+          },
+          "sample_size": 1000,
+          "survey_method": "Face-to-face"
+        },
+        {
+          "country": "India",
+          "iso_a3": "IND",
+          "results": {
+            "more_concerned_than_excited": 19,
+            "heard_a_lot_about_ai": 14,
+            "trust_own_country_regulate": 89
+          },
+          "sample_size": 1000,
+          "survey_method": "Face-to-face"
+        },
+        {
+          "country": "Indonesia",
+          "iso_a3": "IDN",
+          "results": {
+            "trust_own_country_regulate": 74,
+            "heard_a_lot_about_ai": 20
+          },
+          "sample_size": 1000,
+          "survey_method": "Face-to-face"
+        },
+        {
+          "country": "Kenya",
+          "iso_a3": "KEN",
+          "results": {
+            "heard_a_lot_about_ai": 12
+          },
+          "sample_size": 1000,
+          "survey_method": "Face-to-face"
+        },
+        {
+          "country": "Nigeria",
+          "iso_a3": "NGA",
+          "results": {
+            "heard_a_lot_about_ai": 18
+          },
+          "sample_size": 1000,
+          "survey_method": "Face-to-face"
+        },
+        {
+          "country": "Argentina",
+          "iso_a3": "ARG",
+          "results": {},
+          "sample_size": 1000,
+          "survey_method": "Face-to-face"
+        },
+        {
+          "country": "Mexico",
+          "iso_a3": "MEX",
+          "results": {},
+          "sample_size": 1000,
+          "survey_method": "Face-to-face"
+        },
+        {
+          "country": "South Africa",
+          "iso_a3": "ZAF",
+          "results": {},
+          "sample_size": 1000,
+          "survey_method": "Face-to-face"
+        },
+        {
+          "country": "Turkey",
+          "iso_a3": "TUR",
+          "results": {},
+          "sample_size": 1000,
+          "survey_method": "Face-to-face"
+        },
+        {
+          "country": "Hungary",
+          "iso_a3": "HUN",
+          "results": {},
+          "sample_size": 1000,
+          "survey_method": "Phone"
+        },
+        {
+          "country": "Netherlands",
+          "iso_a3": "NLD",
+          "results": {},
+          "sample_size": 1000,
+          "survey_method": "Phone"
+        },
+        {
+          "country": "Poland",
+          "iso_a3": "POL",
+          "results": {},
+          "sample_size": 1000,
+          "survey_method": "Phone"
+        },
+        {
+          "country": "Spain",
+          "iso_a3": "ESP",
+          "results": {
+            "heard_a_lot_about_ai": 30
+          },
+          "sample_size": 1000,
+          "survey_method": "Phone"
+        },
+        {
+          "country": "Sweden",
+          "iso_a3": "SWE",
+          "results": {},
+          "sample_size": 1000,
+          "survey_method": "Phone"
+        }
+      ]
+    },
+    {
+      "name": "Edelman Trust Barometer 2025 - AI Flash Poll",
+      "organization": "Edelman Trust Institute",
+      "report_url": "https://www.edelman.com/trust/2025/trust-barometer/flash-poll-trust-artifical-intelligence",
+      "methodology": "Online survey conducted by Edelman Trust Institute across 5 countries",
+      "total_sample_size": 5000,
+      "sample_size_per_country": "~1000 per country",
+      "survey_period": "October 17-27, 2025",
+      "num_countries": 5,
+      "survey_questions": [
+        "Q1: Overall, how much do you trust artificial intelligence?",
+        "Q2: Do you embrace or reject the growing use of AI?",
+        "Q3: How comfortable are you with government's use of AI?",
+        "Q4: How comfortable are you with business use of AI?",
+        "Q5: How comfortable are you with your employer's use of AI?"
+      ],
+      "global_averages": {
+        "comfortable_with_government_ai": 34,
+        "comfortable_with_business_ai": 46,
+        "comfortable_with_employer_ai": 56
+      },
+      "countries": [
+        {
+          "country": "China",
+          "iso_a3": "CHN",
+          "results": {
+            "trust_in_ai": 87,
+            "embrace_ai": 54,
+            "reject_ai": 10
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%",
+          "notes": "Trust increased by 9 percentage points between November 2023 and October 2025"
+        },
+        {
+          "country": "Brazil",
+          "iso_a3": "BRA",
+          "results": {
+            "trust_in_ai": 67,
+            "embrace_ai": null,
+            "reject_ai": null
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%",
+          "notes": "High-trust environment with optimism fueling widespread adoption"
+        },
+        {
+          "country": "Germany",
+          "iso_a3": "DEU",
+          "results": {
+            "trust_in_ai": 39,
+            "embrace_ai": null,
+            "reject_ai": null
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%",
+          "notes": "Skepticism remains dominant sentiment"
+        },
+        {
+          "country": "United Kingdom",
+          "iso_a3": "GBR",
+          "results": {
+            "trust_in_ai": 36,
+            "embrace_ai": null,
+            "reject_ai": null,
+            "youth_18_34_trust_ai": 59,
+            "seniors_55_plus_trust_ai": 18,
+            "bottom_income_feel_left_behind": 71
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%",
+          "notes": "41-point trust gap between young and old generations"
+        },
+        {
+          "country": "United States",
+          "iso_a3": "USA",
+          "results": {
+            "trust_in_ai": 32,
+            "embrace_ai": 17,
+            "reject_ai": 49,
+            "youth_18_34_trust_ai": 40,
+            "bottom_income_feel_left_behind": 65
+          },
+          "sample_size": 1000,
+          "margin_of_error": "~3.1%",
+          "notes": "Three times as many Americans reject AI as embrace it"
+        }
+      ]
+    },
+    {
+      "name": "Edelman Trust Barometer 2024 - Annual Report (AI Insights)",
+      "organization": "Edelman",
+      "report_url": "https://www.edelman.com/sites/g/files/aatuss191/files/2024-03/2024%20Edelman%20Trust%20Barometer%20Key%20Insights%20Around%20AI.pdf",
+      "methodology": "Online survey across 28 countries",
+      "total_sample_size": 32000,
+      "sample_size_per_country": "~1150 per country",
+      "survey_period": "November 2023",
+      "num_countries": 28,
+      "survey_questions": [
+        "Q1: Is innovation being well or badly managed?",
+        "Q2: Do you embrace or reject the growing use of AI?",
+        "Q3: How much do you trust AI companies?"
+      ],
+      "key_findings": {
+        "global_embrace_ai": 30,
+        "global_reject_ai": 35,
+        "trust_tech_sector": 76,
+        "trust_ai_specifically": 50,
+        "ai_company_trust_2024": 54,
+        "ai_company_trust_2019": 62,
+        "us_ai_company_trust_drop": "50% to 35% (15-point drop)"
+      },
+      "regional_patterns": {
+        "reject_ai_majority": ["France", "Canada", "Ireland", "United Kingdom", "United States", "Germany", "Australia", "Netherlands"],
+        "embrace_ai_majority": ["Saudi Arabia", "India", "China", "Kenya", "Nigeria", "Thailand"],
+        "embrace_reject_ratio_developed": "Nearly 3:1 reject over embrace",
+        "embrace_reject_ratio_developing": "Nearly 2:1 embrace over reject"
+      }
+    },
+    {
+      "name": "Lloyd's Register Foundation World Risk Poll 2021 - AI Component",
+      "organization": "Lloyd's Register Foundation / Gallup",
+      "report_url": "https://www.lrfoundation.org.uk/publications/a-digital-world-perceptions-of-risk-from-ai-and-misuse-of-personal-data",
+      "methodology": "Face-to-face and telephone interviews conducted by Gallup as part of the Gallup World Poll. Nationally representative samples in 121 countries.",
+      "total_sample_size": 125000,
+      "sample_size_per_country": "~1000 per country",
+      "survey_period": "2021",
+      "num_countries": 121,
+      "survey_questions": [
+        "Q1: Do you think artificial intelligence will mostly help or mostly harm people in your country in the next 20 years?",
+        "Q2: How worried are you about having personal data stolen from your computer or mobile phone?"
+      ],
+      "global_averages": {
+        "ai_mostly_help": 39,
+        "ai_mostly_harm": 28,
+        "neither_dont_know": 33
+      },
+      "regional_data": [
+        {
+          "region": "Eastern Asia",
+          "ai_mostly_help": 57,
+          "ai_mostly_harm": 13
+        },
+        {
+          "region": "Northern America",
+          "ai_mostly_help": 35,
+          "ai_mostly_harm": 30
+        },
+        {
+          "region": "Eastern Africa",
+          "ai_mostly_help": null,
+          "ai_mostly_harm": 51
+        },
+        {
+          "region": "Southern Asia",
+          "ai_mostly_help": null,
+          "ai_mostly_harm": null,
+          "note": "Higher harm concerns due to lower income levels"
+        },
+        {
+          "region": "Central/Western Africa",
+          "ai_mostly_help": null,
+          "ai_mostly_harm": null,
+          "note": "Majority said AI will mostly harm"
+        },
+        {
+          "region": "Northern Africa",
+          "ai_mostly_help": null,
+          "ai_mostly_harm": null,
+          "note": "Higher harm concerns"
+        }
+      ],
+      "countries": [
+        {
+          "country": "South Korea",
+          "iso_a3": "KOR",
+          "results": {
+            "ai_mostly_help": 70,
+            "ai_mostly_harm": 15
+          },
+          "sample_size": 1000,
+          "notes": "Most positive country globally about AI impact"
+        },
+        {
+          "country": "China",
+          "iso_a3": "CHN",
+          "results": {
+            "ai_mostly_help": null,
+            "ai_mostly_harm": 9.4
+          },
+          "sample_size": 1000,
+          "notes": "Lowest levels of concern about AI globally. Part of Eastern Asia region (57% mostly help)"
+        },
+        {
+          "country": "United States",
+          "iso_a3": "USA",
+          "results": {
+            "ai_mostly_help": 32,
+            "ai_mostly_harm": 34
+          },
+          "sample_size": 1000
+        },
+        {
+          "country": "Tanzania",
+          "iso_a3": "TZA",
+          "results": {
+            "ai_mostly_help": null,
+            "ai_mostly_harm": 62
+          },
+          "sample_size": 1000,
+          "notes": "Highest concern country in East Africa"
+        },
+        {
+          "country": "Kenya",
+          "iso_a3": "KEN",
+          "results": {
+            "ai_mostly_help": null,
+            "ai_mostly_harm": 57
+          },
+          "sample_size": 1000
+        },
+        {
+          "country": "Uganda",
+          "iso_a3": "UGA",
+          "results": {
+            "ai_mostly_help": null,
+            "ai_mostly_harm": 57
+          },
+          "sample_size": 1000
+        }
+      ],
+      "demographic_insights": {
+        "gender_gap": {
+          "men_mostly_help": 43,
+          "women_mostly_help": 35,
+          "men_mostly_harm": 27,
+          "women_mostly_harm": 29
+        },
+        "internet_access_gap": {
+          "with_internet_mostly_help": 44,
+          "without_internet_mostly_help": 28
+        },
+        "income_gap": {
+          "low_income_countries_mostly_harm": 35,
+          "lower_middle_income_mostly_harm": 34,
+          "note": "Distrust highest in lower-income countries"
+        }
+      }
+    },
+    {
+      "name": "Ipsos AI Monitor 2025",
+      "organization": "Ipsos",
+      "report_url": "https://www.ipsos.com/en-dk/ipsos-ai-monitor-2025",
+      "methodology": "Online survey via Ipsos Global Advisor platform",
+      "total_sample_size": 23000,
+      "sample_size_per_country": "~1000 per country",
+      "survey_period": "March 22 - April 5, 2025",
+      "num_countries": 30,
+      "survey_questions": [
+        "Q1: I am excited about products and services that use AI",
+        "Q2: AI makes me nervous",
+        "Q3: Do you trust your government to regulate AI responsibly?",
+        "Q4: Do you trust companies that use AI to keep your data safe?"
+      ],
+      "global_averages": {
+        "excited_about_ai": 52,
+        "nervous_about_ai": 53,
+        "trust_government_regulate": 54,
+        "trust_companies_data_safe": 48
+      },
+      "key_findings": {
+        "note": "Nervousness (53%) now slightly exceeds excitement (52%) globally, a shift from 2024"
+      }
+    },
+    {
+      "name": "World Economic Forum / Ipsos Global AI Perception Survey 2024",
+      "organization": "World Economic Forum / Ipsos",
+      "report_url": "https://hai.stanford.edu/ai-index/2025-ai-index-report/public-opinion",
+      "methodology": "Online survey via Ipsos Global Advisor platform across 26+ countries (cited in Stanford AI Index 2025 and WEF publications)",
+      "survey_period": "2022-2024 (longitudinal tracking)",
+      "num_countries": 26,
+      "survey_questions": [
+        "Q1: Do you think products and services using AI have more benefits than drawbacks?",
+        "Q2: Will AI-powered products and services significantly change daily life in 3-5 years?"
+      ],
+      "key_findings": {
+        "benefits_outweigh_drawbacks_2022": 52,
+        "benefits_outweigh_drawbacks_2024": 55,
+        "significant_daily_life_impact_2022": 60,
+        "significant_daily_life_impact_2024": 66,
+        "trust_ai_companies_data_2023": 50,
+        "trust_ai_companies_data_2024": 47,
+        "emerging_economies_trust": 60,
+        "wealthy_countries_trust": 40,
+        "countries_with_increased_benefit_perception": 18,
+        "countries_measured_both_years": 26
+      }
+    }
+  ]
+}

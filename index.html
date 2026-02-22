@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global AI Acceptance Index</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg-primary:#0a0e1a;--bg-secondary:#0f1528;--bg-card:rgba(15,21,40,0.7);
+--border-glass:rgba(56,189,248,0.12);--border-glow:rgba(56,189,248,0.3);
+--text-primary:#e2e8f0;--text-secondary:#94a3b8;--text-muted:#64748b;
+--accent-cyan:#38bdf8;--accent-blue:#3b82f6;--accent-indigo:#6366f1;
+--accent-emerald:#34d399;--accent-amber:#fbbf24;--accent-rose:#fb7185;
+--gradient-main:linear-gradient(135deg,#0a0e1a 0%,#0f1528 50%,#131b35 100%);
+--glass-bg:rgba(15,21,40,0.6);--glass-border:1px solid rgba(56,189,248,0.1);
+--shadow-glow:0 0 30px rgba(56,189,248,0.1);
+--radius:12px;--radius-lg:16px;--radius-xl:24px;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--gradient-main);color:var(--text-primary);min-height:100vh;overflow-x:hidden;line-height:1.6}
+body::before{content:'';position:fixed;inset:0;background:
+radial-gradient(ellipse at 20% 50%,rgba(56,189,248,0.03) 0%,transparent 50%),
+radial-gradient(ellipse at 80% 20%,rgba(99,102,241,0.03) 0%,transparent 50%),
+radial-gradient(ellipse at 50% 80%,rgba(52,211,153,0.02) 0%,transparent 50%);
+pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;inset:0;
+background-image:linear-gradient(rgba(56,189,248,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,0.02) 1px,transparent 1px);
+background-size:60px 60px;pointer-events:none;z-index:0}
+
+.container{max-width:1400px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+background:rgba(10,14,26,0.85);border-bottom:1px solid var(--border-glass);transition:all 0.3s}
+nav .nav-inner{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-weight:800;font-size:1.1rem;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-0.02em}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color 0.2s;letter-spacing:0.01em}
+.nav-links a:hover{color:var(--accent-cyan)}
+.nav-hamburger{display:none;background:none;border:none;color:var(--text-primary);cursor:pointer;padding:8px}
+.nav-hamburger svg{width:24px;height:24px}
+
+/* HERO */
+.hero{padding:140px 0 60px;text-align:center;position:relative}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;
+background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.2);color:var(--accent-cyan);
+font-size:0.75rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:24px}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent-cyan);animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;letter-spacing:-0.03em;line-height:1.05;
+background:linear-gradient(135deg,#fff 0%,#e2e8f0 40%,var(--accent-cyan) 100%);
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
+.hero-subtitle{font-size:clamp(1rem,2vw,1.25rem);color:var(--text-secondary);max-width:640px;margin:0 auto 48px;font-weight:400;line-height:1.7}
+.hero-stats{display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat-value{font-size:2rem;font-weight:800;color:var(--accent-cyan);letter-spacing:-0.02em}
+.hero-stat-label{font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;font-weight:500}
+
+/* GLOBE SECTION */
+.globe-section{padding:40px 0 80px}
+.globe-layout{display:grid;grid-template-columns:1fr 400px;gap:32px;align-items:start}
+.globe-container{position:relative;background:var(--glass-bg);border:var(--glass-border);border-radius:var(--radius-xl);
+padding:24px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);overflow:hidden;min-height:600px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.globe-container::before{content:'';position:absolute;inset:-1px;border-radius:var(--radius-xl);
+background:linear-gradient(135deg,rgba(56,189,248,0.15),transparent 40%,transparent 60%,rgba(99,102,241,0.1));
+z-index:-1;pointer-events:none}
+#globe-svg{cursor:grab;width:100%;max-width:600px}
+#globe-svg:active{cursor:grabbing}
+.globe-controls{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.globe-toggle-group{display:flex;background:rgba(255,255,255,0.04);border:1px solid var(--border-glass);border-radius:var(--radius);overflow:hidden}
+.globe-toggle-btn{padding:6px 14px;font-size:0.72rem;font-weight:600;font-family:inherit;border:none;background:transparent;color:var(--text-muted);cursor:pointer;transition:all 0.25s;letter-spacing:0.02em}
+.globe-toggle-btn.active{background:rgba(56,189,248,0.15);color:var(--accent-cyan)}
+.globe-zoom-group{display:flex;gap:4px}
+.globe-zoom-btn{width:32px;height:32px;border-radius:8px;border:1px solid var(--border-glass);background:rgba(255,255,255,0.04);color:var(--text-primary);font-size:1rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-family:inherit}
+.globe-zoom-btn:hover{background:rgba(56,189,248,0.1);border-color:var(--accent-cyan)}
+.region-nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.region-btn{padding:5px 12px;font-size:0.68rem;font-weight:600;font-family:inherit;border:1px solid var(--border-glass);border-radius:100px;background:rgba(255,255,255,0.03);color:var(--text-secondary);cursor:pointer;transition:all 0.2s;letter-spacing:0.02em}
+.region-btn:hover,.region-btn.active{background:rgba(56,189,248,0.1);border-color:var(--accent-cyan);color:var(--accent-cyan)}
+.globe-tooltip{position:fixed;pointer-events:none;padding:8px 14px;background:rgba(10,14,26,0.92);border:1px solid var(--border-glow);border-radius:8px;font-size:0.78rem;color:var(--text-primary);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:200;opacity:0;transition:opacity 0.15s;white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,0.4)}
+.globe-tooltip .tt-name{font-weight:700;margin-bottom:2px}
+.globe-tooltip .tt-score{font-size:0.7rem;color:var(--accent-cyan);font-weight:600}
+.globe-legend{display:flex;align-items:center;gap:16px;margin-top:12px;justify-content:center;flex-wrap:wrap}
+.legend-bar{width:200px;height:10px;border-radius:5px;background:linear-gradient(90deg,#312e81,#3b82f6,#06b6d4,#34d399)}
+.legend-label{font-size:0.7rem;color:var(--text-muted);font-weight:500}
+.legend-mode-label{font-size:0.72rem;color:var(--text-secondary);font-weight:600}
+
+/* DATA PANEL */
+.data-panel{background:var(--glass-bg);border:var(--glass-border);border-radius:var(--radius-xl);
+backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);overflow:hidden;position:sticky;top:80px}
+.data-panel-header{padding:24px 24px 16px;border-bottom:1px solid var(--border-glass)}
+.data-panel-header h3{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:600}
+.data-panel-country{font-size:1.5rem;font-weight:800;margin-top:8px;letter-spacing:-0.02em}
+.data-panel-body{padding:24px}
+.data-panel-score{display:flex;align-items:baseline;gap:8px;margin-bottom:24px}
+.data-panel-score-value{font-size:3.5rem;font-weight:900;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-blue));
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.data-panel-score-label{font-size:0.8rem;color:var(--text-muted);font-weight:500}
+.data-panel-bar-group{margin-bottom:20px}
+.data-panel-bar-label{display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:6px}
+.data-panel-bar-label span:first-child{color:var(--text-secondary);font-weight:500}
+.data-panel-bar-label span:last-child{color:var(--text-primary);font-weight:600}
+.data-panel-bar{height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden}
+.data-panel-bar-fill{height:100%;border-radius:3px;transition:width 0.6s cubic-bezier(0.16,1,0.3,1)}
+.confidence-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:100px;font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:16px}
+.confidence-high{background:rgba(52,211,153,0.1);color:var(--accent-emerald);border:1px solid rgba(52,211,153,0.2)}
+.confidence-medium{background:rgba(251,191,36,0.1);color:var(--accent-amber);border:1px solid rgba(251,191,36,0.2)}
+.confidence-low{background:rgba(251,113,133,0.1);color:var(--accent-rose);border:1px solid rgba(251,113,133,0.2)}
+.data-panel-sources{margin-top:20px;padding-top:16px;border-top:1px solid var(--border-glass)}
+.data-panel-sources h4{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:600;margin-bottom:12px}
+.source-item{padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.03);font-size:0.78rem}
+.source-item:last-child{border-bottom:none}
+.source-name{color:var(--text-secondary);font-weight:500}
+.source-meta{color:var(--text-muted);font-size:0.7rem;margin-top:2px}
+.data-panel-empty{padding:40px 24px;text-align:center;color:var(--text-muted)}
+.data-panel-empty p{font-size:0.9rem;margin-top:8px}
+
+/* SEARCH */
+.search-bar{position:relative;margin-bottom:16px;padding:0 24px}
+.search-bar input{width:100%;padding:10px 16px 10px 40px;background:rgba(255,255,255,0.04);border:1px solid var(--border-glass);
+border-radius:var(--radius);color:var(--text-primary);font-size:0.85rem;font-family:inherit;outline:none;transition:border-color 0.2s}
+.search-bar input:focus{border-color:var(--accent-cyan)}
+.search-bar input::placeholder{color:var(--text-muted)}
+.search-bar svg{position:absolute;left:40px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--text-muted)}
+.search-results{max-height:300px;overflow-y:auto;padding:0 24px}
+.search-results::-webkit-scrollbar{width:4px}
+.search-results::-webkit-scrollbar-track{background:transparent}
+.search-results::-webkit-scrollbar-thumb{background:rgba(56,189,248,0.2);border-radius:2px}
+.search-result-item{padding:10px 12px;border-radius:8px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;
+font-size:0.85rem;transition:background 0.15s}
+.search-result-item:hover{background:rgba(56,189,248,0.06)}
+.search-result-item .score{color:var(--accent-cyan);font-weight:700;font-size:0.8rem}
+
+/* INSIGHTS */
+.insights-section{padding:80px 0}
+.section-header{text-align:center;margin-bottom:48px}
+.section-header h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:12px}
+.section-header p{color:var(--text-secondary);max-width:560px;margin:0 auto;font-size:0.95rem}
+.insights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.insight-card{background:var(--glass-bg);border:var(--glass-border);border-radius:var(--radius-lg);padding:28px;
+backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:transform 0.3s,border-color 0.3s;position:relative;overflow:hidden}
+.insight-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+background:linear-gradient(90deg,transparent,var(--accent-cyan),transparent);opacity:0;transition:opacity 0.3s}
+.insight-card:hover{transform:translateY(-4px);border-color:var(--border-glow)}
+.insight-card:hover::before{opacity:1}
+.insight-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.3rem}
+.insight-card h3{font-size:1.05rem;font-weight:700;margin-bottom:8px;letter-spacing:-0.01em}
+.insight-card p{color:var(--text-secondary);font-size:0.85rem;line-height:1.7}
+.insight-value{font-size:1.8rem;font-weight:800;margin-bottom:4px;letter-spacing:-0.02em}
+.ic-asia .insight-icon{background:rgba(56,189,248,0.1)}
+.ic-west .insight-icon{background:rgba(251,113,133,0.1)}
+.ic-africa .insight-icon{background:rgba(52,211,153,0.1)}
+.ic-gap .insight-icon{background:rgba(251,191,36,0.1)}
+
+/* METHODOLOGY */
+.methodology-section{padding:80px 0}
+.methodology-toggle{width:100%;background:var(--glass-bg);border:var(--glass-border);border-radius:var(--radius-lg);
+padding:24px 28px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;
+backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--text-primary);font-family:inherit;transition:border-color 0.2s}
+.methodology-toggle:hover{border-color:var(--border-glow)}
+.methodology-toggle h2{font-size:1.2rem;font-weight:700}
+.methodology-toggle svg{width:20px;height:20px;color:var(--text-muted);transition:transform 0.3s}
+.methodology-toggle.open svg{transform:rotate(180deg)}
+.methodology-content{background:var(--glass-bg);border:var(--glass-border);border-top:none;border-radius:0 0 var(--radius-lg) var(--radius-lg);
+padding:0 28px;max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.4s ease;
+backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.methodology-content.open{max-height:2000px;padding:28px}
+.method-block{margin-bottom:24px}
+.method-block:last-child{margin-bottom:0}
+.method-block h3{font-size:0.95rem;font-weight:700;margin-bottom:8px;color:var(--accent-cyan)}
+.method-block p,.method-block li{font-size:0.85rem;color:var(--text-secondary);line-height:1.8}
+.method-block ul{list-style:none;margin-top:8px}
+.method-block li{padding-left:20px;position:relative;margin-bottom:4px}
+.method-block li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--accent-cyan);opacity:0.5}
+
+/* SOURCE TIERS */
+.tiers-section{padding:0 0 80px}
+.tiers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.tier-card{background:var(--glass-bg);border:var(--glass-border);border-radius:var(--radius-lg);padding:24px;
+backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.tier-badge{display:inline-flex;padding:4px 12px;border-radius:100px;font-size:0.7rem;font-weight:700;
+letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px}
+.tier-very-high .tier-badge{background:rgba(52,211,153,0.12);color:var(--accent-emerald);border:1px solid rgba(52,211,153,0.25)}
+.tier-high .tier-badge{background:rgba(56,189,248,0.12);color:var(--accent-cyan);border:1px solid rgba(56,189,248,0.25)}
+.tier-medium-high .tier-badge{background:rgba(251,191,36,0.12);color:var(--accent-amber);border:1px solid rgba(251,191,36,0.25)}
+.tier-card h3{font-size:0.95rem;font-weight:700;margin-bottom:4px}
+.tier-card .tier-weight{font-size:0.8rem;color:var(--text-muted);margin-bottom:12px}
+.tier-sources{list-style:none}
+.tier-sources li{font-size:0.82rem;color:var(--text-secondary);padding:4px 0;padding-left:16px;position:relative}
+.tier-sources li::before{content:'\2022';position:absolute;left:0;color:var(--text-muted)}
+
+/* FOOTER */
+footer{padding:48px 0;border-top:1px solid var(--border-glass);margin-top:40px}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-left p{font-size:0.78rem;color:var(--text-muted);line-height:1.8}
+.footer-right{font-size:0.7rem;color:var(--text-muted);text-align:right}
+
+/* SCROLL ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* MOBILE NAV */
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:rgba(10,14,26,0.95);
+backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:99;padding:32px 24px}
+.mobile-menu.open{display:flex;flex-direction:column;gap:8px}
+.mobile-menu a{color:var(--text-secondary);text-decoration:none;font-size:1.1rem;font-weight:500;padding:16px 0;
+border-bottom:1px solid var(--border-glass);transition:color 0.2s}
+.mobile-menu a:hover{color:var(--accent-cyan)}
+
+/* RESPONSIVE */
+@media(max-width:1199px){
+.globe-layout{grid-template-columns:1fr}
+.data-panel{position:relative;top:0}
+}
+@media(max-width:767px){
+nav .nav-inner{height:56px}
+.nav-links{display:none}
+.nav-hamburger{display:block}
+.hero{padding:100px 0 40px}
+.hero-stats{gap:24px}
+.hero-stat-value{font-size:1.5rem}
+.container{padding:0 16px}
+.globe-container{padding:16px;min-height:400px}
+.insights-grid{grid-template-columns:1fr}
+.tiers-grid{grid-template-columns:1fr}
+.footer-inner{flex-direction:column;text-align:center}
+.footer-right{text-align:center}
+.data-panel{border-radius:var(--radius-lg) var(--radius-lg) 0 0;position:fixed;bottom:0;left:0;right:0;z-index:50;
+max-height:60vh;overflow-y:auto;transform:translateY(calc(100% - 60px));transition:transform 0.3s ease}
+.data-panel.mobile-open{transform:translateY(0)}
+.data-panel-handle{display:block;width:40px;height:4px;background:rgba(255,255,255,0.2);border-radius:2px;margin:8px auto;cursor:grab}
+.globe-section{padding:20px 0 100px}
+.search-bar{padding:0 16px}
+.search-results{padding:0 16px}
+}
+@media(min-width:768px){
+.data-panel-handle{display:none}
+}
+
+/* ANALYSIS SECTION */
+.analysis-section{padding:80px 0}
+.analysis-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px}
+.analysis-chart-card{background:var(--glass-bg);border:var(--glass-border);border-radius:var(--radius-xl);
+padding:28px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);overflow:hidden}
+.analysis-chart-card h3{font-size:1rem;font-weight:700;margin-bottom:4px;letter-spacing:-0.01em}
+.analysis-chart-card .chart-subtitle{font-size:0.78rem;color:var(--text-muted);margin-bottom:20px}
+.chart-container{width:100%;overflow:hidden}
+.chart-container svg{width:100%;height:auto}
+
+/* Confidence donut */
+.confidence-section{padding:0 0 40px}
+.confidence-card{background:var(--glass-bg);border:var(--glass-border);border-radius:var(--radius-xl);
+padding:28px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;gap:40px;flex-wrap:wrap;justify-content:center}
+.confidence-chart-wrap{flex-shrink:0}
+.confidence-legend{display:flex;flex-direction:column;gap:12px}
+.conf-legend-item{display:flex;align-items:center;gap:10px;font-size:0.85rem}
+.conf-legend-dot{width:14px;height:14px;border-radius:50%}
+.conf-legend-count{font-weight:700;font-size:1.1rem;min-width:32px}
+.conf-legend-label{color:var(--text-secondary)}
+
+/* RANKINGS TABLE */
+.rankings-section{padding:80px 0}
+.rankings-card{background:var(--glass-bg);border:var(--glass-border);border-radius:var(--radius-xl);
+padding:28px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);overflow:hidden}
+.rankings-toolbar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:20px}
+.rankings-search{flex:1;min-width:200px;padding:10px 16px;background:rgba(255,255,255,0.04);border:1px solid var(--border-glass);
+border-radius:var(--radius);color:var(--text-primary);font-size:0.85rem;font-family:inherit;outline:none;transition:border-color 0.2s}
+.rankings-search:focus{border-color:var(--accent-cyan)}
+.rankings-search::placeholder{color:var(--text-muted)}
+.rankings-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.rankings-table{width:100%;border-collapse:collapse;font-size:0.82rem}
+.rankings-table th{text-align:left;padding:10px 14px;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;
+color:var(--text-muted);font-weight:600;border-bottom:1px solid var(--border-glass);cursor:pointer;white-space:nowrap;user-select:none;transition:color 0.2s}
+.rankings-table th:hover{color:var(--accent-cyan)}
+.rankings-table th.sorted-asc::after{content:' \25B2';font-size:0.6rem}
+.rankings-table th.sorted-desc::after{content:' \25BC';font-size:0.6rem}
+.rankings-table td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.03);white-space:nowrap}
+.rankings-table tr:hover{background:rgba(56,189,248,0.04)}
+.score-cell{font-weight:700;border-radius:6px;padding:4px 10px;display:inline-block;min-width:40px;text-align:center;font-size:0.8rem}
+.show-all-btn{display:block;margin:20px auto 0;padding:10px 28px;background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.2);
+border-radius:100px;color:var(--accent-cyan);font-size:0.82rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all 0.2s}
+.show-all-btn:hover{background:rgba(56,189,248,0.15);border-color:var(--accent-cyan)}
+
+/* Scatter plot quadrant labels */
+.quadrant-label{font-size:0.65rem;fill:var(--text-muted);opacity:0.6;pointer-events:none}
+
+/* Responsive chart grid */
+@media(max-width:1024px){
+.analysis-grid{grid-template-columns:1fr}
+}
+@media(max-width:767px){
+.confidence-card{flex-direction:column;gap:20px}
+.rankings-toolbar{flex-direction:column}
+.rankings-search{width:100%}
+}
+</style>
+</head>
+<body>
+<div class="globe-tooltip" id="globeTooltip"><div class="tt-name"></div><div class="tt-score"></div></div>
+
+<!-- NAV -->
+<nav>
+<div class="nav-inner">
+<div class="nav-logo">AI Acceptance Index</div>
+<ul class="nav-links">
+<li><a href="#globe">Globe</a></li>
+<li><a href="#insights">Insights</a></li>
+<li><a href="#methodology">Methodology</a></li>
+<li><a href="#sources">Sources</a></li>
+<li><a href="#analysis">Analysis</a></li>
+<li><a href="#rankings">Rankings</a></li>
+</ul>
+<button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+</button>
+</div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+<a href="#globe" onclick="toggleMobileMenu()">Globe</a>
+<a href="#insights" onclick="toggleMobileMenu()">Insights</a>
+<a href="#methodology" onclick="toggleMobileMenu()">Methodology</a>
+<a href="#sources" onclick="toggleMobileMenu()">Sources</a>
+<a href="#analysis" onclick="toggleMobileMenu()">Analysis</a>
+<a href="#rankings" onclick="toggleMobileMenu()">Rankings</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+<div class="hero-badge"><span>Live Research Data</span></div>
+<h1>Global AI Acceptance Index</h1>
+<p class="hero-subtitle">How do 121 countries feel about artificial intelligence? Explore the world's most comprehensive cross-national dataset on public attitudes toward AI.</p>
+<div class="hero-stats">
+<div class="hero-stat"><div class="hero-stat-value">121</div><div class="hero-stat-label">Countries</div></div>
+<div class="hero-stat"><div class="hero-stat-value">46</div><div class="hero-stat-label">Data Sources</div></div>
+<div class="hero-stat"><div class="hero-stat-value">82</div><div class="hero-stat-label">Highest Score</div></div>
+<div class="hero-stat"><div class="hero-stat-value">33</div><div class="hero-stat-label">Lowest Score</div></div>
+</div>
+</div>
+</section>
+
+<!-- GLOBE -->
+<section class="globe-section" id="globe">
+<div class="container">
+<div class="globe-layout">
+<div class="globe-container">
+<svg id="globe-svg" viewBox="0 0 600 600"></svg>
+<div class="globe-controls">
+<div class="globe-toggle-group">
+<button class="globe-toggle-btn active" data-mode="acceptance" onclick="setVisualizationMode('acceptance')">AI Acceptance</button>
+<button class="globe-toggle-btn" data-mode="adoption" onclick="setVisualizationMode('adoption')">High-Tech Adoption</button>
+</div>
+<div class="globe-zoom-group">
+<button class="globe-zoom-btn" onclick="zoomGlobe(-1)" aria-label="Zoom out">&minus;</button>
+<button class="globe-zoom-btn" onclick="zoomGlobe(1)" aria-label="Zoom in">+</button>
+</div>
+</div>
+<div class="region-nav">
+<button class="region-btn" onclick="flyToRegion('asia')">Asia</button>
+<button class="region-btn" onclick="flyToRegion('europe')">Europe</button>
+<button class="region-btn" onclick="flyToRegion('americas')">Americas</button>
+<button class="region-btn" onclick="flyToRegion('africa')">Africa</button>
+<button class="region-btn" onclick="flyToRegion('middleeast')">Middle East</button>
+</div>
+<div class="globe-legend">
+<span class="legend-label" id="legendLow">Low (33)</span>
+<div class="legend-bar" id="legendBar"></div>
+<span class="legend-label" id="legendHigh">High (82)</span>
+<span class="legend-mode-label" id="legendModeLabel">AI Acceptance Score</span>
+</div>
+</div>
+<div class="data-panel" id="dataPanel">
+<div class="data-panel-handle" id="panelHandle"></div>
+<div class="data-panel-header">
+<h3>Selected Country</h3>
+<div class="data-panel-country" id="panelCountry">Select a country</div>
+</div>
+<div class="search-bar">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+<input type="text" id="searchInput" placeholder="Search countries..." autocomplete="off">
+</div>
+<div class="search-results" id="searchResults"></div>
+<div class="data-panel-body" id="panelBody">
+<div class="data-panel-empty">
+<svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="color:var(--text-muted);margin-bottom:8px"><path d="M12 21a9 9 0 100-18 9 9 0 000 18z"/><path d="M3.6 9h16.8M3.6 15h16.8"/><path d="M12 3a15 15 0 014 9 15 15 0 01-4 9 15 15 0 01-4-9 15 15 0 014-9z"/></svg>
+<p>Click a country on the globe or search above to view detailed data.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- INSIGHTS -->
+<section class="insights-section" id="insights">
+<div class="container">
+<div class="section-header fade-in">
+<h2>Key Insights</h2>
+<p>Patterns emerging from global AI acceptance data reveal striking regional contrasts and unexpected paradoxes.</p>
+</div>
+<div class="insights-grid">
+<div class="insight-card ic-asia fade-in">
+<div class="insight-icon">&#127759;</div>
+<div class="insight-value" style="color:var(--accent-cyan)">82</div>
+<h3>Asia Leads Global Enthusiasm</h3>
+<p>China tops the index at 82, with Indonesia (75), South Korea (75), and Thailand (72) all above 70. East Asia averages 65 on acceptance while SE Asia averages 61 &mdash; both far above the global median of 50, driven by rapid digital integration and government-led AI strategies.</p>
+</div>
+<div class="insight-card ic-west fade-in">
+<div class="insight-icon">&#128202;</div>
+<div class="insight-value" style="color:var(--accent-rose)">36</div>
+<h3>The Western Skepticism Paradox</h3>
+<p>The United States scores just 36 despite leading global AI development with 90 high-tech adoption. Sweden (36), Belgium (33), and Canada (39) follow the same pattern. Western Europe averages only 44, while North America averages 38 &mdash; suggesting that proximity to AI's impacts fuels caution.</p>
+</div>
+<div class="insight-card ic-africa fade-in">
+<div class="insight-icon">&#127793;</div>
+<div class="insight-value" style="color:var(--accent-emerald)">58</div>
+<h3>Africa Rising</h3>
+<p>Rwanda leads the continent at 58 with ambitious national AI strategies. South Africa follows at 63, and Kenya at 44. Despite limited data &mdash; 14 of 21 African countries have low confidence scores &mdash; emerging tech hubs in Nairobi and Kigali show growing optimism about AI's development potential.</p>
+</div>
+<div class="insight-card ic-gap fade-in">
+<div class="insight-icon">&#128161;</div>
+<div class="insight-value" style="color:var(--accent-amber)">49pt</div>
+<h3>Acceptance-Adoption Gap</h3>
+<p>The 49-point gap between China (82) and Belgium (33) highlights a massive divergence. The US has 90 high-tech adoption but only 36 acceptance. Taiwan shows 86 adoption vs 72 acceptance. Poland: 81 adoption, 42 acceptance. Countries with high adoption don't always have high acceptance.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- METHODOLOGY -->
+<section class="methodology-section" id="methodology">
+<div class="container fade-in">
+<button class="methodology-toggle" id="methodToggle" onclick="toggleMethodology()">
+<h2>Methodology</h2>
+<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+</button>
+<div class="methodology-content" id="methodContent">
+<div class="method-block">
+<h3>Weighted Scoring Model</h3>
+<p>Each country's AI acceptance score is computed as a weighted average of all available survey and index data. Weights are assigned based on two factors: source credibility and data recency.</p>
+</div>
+<div class="method-block">
+<h3>Source Credibility Tiers</h3>
+<ul>
+<li><strong>Very High (weight 1.0):</strong> Pew Research Center, Stanford HAI, ITU ICT Index</li>
+<li><strong>High (weight 0.85):</strong> Ipsos Global Advisor, Oxford Insights, IMD World Digital Competitiveness</li>
+<li><strong>Medium-High (weight 0.7):</strong> Edelman Trust Barometer, McKinsey, Standard Insights</li>
+</ul>
+</div>
+<div class="method-block">
+<h3>Recency Adjustment</h3>
+<ul>
+<li>2025 data: weight multiplier 1.0</li>
+<li>2024 data: weight multiplier 0.9</li>
+<li>2023 data: weight multiplier 0.7</li>
+<li>2021 data: weight multiplier 0.35 (flagged as pre-ChatGPT historical baseline)</li>
+</ul>
+</div>
+<div class="method-block">
+<h3>Confidence Levels</h3>
+<p><strong>High:</strong> Direct survey data from Pew, Ipsos, or Edelman with nationally representative samples.<br>
+<strong>Medium:</strong> Composite indices or smaller surveys from credible organizations.<br>
+<strong>Low:</strong> Estimated from readiness indices and regional patterns; no direct survey data available.</p>
+</div>
+<div class="method-block">
+<h3>Data Quality Notes</h3>
+<ul>
+<li>Lloyd's Register Foundation 2021 and EU AI Watch 2021 data flagged as historical baselines (pre-ChatGPT era)</li>
+<li>New Zealand IMD duplicate removed (kept rank 27 only)</li>
+<li>Countries without direct survey data are marked as estimated (is_estimated: true)</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SOURCE TIERS -->
+<section class="tiers-section" id="sources">
+<div class="container">
+<div class="section-header fade-in">
+<h2>Source Credibility Tiers</h2>
+<p>Data quality varies significantly across sources. Our tiered weighting system ensures the most rigorous surveys carry the most influence.</p>
+</div>
+<div class="tiers-grid">
+<div class="tier-card tier-very-high fade-in">
+<div class="tier-badge">Very High</div>
+<h3>Tier 1 Sources</h3>
+<p class="tier-weight">Weight: 1.0</p>
+<ul class="tier-sources">
+<li>Pew Research Center 2025</li>
+<li>Stanford HAI Global AI Vibrancy Tool 2025</li>
+<li>ITU ICT Development Index 2024</li>
+<li>Tortoise Media Global AI Index 2024</li>
+</ul>
+</div>
+<div class="tier-card tier-high fade-in">
+<div class="tier-badge">High</div>
+<h3>Tier 2 Sources</h3>
+<p class="tier-weight">Weight: 0.85</p>
+<ul class="tier-sources">
+<li>Ipsos AI Monitor 2024</li>
+<li>Oxford Insights Government AI Readiness Index 2024</li>
+<li>IMD World Digital Competitiveness Ranking 2024</li>
+<li>ILIA 2024</li>
+</ul>
+</div>
+<div class="tier-card tier-medium-high fade-in">
+<div class="tier-badge">Medium-High</div>
+<h3>Tier 3 Sources</h3>
+<p class="tier-weight">Weight: 0.7</p>
+<ul class="tier-sources">
+<li>Edelman Trust Barometer 2025</li>
+<li>Standard Insights SE Asia Survey 2024</li>
+<li>Lloyd's Register Foundation World Risk Poll 2021</li>
+<li>Regional estimates and composite indices</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- DATA CONFIDENCE -->
+<section class="confidence-section" id="confidence">
+<div class="container fade-in">
+<div class="confidence-card">
+<div class="confidence-chart-wrap"><svg id="confidence-donut" width="180" height="180"></svg></div>
+<div class="confidence-legend">
+<div class="conf-legend-item"><div class="conf-legend-dot" style="background:var(--accent-emerald)"></div><span class="conf-legend-count" id="conf-high-count">32</span><span class="conf-legend-label">High confidence &mdash; Direct survey data from Pew, Ipsos, or Edelman</span></div>
+<div class="conf-legend-item"><div class="conf-legend-dot" style="background:var(--accent-amber)"></div><span class="conf-legend-count" id="conf-med-count">33</span><span class="conf-legend-label">Medium confidence &mdash; Composite indices or smaller surveys</span></div>
+<div class="conf-legend-item"><div class="conf-legend-dot" style="background:var(--accent-rose)"></div><span class="conf-legend-count" id="conf-low-count">56</span><span class="conf-legend-label">Low confidence &mdash; Estimated from readiness indices and regional patterns</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ANALYSIS CHARTS -->
+<section class="analysis-section" id="analysis">
+<div class="container">
+<div class="section-header fade-in">
+<h2>Data Analysis</h2>
+<p>Interactive charts exploring the relationship between AI acceptance and technology adoption across regions.</p>
+</div>
+<div class="analysis-grid">
+<div class="analysis-chart-card fade-in">
+<h3>Regional Comparison</h3>
+<p class="chart-subtitle">Average AI acceptance vs high-tech adoption by region</p>
+<div class="chart-container" id="bar-chart-container"></div>
+</div>
+<div class="analysis-chart-card fade-in">
+<h3>Acceptance vs Adoption</h3>
+<p class="chart-subtitle">Each dot represents a country &mdash; hover for details</p>
+<div class="chart-container" id="scatter-chart-container"></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- COUNTRY RANKINGS -->
+<section class="rankings-section" id="rankings">
+<div class="container">
+<div class="section-header fade-in">
+<h2>Country Rankings</h2>
+<p>All 121 countries ranked by AI acceptance score. Click column headers to sort.</p>
+</div>
+<div class="rankings-card fade-in">
+<div class="rankings-toolbar">
+<input type="text" class="rankings-search" id="rankingsSearch" placeholder="Filter countries..." autocomplete="off">
+</div>
+<div class="rankings-table-wrap">
+<table class="rankings-table" id="rankingsTable">
+<thead>
+<tr>
+<th data-col="rank">Rank</th>
+<th data-col="country">Country</th>
+<th data-col="acceptance">AI Acceptance</th>
+<th data-col="adoption">High-Tech Adoption</th>
+<th data-col="confidence">Confidence</th>
+<th data-col="sources">Sources</th>
+</tr>
+</thead>
+<tbody id="rankingsBody"></tbody>
+</table>
+</div>
+<button class="show-all-btn" id="showAllBtn">Show All 121 Countries</button>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="container">
+<div class="footer-inner">
+<div class="footer-left">
+<p><strong>Global AI Acceptance Index</strong></p>
+<p>Last updated: February 21, 2026 &middot; 121 countries &middot; 46 data sources</p>
+<p style="margin-top:8px">Countries marked as estimated rely on readiness indices and regional patterns rather than direct survey data.<br>Historical data from 2021 represents pre-ChatGPT baselines and may not reflect current sentiment.</p>
+</div>
+<div class="footer-right">
+<p>Weighted methodology using Pew, Ipsos, Edelman,<br>Stanford HAI, Oxford Insights, and more.</p>
+</div>
+</div>
+</div>
+</footer>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://unpkg.com/topojson-client@3"></script>
+<script>
+// ============================================================
+// EMBEDDED DATASET
+// ============================================================
+const AI_DATA = {"metadata":{"description":"Global AI acceptance and high-tech adoption scores by country, compiled from international surveys, readiness indices, and enterprise adoption data","sources":["Edelman Trust Barometer 2025","Estimated from readiness indices","ILIA 2024","ILIA 2024/Regional estimate","IMD 2024","IMD 2024/Eurobarometer 554","IMD 2024/Eurostat 2025","IMD 2024/Eurostat 2025/Eurobarometer 554","IMD 2024/ITU 2024","IMD 2024/ITU 2024/Eurobarometer 554","IMD 2024/ITU 2024/Microsoft 2024","IMD 2024/ITU 2024/Oxford Insights 2025","IMD 2024/Oxford Insights 2024","IMD World Digital Competitiveness Ranking 2024","ITU 2024","ITU 2024/Eurostat 2025/Eurobarometer 554","ITU 2024/Gulf patterns","ITU ICT Development Index 2024","Ipsos AI Monitor 2024","Ipsos AI Monitor 2024 (benefits)","Lloyd's Register Foundation World Risk Poll 2021","Oxford Insights 2024","Oxford Insights 2024/2025","Oxford Insights 2024/Asian Barometer","Oxford Insights 2024/ILIA 2024","Oxford Insights 2024/Regional estimate","Oxford Insights Government AI Readiness Index 2024","Pew Research Center 2025","Regional estimate","Regional estimate (Central America)","Regional estimate (Central/West Africa)","Regional estimate (East Africa)","Regional estimate (GCC patterns)","Regional estimate (North Africa)","Regional estimate (Pacific)","Regional estimate (SE Asia patterns)","Regional estimate (South Asia)","Regional estimate (Southern Africa)","Regional estimate (Southern/East Africa)","Regional estimate (Sub-Saharan Africa)","Regional estimate (West Africa)","Regional estimate (Western Balkans)","Standard Insights SE Asia Survey 2024","Stanford HAI Global AI Vibrancy Tool 2025","Tortoise Media Global AI Index 2024","World Risk Poll 2021 regional/Oxford Insights 2024"],"methodology":"Weighted average based on source credibility (Pew/Stanford/ITU=VERY HIGH 1.0, Ipsos/Oxford/IMD=HIGH 0.85, Edelman/McKinsey=MEDIUM-HIGH 0.7) and recency (2025=1.0, 2024=0.9, 2023=0.7, 2021=0.35). Multiple data points per country are combined using these weights.","lastUpdated":"2026-02-21","total_countries":121,"data_quality_note":"Countries with direct survey data from Pew, Ipsos, or Edelman are marked confidence=high. Countries estimated from readiness indices and regional patterns are marked confidence=low. Lloyd's Register Foundation 2021 and EU AI Watch 2021 data flagged as historical baselines (pre-ChatGPT era). KPMG Q4 2026 data flagged as projected. New Zealand IMD duplicate removed (kept rank 27 only).","validation_applied":["Fixed New Zealand duplicate in IMD rankings (kept rank 27 only)","Flagged KPMG Q4 2026 data as projected","Marked Lloyd's Register 2021 and EU AI Watch 2021 as historical baselines","Standardized country names and ISO codes"]},"data":[{"country":"China","iso_a3":"CHN","ai_acceptance_score":82,"high_tech_adoption":64,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":80,"weight":0.343,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":78,"weight":0.343,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"},{"source":"Edelman Trust Barometer 2025","value":87,"weight":0.314,"methodology":"Online survey, N=1000","survey_question":"Overall, how much do you trust AI?"}],"breakdown":{"positive":76,"negative":24,"neutral":0},"year":2025,"is_estimated":false},{"country":"Israel","iso_a3":"ISR","ai_acceptance_score":76,"high_tech_adoption":71,"confidence":"medium","data_sources":[{"source":"Pew Research Center 2025","value":76,"weight":1.0,"methodology":"Face-to-face, N=1000, nationally representative","survey_question":"More excited vs more concerned about increased AI use in daily life"}],"breakdown":{"positive":76,"negative":14,"neutral":10},"year":2025,"is_estimated":false},{"country":"Indonesia","iso_a3":"IDN","ai_acceptance_score":75,"high_tech_adoption":35,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":76,"weight":0.5,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":74,"weight":0.5,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"}],"breakdown":{"positive":61,"negative":39,"neutral":0},"year":2024,"is_estimated":false},{"country":"South Korea","iso_a3":"KOR","ai_acceptance_score":75,"high_tech_adoption":61,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":73,"weight":0.271,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":69,"weight":0.271,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"},{"source":"Pew Research Center 2025","value":82,"weight":0.354,"methodology":"Phone, N=1000, nationally representative","survey_question":"More excited vs more concerned about increased AI use in daily life"},{"source":"Lloyd's Register Foundation World Risk Poll 2021 [HISTORICAL BASELINE]","value":70,"weight":0.105,"methodology":"Face-to-face/telephone, N=1000, Gallup World Poll (2021 pre-ChatGPT era)","survey_question":"Will AI mostly help or mostly harm people in your country in the next 20 years?"}],"breakdown":{"positive":66,"negative":34,"neutral":0},"year":2025,"is_estimated":false},{"country":"Thailand","iso_a3":"THA","ai_acceptance_score":72,"high_tech_adoption":66,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":76,"weight":0.5,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":67,"weight":0.5,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"}],"breakdown":{"positive":59,"negative":41,"neutral":0},"year":2024,"is_estimated":false},{"country":"Taiwan","iso_a3":"TWN","ai_acceptance_score":72,"high_tech_adoption":86,"confidence":"low","data_sources":[{"source":"Estimated from readiness indices","value":72,"weight":1.0}],"breakdown":{"positive":72,"negative":18,"neutral":10},"year":2024,"is_estimated":true},{"country":"Qatar","iso_a3":"QAT","ai_acceptance_score":72,"high_tech_adoption":84,"confidence":"medium","data_sources":[{"source":"IMD 2024/ITU 2024/Oxford Insights 2025","value":72,"weight":1.0,"methodology":"Estimated from IMD 2024/ITU 2024/Oxford Insights 2025","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":72,"negative":18,"neutral":10},"year":2024,"is_estimated":true},{"country":"Peru","iso_a3":"PER","ai_acceptance_score":70,"high_tech_adoption":46,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":67,"weight":0.5,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":73,"weight":0.5,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"}],"breakdown":{"positive":57,"negative":43,"neutral":0},"year":2024,"is_estimated":false},{"country":"Estonia","iso_a3":"EST","ai_acceptance_score":70,"high_tech_adoption":84,"confidence":"low","data_sources":[{"source":"Estimated from readiness indices","value":70,"weight":1.0}],"breakdown":{"positive":70,"negative":20,"neutral":10},"year":2024,"is_estimated":true},{"country":"Mexico","iso_a3":"MEX","ai_acceptance_score":68,"high_tech_adoption":48,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":70,"weight":0.5,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":67,"weight":0.5,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"}],"breakdown":{"positive":60,"negative":40,"neutral":0},"year":2024,"is_estimated":false},{"country":"Turkey","iso_a3":"TUR","ai_acceptance_score":68,"high_tech_adoption":38,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":70,"weight":0.5,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":65,"weight":0.5,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"}],"breakdown":{"positive":57,"negative":43,"neutral":0},"year":2024,"is_estimated":false},{"country":"India","iso_a3":"IND","ai_acceptance_score":68,"high_tech_adoption":43,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":63,"weight":0.302,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":59,"weight":0.302,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"},{"source":"Pew Research Center 2025","value":78,"weight":0.395,"methodology":"Face-to-face, N=1000, nationally representative","survey_question":"More excited vs more concerned about increased AI use in daily life"}],"breakdown":{"positive":55,"negative":45,"neutral":0},"year":2025,"is_estimated":false},{"country":"Kuwait","iso_a3":"KWT","ai_acceptance_score":68,"high_tech_adoption":89,"confidence":"medium","data_sources":[{"source":"ITU 2024/Gulf patterns","value":68,"weight":1.0,"methodology":"Estimated from ITU 2024/Gulf patterns","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":68,"negative":22,"neutral":10},"year":2024,"is_estimated":true},{"country":"Bahrain","iso_a3":"BHR","ai_acceptance_score":67,"high_tech_adoption":78,"confidence":"medium","data_sources":[{"source":"IMD 2024/ITU 2024","value":67,"weight":1.0,"methodology":"Estimated from IMD 2024/ITU 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":67,"negative":23,"neutral":10},"year":2024,"is_estimated":true},{"country":"Singapore","iso_a3":"SGP","ai_acceptance_score":65,"high_tech_adoption":64,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":64,"weight":0.5,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":66,"weight":0.5,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"}],"breakdown":{"positive":53,"negative":47,"neutral":0},"year":2024,"is_estimated":false},{"country":"Hong Kong SAR","iso_a3":"HKG","ai_acceptance_score":65,"high_tech_adoption":90,"confidence":"medium","data_sources":[{"source":"IMD 2024/ITU 2024/Microsoft 2024","value":65,"weight":1.0,"methodology":"Estimated from IMD 2024/ITU 2024/Microsoft 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":65,"negative":25,"neutral":10},"year":2024,"is_estimated":true},{"country":"Malaysia","iso_a3":"MYS","ai_acceptance_score":64,"high_tech_adoption":82,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":68,"weight":0.5,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":59,"weight":0.5,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"}],"breakdown":{"positive":58,"negative":42,"neutral":0},"year":2024,"is_estimated":false},{"country":"Colombia","iso_a3":"COL","ai_acceptance_score":64,"high_tech_adoption":52,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":63,"weight":0.5,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":64,"weight":0.5,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"}],"breakdown":{"positive":57,"negative":43,"neutral":0},"year":2024,"is_estimated":false},{"country":"Denmark","iso_a3":"DNK","ai_acceptance_score":64,"high_tech_adoption":73,"confidence":"low","data_sources":[{"source":"Estimated from readiness indices","value":64,"weight":1.0}],"breakdown":{"positive":64,"negative":26,"neutral":10},"year":2024,"is_estimated":true},{"country":"South Africa","iso_a3":"ZAF","ai_acceptance_score":63,"high_tech_adoption":52,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":61,"weight":0.5,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":65,"weight":0.5,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"}],"breakdown":{"positive":53,"negative":47,"neutral":0},"year":2024,"is_estimated":false},{"country":"Finland","iso_a3":"FIN","ai_acceptance_score":63,"high_tech_adoption":72,"confidence":"low","data_sources":[{"source":"Estimated from readiness indices","value":63,"weight":1.0}],"breakdown":{"positive":63,"negative":27,"neutral":10},"year":2024,"is_estimated":true},{"country":"Oman","iso_a3":"OMN","ai_acceptance_score":63,"high_tech_adoption":55,"confidence":"low","data_sources":[{"source":"Regional estimate (GCC patterns)","value":63,"weight":1.0,"methodology":"Estimated from Regional estimate (GCC patterns)","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":63,"negative":27,"neutral":10},"year":2024,"is_estimated":true},{"country":"Norway","iso_a3":"NOR","ai_acceptance_score":62,"high_tech_adoption":70,"confidence":"low","data_sources":[{"source":"Estimated from readiness indices","value":62,"weight":1.0}],"breakdown":{"positive":62,"negative":28,"neutral":10},"year":2024,"is_estimated":true},{"country":"Czech Republic","iso_a3":"CZE","ai_acceptance_score":62,"high_tech_adoption":70,"confidence":"low","data_sources":[{"source":"Estimated from readiness indices","value":62,"weight":1.0}],"breakdown":{"positive":62,"negative":28,"neutral":10},"year":2024,"is_estimated":true},{"country":"Brunei","iso_a3":"BRN","ai_acceptance_score":62,"high_tech_adoption":83,"confidence":"medium","data_sources":[{"source":"ITU 2024","value":62,"weight":1.0,"methodology":"Estimated from ITU 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":62,"negative":28,"neutral":10},"year":2024,"is_estimated":true},{"country":"Portugal","iso_a3":"PRT","ai_acceptance_score":61,"high_tech_adoption":68,"confidence":"low","data_sources":[{"source":"Estimated from readiness indices","value":61,"weight":1.0}],"breakdown":{"positive":61,"negative":29,"neutral":10},"year":2024,"is_estimated":true},{"country":"Saudi Arabia","iso_a3":"SAU","ai_acceptance_score":60,"high_tech_adoption":67,"confidence":"low","data_sources":[{"source":"Estimated from readiness indices","value":60,"weight":1.0}],"breakdown":{"positive":60,"negative":30,"neutral":10},"year":2024,"is_estimated":true},{"country":"Austria","iso_a3":"AUT","ai_acceptance_score":60,"high_tech_adoption":67,"confidence":"low","data_sources":[{"source":"Estimated from readiness indices","value":60,"weight":1.0}],"breakdown":{"positive":60,"negative":30,"neutral":10},"year":2024,"is_estimated":true},{"country":"Argentina","iso_a3":"ARG","ai_acceptance_score":58,"high_tech_adoption":45,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":52,"weight":0.5,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":64,"weight":0.5,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"}],"breakdown":{"positive":52,"negative":47,"neutral":1},"year":2024,"is_estimated":false},{"country":"Jordan","iso_a3":"JOR","ai_acceptance_score":58,"high_tech_adoption":47,"confidence":"medium","data_sources":[{"source":"IMD 2024/Oxford Insights 2024","value":58,"weight":1.0,"methodology":"Estimated from IMD 2024/Oxford Insights 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":58,"negative":32,"neutral":10},"year":2024,"is_estimated":true},{"country":"Uzbekistan","iso_a3":"UZB","ai_acceptance_score":58,"high_tech_adoption":38,"confidence":"low","data_sources":[{"source":"Oxford Insights 2024/2025","value":58,"weight":1.0,"methodology":"Estimated from Oxford Insights 2024/2025","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":58,"negative":32,"neutral":10},"year":2024,"is_estimated":true},{"country":"Rwanda","iso_a3":"RWA","ai_acceptance_score":58,"high_tech_adoption":28,"confidence":"medium","data_sources":[{"source":"Oxford Insights 2024","value":58,"weight":1.0,"methodology":"Estimated from Oxford Insights 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":58,"negative":32,"neutral":10},"year":2024,"is_estimated":true},{"country":"Sri Lanka","iso_a3":"LKA","ai_acceptance_score":58,"high_tech_adoption":38,"confidence":"medium","data_sources":[{"source":"Oxford Insights 2024/Asian Barometer","value":58,"weight":1.0,"methodology":"Estimated from Oxford Insights 2024/Asian Barometer","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":58,"negative":32,"neutral":10},"year":2024,"is_estimated":true},{"country":"Ecuador","iso_a3":"ECU","ai_acceptance_score":58,"high_tech_adoption":38,"confidence":"medium","data_sources":[{"source":"ILIA 2024/Regional estimate","value":58,"weight":1.0,"methodology":"Estimated from ILIA 2024/Regional estimate","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":58,"negative":32,"neutral":10},"year":2024,"is_estimated":true},{"country":"Dominican Republic","iso_a3":"DOM","ai_acceptance_score":58,"high_tech_adoption":35,"confidence":"medium","data_sources":[{"source":"ILIA 2024","value":58,"weight":1.0,"methodology":"Estimated from ILIA 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":58,"negative":32,"neutral":10},"year":2024,"is_estimated":true},{"country":"Costa Rica","iso_a3":"CRI","ai_acceptance_score":58,"high_tech_adoption":45,"confidence":"medium","data_sources":[{"source":"Oxford Insights 2024/ILIA 2024","value":58,"weight":1.0,"methodology":"Estimated from Oxford Insights 2024/ILIA 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":58,"negative":32,"neutral":10},"year":2024,"is_estimated":true},{"country":"Panama","iso_a3":"PAN","ai_acceptance_score":57,"high_tech_adoption":40,"confidence":"medium","data_sources":[{"source":"ILIA 2024","value":57,"weight":1.0,"methodology":"Estimated from ILIA 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":57,"negative":33,"neutral":10},"year":2024,"is_estimated":true},{"country":"Brazil","iso_a3":"BRA","ai_acceptance_score":55,"high_tech_adoption":54,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":56,"weight":0.237,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":55,"weight":0.237,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"},{"source":"Pew Research Center 2025","value":45,"weight":0.31,"methodology":"Face-to-face, N=1000, nationally representative","survey_question":"More excited vs more concerned about increased AI use in daily life"},{"source":"Edelman Trust Barometer 2025","value":67,"weight":0.217,"methodology":"Online survey, N=1000","survey_question":"Overall, how much do you trust AI?"}],"breakdown":{"positive":56,"negative":44,"neutral":0},"year":2025,"is_estimated":false},{"country":"United Arab Emirates","iso_a3":"ARE","ai_acceptance_score":55,"high_tech_adoption":58,"confidence":"low","data_sources":[{"source":"Estimated from readiness indices","value":55,"weight":1.0}],"breakdown":{"positive":55,"negative":35,"neutral":10},"year":2025,"is_estimated":true},{"country":"Romania","iso_a3":"ROU","ai_acceptance_score":55,"high_tech_adoption":59,"confidence":"low","data_sources":[{"source":"Estimated from readiness indices","value":55,"weight":1.0}],"breakdown":{"positive":55,"negative":35,"neutral":10},"year":2024,"is_estimated":true},{"country":"Kazakhstan","iso_a3":"KAZ","ai_acceptance_score":55,"high_tech_adoption":56,"confidence":"medium","data_sources":[{"source":"IMD 2024/Oxford Insights 2024","value":55,"weight":1.0,"methodology":"Estimated from IMD 2024/Oxford Insights 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":55,"negative":35,"neutral":10},"year":2024,"is_estimated":true},{"country":"Myanmar","iso_a3":"MMR","ai_acceptance_score":55,"high_tech_adoption":20,"confidence":"medium","data_sources":[{"source":"Standard Insights SE Asia Survey 2024","value":55,"weight":1.0,"methodology":"Estimated from Standard Insights SE Asia Survey 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":55,"negative":35,"neutral":10},"year":2024,"is_estimated":true},{"country":"Cambodia","iso_a3":"KHM","ai_acceptance_score":55,"high_tech_adoption":25,"confidence":"medium","data_sources":[{"source":"Standard Insights SE Asia Survey 2024","value":55,"weight":1.0,"methodology":"Estimated from Standard Insights SE Asia Survey 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":55,"negative":35,"neutral":10},"year":2024,"is_estimated":true},{"country":"Iran","iso_a3":"IRN","ai_acceptance_score":55,"high_tech_adoption":38,"confidence":"low","data_sources":[{"source":"Oxford Insights 2024/Regional estimate","value":55,"weight":1.0,"methodology":"Estimated from Oxford Insights 2024/Regional estimate","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":55,"negative":35,"neutral":10},"year":2024,"is_estimated":true},{"country":"Tunisia","iso_a3":"TUN","ai_acceptance_score":55,"high_tech_adoption":35,"confidence":"medium","data_sources":[{"source":"Oxford Insights 2024/Regional estimate","value":55,"weight":1.0,"methodology":"Estimated from Oxford Insights 2024/Regional estimate","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":55,"negative":35,"neutral":10},"year":2024,"is_estimated":true},{"country":"Paraguay","iso_a3":"PRY","ai_acceptance_score":55,"high_tech_adoption":30,"confidence":"low","data_sources":[{"source":"ILIA 2024/Regional estimate","value":55,"weight":1.0,"methodology":"Estimated from ILIA 2024/Regional estimate","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":55,"negative":35,"neutral":10},"year":2024,"is_estimated":true},{"country":"Uruguay","iso_a3":"URY","ai_acceptance_score":55,"high_tech_adoption":52,"confidence":"medium","data_sources":[{"source":"ILIA 2024","value":55,"weight":1.0,"methodology":"Estimated from ILIA 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":55,"negative":35,"neutral":10},"year":2024,"is_estimated":true},{"country":"Chile","iso_a3":"CHL","ai_acceptance_score":52,"high_tech_adoption":80,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":46,"weight":0.5,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":57,"weight":0.5,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"}],"breakdown":{"positive":46,"negative":51,"neutral":3},"year":2024,"is_estimated":false},{"country":"Mongolia","iso_a3":"MNG","ai_acceptance_score":52,"high_tech_adoption":38,"confidence":"medium","data_sources":[{"source":"IMD 2024","value":52,"weight":1.0,"methodology":"Estimated from IMD 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":52,"negative":38,"neutral":10},"year":2024,"is_estimated":true},{"country":"Malta","iso_a3":"MLT","ai_acceptance_score":52,"high_tech_adoption":85,"confidence":"high","data_sources":[{"source":"ITU 2024/Eurostat 2025/Eurobarometer 554","value":52,"weight":1.0,"methodology":"Estimated from ITU 2024/Eurostat 2025/Eurobarometer 554","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":52,"negative":38,"neutral":10},"year":2024,"is_estimated":true},{"country":"Laos","iso_a3":"LAO","ai_acceptance_score":52,"high_tech_adoption":18,"confidence":"low","data_sources":[{"source":"Regional estimate (SE Asia patterns)","value":52,"weight":1.0,"methodology":"Estimated from Regional estimate (SE Asia patterns)","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":52,"negative":38,"neutral":10},"year":2024,"is_estimated":true},{"country":"Algeria","iso_a3":"DZA","ai_acceptance_score":52,"high_tech_adoption":30,"confidence":"low","data_sources":[{"source":"Regional estimate (North Africa)","value":52,"weight":1.0,"methodology":"Estimated from Regional estimate (North Africa)","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":52,"negative":38,"neutral":10},"year":2024,"is_estimated":true},{"country":"Bolivia","iso_a3":"BOL","ai_acceptance_score":52,"high_tech_adoption":25,"confidence":"low","data_sources":[{"source":"ILIA 2024/Regional estimate","value":52,"weight":1.0,"methodology":"Estimated from ILIA 2024/Regional estimate","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":52,"negative":38,"neutral":10},"year":2024,"is_estimated":true},{"country":"Azerbaijan","iso_a3":"AZE","ai_acceptance_score":52,"high_tech_adoption":38,"confidence":"low","data_sources":[{"source":"Oxford Insights 2024","value":52,"weight":1.0,"methodology":"Estimated from Oxford Insights 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":52,"negative":38,"neutral":10},"year":2024,"is_estimated":true},{"country":"Armenia","iso_a3":"ARM","ai_acceptance_score":52,"high_tech_adoption":42,"confidence":"low","data_sources":[{"source":"Oxford Insights 2024/Regional estimate","value":52,"weight":1.0,"methodology":"Estimated from Oxford Insights 2024/Regional estimate","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":52,"negative":38,"neutral":10},"year":2024,"is_estimated":true},{"country":"Ukraine","iso_a3":"UKR","ai_acceptance_score":50,"high_tech_adoption":50,"confidence":"low","data_sources":[{"source":"Estimated from readiness indices","value":50,"weight":1.0}],"breakdown":{"positive":50,"negative":40,"neutral":10},"year":2024,"is_estimated":true},{"country":"Botswana","iso_a3":"BWA","ai_acceptance_score":50,"high_tech_adoption":42,"confidence":"medium","data_sources":[{"source":"IMD 2024","value":50,"weight":1.0,"methodology":"Estimated from IMD 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":50,"negative":40,"neutral":10},"year":2024,"is_estimated":true},{"country":"Venezuela","iso_a3":"VEN","ai_acceptance_score":50,"high_tech_adoption":22,"confidence":"medium","data_sources":[{"source":"IMD 2024","value":50,"weight":1.0,"methodology":"Estimated from IMD 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":50,"negative":40,"neutral":10},"year":2024,"is_estimated":true},{"country":"Iraq","iso_a3":"IRQ","ai_acceptance_score":50,"high_tech_adoption":22,"confidence":"low","data_sources":[{"source":"Regional estimate","value":50,"weight":1.0,"methodology":"Estimated from Regional estimate","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":50,"negative":40,"neutral":10},"year":2024,"is_estimated":true},{"country":"Lebanon","iso_a3":"LBN","ai_acceptance_score":50,"high_tech_adoption":30,"confidence":"low","data_sources":[{"source":"Regional estimate","value":50,"weight":1.0,"methodology":"Estimated from Regional estimate","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":50,"negative":40,"neutral":10},"year":2024,"is_estimated":true},{"country":"Nepal","iso_a3":"NPL","ai_acceptance_score":50,"high_tech_adoption":20,"confidence":"low","data_sources":[{"source":"Regional estimate (South Asia)","value":50,"weight":1.0,"methodology":"Estimated from Regional estimate (South Asia)","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":50,"negative":40,"neutral":10},"year":2024,"is_estimated":true},{"country":"Guatemala","iso_a3":"GTM","ai_acceptance_score":50,"high_tech_adoption":22,"confidence":"low","data_sources":[{"source":"Regional estimate (Central America)","value":50,"weight":1.0,"methodology":"Estimated from Regional estimate (Central America)","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":50,"negative":40,"neutral":10},"year":2024,"is_estimated":true},{"country":"Georgia","iso_a3":"GEO","ai_acceptance_score":50,"high_tech_adoption":40,"confidence":"low","data_sources":[{"source":"Oxford Insights 2024/Regional estimate","value":50,"weight":1.0,"methodology":"Estimated from Oxford Insights 2024/Regional estimate","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":50,"negative":40,"neutral":10},"year":2024,"is_estimated":true},{"country":"Philippines","iso_a3":"PHL","ai_acceptance_score":49,"high_tech_adoption":48,"confidence":"low","data_sources":[{"source":"Estimated from readiness indices","value":49,"weight":1.0}],"breakdown":{"positive":49,"negative":41,"neutral":10},"year":2024,"is_estimated":true},{"country":"Hungary","iso_a3":"HUN","ai_acceptance_score":48,"high_tech_adoption":62,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":47,"weight":0.5,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":50,"weight":0.5,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"}],"breakdown":{"positive":47,"negative":43,"neutral":10},"year":2024,"is_estimated":false},{"country":"New Zealand","iso_a3":"NZL","ai_acceptance_score":48,"high_tech_adoption":74,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":43,"weight":0.5,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":52,"weight":0.5,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"}],"breakdown":{"positive":39,"negative":61,"neutral":0},"year":2024,"is_estimated":false},{"country":"Kyrgyzstan","iso_a3":"KGZ","ai_acceptance_score":48,"high_tech_adoption":22,"confidence":"low","data_sources":[{"source":"Regional estimate","value":48,"weight":1.0,"methodology":"Estimated from Regional estimate","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":48,"negative":42,"neutral":10},"year":2024,"is_estimated":true},{"country":"Senegal","iso_a3":"SEN","ai_acceptance_score":48,"high_tech_adoption":22,"confidence":"low","data_sources":[{"source":"Oxford Insights 2024","value":48,"weight":1.0,"methodology":"Estimated from Oxford Insights 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":48,"negative":42,"neutral":10},"year":2024,"is_estimated":true},{"country":"Honduras","iso_a3":"HND","ai_acceptance_score":48,"high_tech_adoption":18,"confidence":"low","data_sources":[{"source":"Regional estimate (Central America)","value":48,"weight":1.0,"methodology":"Estimated from Regional estimate (Central America)","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":48,"negative":42,"neutral":10},"year":2024,"is_estimated":true},{"country":"Serbia","iso_a3":"SRB","ai_acceptance_score":48,"high_tech_adoption":42,"confidence":"low","data_sources":[{"source":"Oxford Insights 2024/Regional estimate","value":48,"weight":1.0,"methodology":"Estimated from Oxford Insights 2024/Regional estimate","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":48,"negative":42,"neutral":10},"year":2024,"is_estimated":true},{"country":"Albania","iso_a3":"ALB","ai_acceptance_score":48,"high_tech_adoption":32,"confidence":"low","data_sources":[{"source":"Regional estimate (Western Balkans)","value":48,"weight":1.0,"methodology":"Estimated from Regional estimate (Western Balkans)","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":48,"negative":42,"neutral":10},"year":2024,"is_estimated":true},{"country":"Italy","iso_a3":"ITA","ai_acceptance_score":46,"high_tech_adoption":62,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":49,"weight":0.302,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":47,"weight":0.302,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"},{"source":"Pew Research Center 2025","value":43,"weight":0.395,"methodology":"Phone, N=1000, nationally representative","survey_question":"More excited vs more concerned about increased AI use in daily life"}],"breakdown":{"positive":49,"negative":40,"neutral":11},"year":2025,"is_estimated":false},{"country":"Greece","iso_a3":"GRC","ai_acceptance_score":46,"high_tech_adoption":58,"confidence":"low","data_sources":[{"source":"Pew Research Center 2025","value":46,"weight":1.0,"methodology":"Phone, N=1000, nationally representative","survey_question":"More excited vs more concerned about increased AI use in daily life"}],"breakdown":{"positive":46,"negative":44,"neutral":10},"year":2025,"is_estimated":false},{"country":"Lithuania","iso_a3":"LTU","ai_acceptance_score":46,"high_tech_adoption":82,"confidence":"medium","data_sources":[{"source":"IMD 2024/ITU 2024","value":46,"weight":1.0,"methodology":"Estimated from IMD 2024/ITU 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":46,"negative":44,"neutral":10},"year":2024,"is_estimated":true},{"country":"Croatia","iso_a3":"HRV","ai_acceptance_score":46,"high_tech_adoption":56,"confidence":"medium","data_sources":[{"source":"IMD 2024/Eurobarometer 554","value":46,"weight":1.0,"methodology":"Estimated from IMD 2024/Eurobarometer 554","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":46,"negative":44,"neutral":10},"year":2024,"is_estimated":true},{"country":"North Macedonia","iso_a3":"MKD","ai_acceptance_score":46,"high_tech_adoption":35,"confidence":"low","data_sources":[{"source":"Regional estimate (Western Balkans)","value":46,"weight":1.0,"methodology":"Estimated from Regional estimate (Western Balkans)","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":46,"negative":44,"neutral":10},"year":2024,"is_estimated":true},{"country":"Montenegro","iso_a3":"MNE","ai_acceptance_score":46,"high_tech_adoption":38,"confidence":"low","data_sources":[{"source":"Regional estimate (Western Balkans)","value":46,"weight":1.0,"methodology":"Estimated from Regional estimate (Western Balkans)","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":46,"negative":44,"neutral":10},"year":2024,"is_estimated":true},{"country":"Japan","iso_a3":"JPN","ai_acceptance_score":45,"high_tech_adoption":55,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":47,"weight":0.5,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":42,"weight":0.5,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"}],"breakdown":{"positive":47,"negative":9,"neutral":44},"year":2024,"is_estimated":false},{"country":"Spain","iso_a3":"ESP","ai_acceptance_score":45,"high_tech_adoption":51,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":45,"weight":0.5,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":44,"weight":0.5,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"}],"breakdown":{"positive":45,"negative":48,"neutral":7},"year":2024,"is_estimated":false},{"country":"Slovenia","iso_a3":"SVN","ai_acceptance_score":45,"high_tech_adoption":47,"confidence":"medium","data_sources":[{"source":"IMD 2024/Eurobarometer 554","value":45,"weight":1.0,"methodology":"Estimated from IMD 2024/Eurobarometer 554","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":45,"negative":45,"neutral":10},"year":2024,"is_estimated":true},{"country":"Turkmenistan","iso_a3":"TKM","ai_acceptance_score":45,"high_tech_adoption":20,"confidence":"low","data_sources":[{"source":"Regional estimate","value":45,"weight":1.0,"methodology":"Estimated from Regional estimate","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":45,"negative":45,"neutral":10},"year":2024,"is_estimated":true},{"country":"Tajikistan","iso_a3":"TJK","ai_acceptance_score":45,"high_tech_adoption":18,"confidence":"low","data_sources":[{"source":"Regional estimate","value":45,"weight":1.0,"methodology":"Estimated from Regional estimate","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":45,"negative":45,"neutral":10},"year":2024,"is_estimated":true},{"country":"Cote d'Ivoire","iso_a3":"CIV","ai_acceptance_score":45,"high_tech_adoption":18,"confidence":"low","data_sources":[{"source":"Regional estimate (West Africa)","value":45,"weight":1.0,"methodology":"Estimated from Regional estimate (West Africa)","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":45,"negative":45,"neutral":10},"year":2024,"is_estimated":true},{"country":"Zimbabwe","iso_a3":"ZWE","ai_acceptance_score":45,"high_tech_adoption":18,"confidence":"low","data_sources":[{"source":"Regional estimate (Southern Africa)","value":45,"weight":1.0,"methodology":"Estimated from Regional estimate (Southern Africa)","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":45,"negative":45,"neutral":10},"year":2024,"is_estimated":true},{"country":"Zambia","iso_a3":"ZMB","ai_acceptance_score":45,"high_tech_adoption":16,"confidence":"low","data_sources":[{"source":"Regional estimate (Southern/East Africa)","value":45,"weight":1.0,"methodology":"Estimated from Regional estimate (Southern/East Africa)","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":45,"negative":45,"neutral":10},"year":2024,"is_estimated":true},{"country":"Cuba","iso_a3":"CUB","ai_acceptance_score":45,"high_tech_adoption":18,"confidence":"low","data_sources":[{"source":"Regional estimate","value":45,"weight":1.0,"methodology":"Estimated from Regional estimate","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":45,"negative":45,"neutral":10},"year":2024,"is_estimated":true},{"country":"Fiji","iso_a3":"FJI","ai_acceptance_score":45,"high_tech_adoption":25,"confidence":"low","data_sources":[{"source":"Regional estimate (Pacific)","value":45,"weight":1.0,"methodology":"Estimated from Regional estimate (Pacific)","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":45,"negative":45,"neutral":10},"year":2024,"is_estimated":true},{"country":"Germany","iso_a3":"DEU","ai_acceptance_score":44,"high_tech_adoption":70,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":46,"weight":0.343,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":46,"weight":0.343,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"},{"source":"Edelman Trust Barometer 2025","value":39,"weight":0.314,"methodology":"Online survey, N=1000","survey_question":"Overall, how much do you trust AI?"}],"breakdown":{"positive":46,"negative":44,"neutral":10},"year":2025,"is_estimated":false},{"country":"Kenya","iso_a3":"KEN","ai_acceptance_score":44,"high_tech_adoption":40,"confidence":"low","data_sources":[{"source":"Estimated from readiness indices","value":44,"weight":1.0}],"breakdown":{"positive":44,"negative":46,"neutral":10},"year":2024,"is_estimated":true},{"country":"Iceland","iso_a3":"ISL","ai_acceptance_score":44,"high_tech_adoption":85,"confidence":"medium","data_sources":[{"source":"IMD 2024/ITU 2024","value":44,"weight":1.0,"methodology":"Estimated from IMD 2024/ITU 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":44,"negative":46,"neutral":10},"year":2024,"is_estimated":true},{"country":"Luxembourg","iso_a3":"LUX","ai_acceptance_score":44,"high_tech_adoption":74,"confidence":"medium","data_sources":[{"source":"IMD 2024/Eurostat 2025","value":44,"weight":1.0,"methodology":"Estimated from IMD 2024/Eurostat 2025","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":44,"negative":46,"neutral":10},"year":2024,"is_estimated":true},{"country":"Cyprus","iso_a3":"CYP","ai_acceptance_score":44,"high_tech_adoption":47,"confidence":"medium","data_sources":[{"source":"IMD 2024/Eurostat 2025/Eurobarometer 554","value":44,"weight":1.0,"methodology":"Estimated from IMD 2024/Eurostat 2025/Eurobarometer 554","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":44,"negative":46,"neutral":10},"year":2024,"is_estimated":true},{"country":"Bosnia and Herzegovina","iso_a3":"BIH","ai_acceptance_score":44,"high_tech_adoption":30,"confidence":"low","data_sources":[{"source":"Regional estimate (Western Balkans)","value":44,"weight":1.0,"methodology":"Estimated from Regional estimate (Western Balkans)","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":44,"negative":46,"neutral":10},"year":2024,"is_estimated":true},{"country":"Australia","iso_a3":"AUS","ai_acceptance_score":43,"high_tech_adoption":66,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":39,"weight":0.302,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":47,"weight":0.302,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"},{"source":"Pew Research Center 2025","value":44,"weight":0.395,"methodology":"Phone, N=1000, nationally representative","survey_question":"More excited vs more concerned about increased AI use in daily life"}],"breakdown":{"positive":38,"negative":62,"neutral":0},"year":2025,"is_estimated":false},{"country":"Poland","iso_a3":"POL","ai_acceptance_score":42,"high_tech_adoption":81,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":44,"weight":0.5,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":39,"weight":0.5,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"}],"breakdown":{"positive":44,"negative":34,"neutral":22},"year":2024,"is_estimated":false},{"country":"Switzerland","iso_a3":"CHE","ai_acceptance_score":42,"high_tech_adoption":63,"confidence":"medium","data_sources":[{"source":"Ipsos AI Monitor 2024","value":42,"weight":1.0,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"}],"breakdown":{"positive":42,"negative":51,"neutral":7},"year":2024,"is_estimated":false},{"country":"United Kingdom","iso_a3":"GBR","ai_acceptance_score":42,"high_tech_adoption":60,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":38,"weight":0.237,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":40,"weight":0.237,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"},{"source":"Pew Research Center 2025","value":52,"weight":0.31,"methodology":"Phone, N=1000, nationally representative","survey_question":"More excited vs more concerned about increased AI use in daily life"},{"source":"Edelman Trust Barometer 2025","value":36,"weight":0.217,"methodology":"Online survey, N=1000","survey_question":"Overall, how much do you trust AI?"}],"breakdown":{"positive":37,"negative":63,"neutral":0},"year":2025,"is_estimated":false},{"country":"Russia","iso_a3":"RUS","ai_acceptance_score":42,"high_tech_adoption":37,"confidence":"low","data_sources":[{"source":"Estimated from readiness indices","value":42,"weight":1.0}],"breakdown":{"positive":42,"negative":48,"neutral":10},"year":2024,"is_estimated":true},{"country":"Bulgaria","iso_a3":"BGR","ai_acceptance_score":42,"high_tech_adoption":54,"confidence":"medium","data_sources":[{"source":"IMD 2024/Eurostat 2025/Eurobarometer 554","value":42,"weight":1.0,"methodology":"Estimated from IMD 2024/Eurostat 2025/Eurobarometer 554","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":42,"negative":48,"neutral":10},"year":2024,"is_estimated":true},{"country":"Ghana","iso_a3":"GHA","ai_acceptance_score":42,"high_tech_adoption":36,"confidence":"low","data_sources":[{"source":"Estimated from readiness indices","value":42,"weight":1.0}],"breakdown":{"positive":42,"negative":48,"neutral":10},"year":2024,"is_estimated":true},{"country":"Angola","iso_a3":"AGO","ai_acceptance_score":42,"high_tech_adoption":15,"confidence":"low","data_sources":[{"source":"Regional estimate (Sub-Saharan Africa)","value":42,"weight":1.0,"methodology":"Estimated from Regional estimate (Sub-Saharan Africa)","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":42,"negative":48,"neutral":10},"year":2024,"is_estimated":true},{"country":"Cameroon","iso_a3":"CMR","ai_acceptance_score":42,"high_tech_adoption":15,"confidence":"low","data_sources":[{"source":"Regional estimate (Central/West Africa)","value":42,"weight":1.0,"methodology":"Estimated from Regional estimate (Central/West Africa)","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":42,"negative":48,"neutral":10},"year":2024,"is_estimated":true},{"country":"Ireland","iso_a3":"IRL","ai_acceptance_score":40,"high_tech_adoption":58,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":40,"weight":0.5,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":40,"weight":0.5,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"}],"breakdown":{"positive":37,"negative":63,"neutral":0},"year":2024,"is_estimated":false},{"country":"Nigeria","iso_a3":"NGA","ai_acceptance_score":40,"high_tech_adoption":34,"confidence":"low","data_sources":[{"source":"Estimated from readiness indices","value":40,"weight":1.0}],"breakdown":{"positive":40,"negative":50,"neutral":10},"year":2024,"is_estimated":true},{"country":"Tanzania","iso_a3":"TZA","ai_acceptance_score":40,"high_tech_adoption":18,"confidence":"high","data_sources":[{"source":"Lloyd's Register Foundation World Risk Poll 2021","value":40,"weight":0.998,"methodology":"Estimated from Lloyd's Register Foundation World Risk Poll 2021","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":40,"negative":50,"neutral":10},"year":2021,"is_estimated":false},{"country":"Uganda","iso_a3":"UGA","ai_acceptance_score":40,"high_tech_adoption":18,"confidence":"high","data_sources":[{"source":"Lloyd's Register Foundation World Risk Poll 2021","value":40,"weight":0.998,"methodology":"Estimated from Lloyd's Register Foundation World Risk Poll 2021","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":40,"negative":50,"neutral":10},"year":2021,"is_estimated":false},{"country":"Latvia","iso_a3":"LVA","ai_acceptance_score":40,"high_tech_adoption":77,"confidence":"medium","data_sources":[{"source":"IMD 2024/ITU 2024/Eurobarometer 554","value":40,"weight":1.0,"methodology":"Estimated from IMD 2024/ITU 2024/Eurobarometer 554","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":40,"negative":50,"neutral":10},"year":2024,"is_estimated":true},{"country":"Slovakia","iso_a3":"SVK","ai_acceptance_score":40,"high_tech_adoption":57,"confidence":"high","data_sources":[{"source":"IMD 2024/Eurobarometer 554","value":40,"weight":1.0,"methodology":"Estimated from IMD 2024/Eurobarometer 554","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":40,"negative":50,"neutral":10},"year":2024,"is_estimated":true},{"country":"Mozambique","iso_a3":"MOZ","ai_acceptance_score":40,"high_tech_adoption":12,"confidence":"low","data_sources":[{"source":"Regional estimate (East Africa)","value":40,"weight":1.0,"methodology":"Estimated from Regional estimate (East Africa)","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":40,"negative":50,"neutral":10},"year":2024,"is_estimated":true},{"country":"Netherlands","iso_a3":"NLD","ai_acceptance_score":39,"high_tech_adoption":72,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":40,"weight":0.5,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":38,"weight":0.5,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"}],"breakdown":{"positive":40,"negative":49,"neutral":11},"year":2024,"is_estimated":false},{"country":"France","iso_a3":"FRA","ai_acceptance_score":39,"high_tech_adoption":65,"confidence":"medium","data_sources":[{"source":"Ipsos AI Monitor 2024","value":39,"weight":1.0,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"}],"breakdown":{"positive":39,"negative":49,"neutral":12},"year":2024,"is_estimated":false},{"country":"Canada","iso_a3":"CAN","ai_acceptance_score":39,"high_tech_adoption":58,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":37,"weight":0.302,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":40,"weight":0.302,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"},{"source":"Pew Research Center 2025","value":41,"weight":0.395,"methodology":"Phone, N=1000, nationally representative","survey_question":"More excited vs more concerned about increased AI use in daily life"}],"breakdown":{"positive":37,"negative":63,"neutral":0},"year":2025,"is_estimated":false},{"country":"DR Congo","iso_a3":"COD","ai_acceptance_score":38,"high_tech_adoption":8,"confidence":"low","data_sources":[{"source":"World Risk Poll 2021 regional/Oxford Insights 2024","value":38,"weight":1.0,"methodology":"Estimated from World Risk Poll 2021 regional/Oxford Insights 2024","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":38,"negative":52,"neutral":10},"year":2024,"is_estimated":true},{"country":"Madagascar","iso_a3":"MDG","ai_acceptance_score":38,"high_tech_adoption":10,"confidence":"low","data_sources":[{"source":"Regional estimate","value":38,"weight":1.0,"methodology":"Estimated from Regional estimate","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":38,"negative":52,"neutral":10},"year":2024,"is_estimated":true},{"country":"Papua New Guinea","iso_a3":"PNG","ai_acceptance_score":38,"high_tech_adoption":10,"confidence":"low","data_sources":[{"source":"Regional estimate (Pacific)","value":38,"weight":1.0,"methodology":"Estimated from Regional estimate (Pacific)","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":38,"negative":52,"neutral":10},"year":2024,"is_estimated":true},{"country":"Sweden","iso_a3":"SWE","ai_acceptance_score":36,"high_tech_adoption":73,"confidence":"medium","data_sources":[{"source":"Ipsos AI Monitor 2024","value":36,"weight":1.0,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"}],"breakdown":{"positive":36,"negative":56,"neutral":8},"year":2024,"is_estimated":false},{"country":"United States","iso_a3":"USA","ai_acceptance_score":36,"high_tech_adoption":90,"confidence":"high","data_sources":[{"source":"Ipsos AI Monitor 2024","value":34,"weight":0.217,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"},{"source":"Ipsos AI Monitor 2024 (benefits)","value":39,"weight":0.217,"methodology":"Online survey, N=1000","survey_question":"Products using AI have more benefits than drawbacks"},{"source":"Pew Research Center 2025","value":38,"weight":0.283,"methodology":"Online panel, N=3605, nationally representative","survey_question":"More excited vs more concerned about increased AI use in daily life"},{"source":"Edelman Trust Barometer 2025","value":32,"weight":0.198,"methodology":"Online survey, N=1000","survey_question":"Overall, how much do you trust AI?"},{"source":"Lloyd's Register Foundation World Risk Poll 2021 [HISTORICAL BASELINE]","value":32,"weight":0.084,"methodology":"Face-to-face/telephone, N=1000, Gallup World Poll (2021 pre-ChatGPT era)","survey_question":"Will AI mostly help or mostly harm people in your country in the next 20 years?"}],"breakdown":{"positive":34,"negative":64,"neutral":2},"year":2025,"is_estimated":false},{"country":"Yemen","iso_a3":"YEM","ai_acceptance_score":35,"high_tech_adoption":10,"confidence":"low","data_sources":[{"source":"Regional estimate","value":35,"weight":1.0,"methodology":"Estimated from Regional estimate","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":35,"negative":55,"neutral":10},"year":2024,"is_estimated":true},{"country":"Mali","iso_a3":"MLI","ai_acceptance_score":35,"high_tech_adoption":10,"confidence":"low","data_sources":[{"source":"Regional estimate (West Africa)","value":35,"weight":1.0,"methodology":"Estimated from Regional estimate (West Africa)","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":35,"negative":55,"neutral":10},"year":2024,"is_estimated":true},{"country":"Sudan","iso_a3":"SDN","ai_acceptance_score":35,"high_tech_adoption":10,"confidence":"low","data_sources":[{"source":"Regional estimate","value":35,"weight":1.0,"methodology":"Estimated from Regional estimate","survey_question":"Estimated AI acceptance"}],"breakdown":{"positive":35,"negative":55,"neutral":10},"year":2024,"is_estimated":true},{"country":"Belgium","iso_a3":"BEL","ai_acceptance_score":33,"high_tech_adoption":47,"confidence":"medium","data_sources":[{"source":"Ipsos AI Monitor 2024","value":33,"weight":1.0,"methodology":"Online survey, N=1000, Global Advisor platform","survey_question":"I am excited about products and services that use AI"}],"breakdown":{"positive":33,"negative":51,"neutral":16},"year":2024,"is_estimated":false}]};
+
+// ============================================================
+// ISO NUMERIC TO ALPHA-3 MAPPING
+// ============================================================
+const ISO_NUM_TO_A3 = {
+4:"AFG",8:"ALB",12:"DZA",20:"AND",24:"AGO",28:"ATG",32:"ARG",36:"AUS",40:"AUT",
+31:"AZE",44:"BHS",48:"BHR",50:"BGD",52:"BRB",112:"BLR",56:"BEL",84:"BLZ",204:"BEN",
+64:"BTN",68:"BOL",70:"BIH",72:"BWA",76:"BRA",96:"BRN",100:"BGR",854:"BFA",108:"BDI",
+132:"CPV",116:"KHM",120:"CMR",124:"CAN",140:"CAF",148:"TCD",152:"CHL",156:"CHN",
+170:"COL",174:"COM",178:"COG",180:"COD",188:"CRI",384:"CIV",191:"HRV",192:"CUB",
+196:"CYP",203:"CZE",208:"DNK",262:"DJI",212:"DMA",214:"DOM",218:"ECU",818:"EGY",
+222:"SLV",226:"GNQ",232:"ERI",233:"EST",748:"SWZ",231:"ETH",242:"FJI",246:"FIN",
+250:"FRA",266:"GAB",270:"GMB",268:"GEO",276:"DEU",288:"GHA",300:"GRC",308:"GRD",
+320:"GTM",324:"GIN",624:"GNB",328:"GUY",332:"HTI",340:"HND",348:"HUN",352:"ISL",
+356:"IND",360:"IDN",364:"IRN",368:"IRQ",372:"IRL",376:"ISR",380:"ITA",388:"JAM",
+392:"JPN",400:"JOR",398:"KAZ",404:"KEN",296:"KIR",408:"PRK",410:"KOR",414:"KWT",
+417:"KGZ",418:"LAO",428:"LVA",422:"LBN",426:"LSO",430:"LBR",434:"LBY",438:"LIE",
+440:"LTU",442:"LUX",450:"MDG",454:"MWI",458:"MYS",462:"MDV",466:"MLI",470:"MLT",
+478:"MRT",480:"MUS",484:"MEX",496:"MNG",499:"MNE",504:"MAR",508:"MOZ",104:"MMR",
+516:"NAM",524:"NPL",528:"NLD",554:"NZL",558:"NIC",562:"NER",566:"NGA",578:"NOR",
+512:"OMN",586:"PAK",591:"PAN",598:"PNG",600:"PRY",604:"PER",608:"PHL",616:"POL",
+620:"PRT",634:"QAT",642:"ROU",643:"RUS",646:"RWA",682:"SAU",686:"SEN",688:"SRB",
+694:"SLE",702:"SGP",703:"SVK",705:"SVN",706:"SOM",710:"ZAF",724:"ESP",144:"LKA",
+729:"SDN",740:"SUR",752:"SWE",756:"CHE",760:"SYR",158:"TWN",762:"TJK",834:"TZA",
+764:"THA",626:"TLS",768:"TGO",776:"TON",780:"TTO",788:"TUN",792:"TUR",795:"TKM",
+800:"UGA",804:"UKR",784:"ARE",826:"GBR",840:"USA",858:"URY",860:"UZB",548:"VUT",
+862:"VEN",704:"VNM",887:"YEM",894:"ZMB",716:"ZWE",344:"HKG",446:"MAC"
+};
+
+// ============================================================
+// DATA LOOKUP
+// ============================================================
+const countryByISO = {};
+AI_DATA.data.forEach(d => { countryByISO[d.iso_a3] = d; });
+
+// ============================================================
+// COLOR SCALES
+// ============================================================
+let vizMode = 'acceptance'; // 'acceptance' or 'adoption'
+
+const acceptanceColorScale = d3.scaleSequential()
+  .domain([30, 85])
+  .interpolator(t => d3.interpolateRgbBasis(['#312e81','#3b82f6','#06b6d4','#34d399'])(t));
+
+const adoptionColorScale = d3.scaleSequential()
+  .domain([8, 90])
+  .interpolator(t => d3.interpolateRgbBasis(['#581c87','#9333ea','#c084fc','#e9d5ff'])(t));
+
+function getCountryColor(iso_a3) {
+  const c = countryByISO[iso_a3];
+  if (!c) return '#1a1a2e';
+  if (vizMode === 'adoption') return adoptionColorScale(c.high_tech_adoption);
+  return acceptanceColorScale(c.ai_acceptance_score);
+}
+
+function getCountryScore(iso_a3) {
+  const c = countryByISO[iso_a3];
+  if (!c) return null;
+  return vizMode === 'adoption' ? c.high_tech_adoption : c.ai_acceptance_score;
+}
+
+// ============================================================
+// GLOBE SETUP
+// ============================================================
+const svgEl = document.getElementById('globe-svg');
+const width = 600, height = 600;
+const svg = d3.select('#globe-svg');
+let currentScale = 270;
+const minScale = 150, maxScale = 500;
+
+const projection = d3.geoOrthographic()
+  .scale(currentScale)
+  .translate([width/2, height/2])
+  .clipAngle(90)
+  .rotate([-20, -20]);
+const path = d3.geoPath().projection(projection);
+
+// SVG defs for glow filter
+const defs = svg.append('defs');
+const glowFilter = defs.append('filter').attr('id', 'country-glow').attr('x', '-50%').attr('y', '-50%').attr('width', '200%').attr('height', '200%');
+glowFilter.append('feGaussianBlur').attr('in', 'SourceGraphic').attr('stdDeviation', '3').attr('result', 'blur');
+glowFilter.append('feColorMatrix').attr('in', 'blur').attr('type', 'matrix')
+  .attr('values', '0 0 0 0 0.22  0 0 0 0 0.74  0 0 0 0 0.97  0 0 0 0.7 0');
+const feMerge = glowFilter.append('feMerge');
+feMerge.append('feMergeNode').attr('in', 'blur');
+feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
+
+// Ocean
+const oceanCircle = svg.append('circle')
+  .attr('cx', width/2).attr('cy', height/2).attr('r', currentScale)
+  .attr('fill', 'rgba(15,21,40,0.8)')
+  .attr('stroke', 'rgba(56,189,248,0.15)')
+  .attr('stroke-width', 1);
+
+// Graticule
+const graticule = d3.geoGraticule();
+const graticulePath = svg.append('path')
+  .datum(graticule())
+  .attr('d', path)
+  .attr('fill', 'none')
+  .attr('stroke', 'rgba(56,189,248,0.06)')
+  .attr('stroke-width', 0.5);
+
+const countriesG = svg.append('g');
+let worldData = null;
+let bordersPath = null;
+
+// Tooltip
+const tooltip = document.getElementById('globeTooltip');
+
+// Auto-rotation state
+let autoRotate = true;
+let autoRotateTimer = null;
+let autoRotateSpeed = 0.15;
+let lastInteraction = Date.now();
+
+function pauseAutoRotate() {
+  autoRotate = false;
+  lastInteraction = Date.now();
+  clearTimeout(autoRotateTimer);
+  autoRotateTimer = setTimeout(() => { autoRotate = true; }, 5000);
+}
+
+function autoRotateLoop() {
+  if (autoRotate && !isFlying) {
+    const r = projection.rotate();
+    projection.rotate([r[0] + autoRotateSpeed, r[1], r[2]]);
+    updateGlobe();
+  }
+  requestAnimationFrame(autoRotateLoop);
+}
+requestAnimationFrame(autoRotateLoop);
+
+// Load world data
+d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json').then(world => {
+  worldData = world;
+  const countries = topojson.feature(world, world.objects.countries);
+  countriesG.selectAll('path')
+    .data(countries.features)
+    .join('path')
+    .attr('d', path)
+    .attr('fill', d => {
+      const numId = d.id || d.properties?.id;
+      const a3 = ISO_NUM_TO_A3[+numId];
+      return getCountryColor(a3);
+    })
+    .attr('stroke', 'rgba(255,255,255,0.08)')
+    .attr('stroke-width', 0.5)
+    .style('cursor', 'pointer')
+    .on('click', function(event, d) {
+      pauseAutoRotate();
+      const numId = d.id || d.properties?.id;
+      const a3 = ISO_NUM_TO_A3[+numId];
+      if (a3 && countryByISO[a3]) {
+        selectCountry(a3);
+      }
+    })
+    .on('mouseover', function(event, d) {
+      d3.select(this).attr('filter', 'url(#country-glow)').attr('stroke', 'rgba(56,189,248,0.6)').attr('stroke-width', 1.5).raise();
+      const numId = d.id || d.properties?.id;
+      const a3 = ISO_NUM_TO_A3[+numId];
+      const c = countryByISO[a3];
+      if (c) {
+        const score = getCountryScore(a3);
+        const label = vizMode === 'adoption' ? 'Adoption' : 'Acceptance';
+        tooltip.querySelector('.tt-name').textContent = c.country;
+        tooltip.querySelector('.tt-score').textContent = label + ': ' + score + '/100';
+        tooltip.style.opacity = '1';
+      }
+    })
+    .on('mousemove', function(event) {
+      tooltip.style.left = (event.clientX + 14) + 'px';
+      tooltip.style.top = (event.clientY - 14) + 'px';
+    })
+    .on('mouseout', function() {
+      d3.select(this).attr('filter', null).attr('stroke', 'rgba(255,255,255,0.08)').attr('stroke-width', 0.5);
+      tooltip.style.opacity = '0';
+    });
+
+  // Country borders
+  bordersPath = svg.append('path')
+    .datum(topojson.mesh(world, world.objects.countries, (a, b) => a !== b))
+    .attr('d', path)
+    .attr('fill', 'none')
+    .attr('stroke', 'rgba(255,255,255,0.06)')
+    .attr('stroke-width', 0.3);
+});
+
+// Drag rotation
+const drag = d3.drag()
+  .on('start', function(event) {
+    pauseAutoRotate();
+    this.__rotate = projection.rotate();
+    this.__origin = [event.x, event.y];
+  })
+  .on('drag', function(event) {
+    const r = this.__rotate;
+    const o = this.__origin;
+    const dx = event.x - o[0];
+    const dy = event.y - o[1];
+    const scale = 0.4;
+    projection.rotate([r[0] + dx * scale, r[1] - dy * scale]);
+    updateGlobe();
+  });
+svg.call(drag);
+
+// Touch rotation support
+let touchStart = null;
+let touchRotate = null;
+svgEl.addEventListener('touchstart', function(e) {
+  if (e.touches.length === 1) {
+    pauseAutoRotate();
+    touchStart = [e.touches[0].clientX, e.touches[0].clientY];
+    touchRotate = projection.rotate();
+  }
+}, { passive: true });
+svgEl.addEventListener('touchmove', function(e) {
+  if (e.touches.length === 1 && touchStart && touchRotate) {
+    e.preventDefault();
+    const dx = e.touches[0].clientX - touchStart[0];
+    const dy = e.touches[0].clientY - touchStart[1];
+    const scale = 0.4;
+    projection.rotate([touchRotate[0] + dx * scale, touchRotate[1] - dy * scale]);
+    updateGlobe();
+  }
+}, { passive: false });
+svgEl.addEventListener('touchend', function() { touchStart = null; touchRotate = null; }, { passive: true });
+
+function updateGlobe() {
+  oceanCircle.attr('r', currentScale);
+  countriesG.selectAll('path').attr('d', path);
+  if (graticulePath) graticulePath.attr('d', path);
+  if (bordersPath) bordersPath.attr('d', path);
+}
+
+// ============================================================
+// VISUALIZATION MODE TOGGLE
+// ============================================================
+function setVisualizationMode(mode) {
+  if (mode === vizMode) return;
+  vizMode = mode;
+  document.querySelectorAll('.globe-toggle-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.mode === mode);
+  });
+  // Update legend
+  if (mode === 'adoption') {
+    document.getElementById('legendLow').textContent = 'Low (8)';
+    document.getElementById('legendHigh').textContent = 'High (90)';
+    document.getElementById('legendBar').style.background = 'linear-gradient(90deg,#581c87,#9333ea,#c084fc,#e9d5ff)';
+    document.getElementById('legendModeLabel').textContent = 'High-Tech Adoption';
+  } else {
+    document.getElementById('legendLow').textContent = 'Low (33)';
+    document.getElementById('legendHigh').textContent = 'High (82)';
+    document.getElementById('legendBar').style.background = 'linear-gradient(90deg,#312e81,#3b82f6,#06b6d4,#34d399)';
+    document.getElementById('legendModeLabel').textContent = 'AI Acceptance Score';
+  }
+  // Smooth color transition
+  countriesG.selectAll('path')
+    .transition().duration(600).ease(d3.easeCubicInOut)
+    .attr('fill', d => {
+      const numId = d.id || d.properties?.id;
+      const a3 = ISO_NUM_TO_A3[+numId];
+      return getCountryColor(a3);
+    });
+}
+
+// ============================================================
+// ZOOM CONTROLS
+// ============================================================
+function zoomGlobe(dir) {
+  pauseAutoRotate();
+  const step = 40;
+  currentScale = Math.max(minScale, Math.min(maxScale, currentScale + dir * step));
+  projection.scale(currentScale);
+  updateGlobe();
+}
+
+// Mouse wheel zoom on globe
+svgEl.addEventListener('wheel', function(e) {
+  e.preventDefault();
+  pauseAutoRotate();
+  const dir = e.deltaY < 0 ? 1 : -1;
+  currentScale = Math.max(minScale, Math.min(maxScale, currentScale + dir * 20));
+  projection.scale(currentScale);
+  updateGlobe();
+}, { passive: false });
+
+// ============================================================
+// REGION QUICK-NAV
+// ============================================================
+let isFlying = false;
+const regionCoords = {
+  asia: { rotate: [-105, -25], label: 'Asia' },
+  europe: { rotate: [-15, -50], label: 'Europe' },
+  americas: { rotate: [80, -15], label: 'Americas' },
+  africa: { rotate: [-20, -5], label: 'Africa' },
+  middleeast: { rotate: [-50, -25], label: 'Middle East' }
+};
+
+function flyToRegion(region) {
+  pauseAutoRotate();
+  const target = regionCoords[region];
+  if (!target) return;
+  isFlying = true;
+  document.querySelectorAll('.region-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  const currentRotate = projection.rotate();
+  const interp = d3.interpolate(currentRotate, [target.rotate[0], target.rotate[1], 0]);
+  d3.transition().duration(1000).ease(d3.easeCubicInOut)
+    .tween('rotate', () => t => {
+      projection.rotate(interp(t));
+      updateGlobe();
+    })
+    .on('end', () => { isFlying = false; });
+}
+
+// ============================================================
+// RESPONSIVE GLOBE SIZING
+// ============================================================
+function resizeGlobe() {
+  const container = document.querySelector('.globe-container');
+  if (!container) return;
+  const w = container.clientWidth - 48;
+  const size = Math.min(w, 600);
+  const newScale = (size / 600) * 270;
+  if (Math.abs(newScale - currentScale) > 5) {
+    currentScale = Math.max(minScale, Math.min(maxScale, newScale));
+    projection.scale(currentScale);
+    updateGlobe();
+  }
+}
+window.addEventListener('resize', resizeGlobe);
+
+// ============================================================
+// DATA PANEL
+// ============================================================
+function selectCountry(iso_a3) {
+  const c = countryByISO[iso_a3];
+  if (!c) return;
+  document.getElementById('panelCountry').textContent = c.country;
+  const body = document.getElementById('panelBody');
+  const confClass = c.confidence === 'high' ? 'confidence-high' : c.confidence === 'medium' ? 'confidence-medium' : 'confidence-low';
+
+  let sourcesHTML = '';
+  c.data_sources.forEach(s => {
+    sourcesHTML += '<div class="source-item"><div class="source-name">' + s.source + '</div>';
+    if (s.methodology) sourcesHTML += '<div class="source-meta">' + s.methodology + '</div>';
+    if (s.survey_question) sourcesHTML += '<div class="source-meta" style="font-style:italic">"' + s.survey_question + '"</div>';
+    sourcesHTML += '<div class="source-meta">Value: ' + s.value + ' | Weight: ' + (s.weight * 100).toFixed(1) + '%</div></div>';
+  });
+
+  const posColor = 'var(--accent-emerald)';
+  const negColor = 'var(--accent-rose)';
+  const neutColor = 'var(--text-muted)';
+
+  body.innerHTML = '' +
+    '<span class="confidence-badge ' + confClass + '">' + c.confidence + ' confidence' + (c.is_estimated ? ' &middot; estimated' : '') + '</span>' +
+    '<div class="data-panel-score"><span class="data-panel-score-value">' + c.ai_acceptance_score + '</span><span class="data-panel-score-label">/ 100 AI Acceptance</span></div>' +
+    '<div class="data-panel-bar-group"><div class="data-panel-bar-label"><span>High-Tech Adoption</span><span>' + c.high_tech_adoption + '%</span></div>' +
+    '<div class="data-panel-bar"><div class="data-panel-bar-fill" style="width:' + c.high_tech_adoption + '%;background:var(--accent-blue)"></div></div></div>' +
+    '<div class="data-panel-bar-group"><div class="data-panel-bar-label"><span>Positive Sentiment</span><span>' + c.breakdown.positive + '%</span></div>' +
+    '<div class="data-panel-bar"><div class="data-panel-bar-fill" style="width:' + c.breakdown.positive + '%;background:' + posColor + '"></div></div></div>' +
+    '<div class="data-panel-bar-group"><div class="data-panel-bar-label"><span>Negative Sentiment</span><span>' + c.breakdown.negative + '%</span></div>' +
+    '<div class="data-panel-bar"><div class="data-panel-bar-fill" style="width:' + c.breakdown.negative + '%;background:' + negColor + '"></div></div></div>' +
+    (c.breakdown.neutral > 0 ? '<div class="data-panel-bar-group"><div class="data-panel-bar-label"><span>Neutral</span><span>' + c.breakdown.neutral + '%</span></div>' +
+    '<div class="data-panel-bar"><div class="data-panel-bar-fill" style="width:' + c.breakdown.neutral + '%;background:' + neutColor + '"></div></div></div>' : '') +
+    '<div class="data-panel-sources"><h4>Data Sources (' + c.data_sources.length + ')</h4>' + sourcesHTML + '</div>';
+
+  // On mobile open panel
+  const panel = document.getElementById('dataPanel');
+  if (window.innerWidth < 768) {
+    panel.classList.add('mobile-open');
+  }
+}
+
+// ============================================================
+// SEARCH
+// ============================================================
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+searchInput.addEventListener('input', function() {
+  const q = this.value.toLowerCase().trim();
+  if (!q) { searchResults.innerHTML = ''; return; }
+  const matches = AI_DATA.data.filter(d => d.country.toLowerCase().includes(q)).slice(0, 15);
+  searchResults.innerHTML = matches.map(d =>
+    '<div class="search-result-item" data-iso="' + d.iso_a3 + '">' +
+    '<span>' + d.country.replace(/'/g, '&#39;') + '</span><span class="score">' + d.ai_acceptance_score + '</span></div>'
+  ).join('');
+  searchResults.querySelectorAll('.search-result-item').forEach(el => {
+    el.addEventListener('click', function() {
+      selectCountry(this.dataset.iso);
+      searchInput.value = '';
+      searchResults.innerHTML = '';
+    });
+  });
+});
+
+// ============================================================
+// MOBILE PANEL TOGGLE
+// ============================================================
+const panelHandle = document.getElementById('panelHandle');
+if (panelHandle) {
+  panelHandle.addEventListener('click', function() {
+    document.getElementById('dataPanel').classList.toggle('mobile-open');
+  });
+}
+
+// ============================================================
+// METHODOLOGY TOGGLE
+// ============================================================
+function toggleMethodology() {
+  document.getElementById('methodToggle').classList.toggle('open');
+  document.getElementById('methodContent').classList.toggle('open');
+}
+
+// ============================================================
+// MOBILE MENU
+// ============================================================
+function toggleMobileMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// ============================================================
+// REGION DEFINITIONS
+// ============================================================
+const regionMap = {
+  'East Asia': ['CHN','JPN','KOR','TWN','MNG','HKG'],
+  'SE Asia': ['IDN','THA','SGP','MYS','PHL','MMR','KHM','LAO','BRN'],
+  'South Asia': ['IND','LKA','NPL'],
+  'Middle East': ['ISR','QAT','KWT','BHR','OMN','SAU','ARE','JOR','IRN','IRQ','LBN','YEM'],
+  'Africa': ['ZAF','RWA','TUN','BWA','KEN','GHA','NGA','TZA','UGA','SEN','AGO','CMR','MOZ','COD','MDG','DZA','CIV','ZWE','ZMB','MLI','SDN'],
+  'Latin America': ['PER','MEX','COL','ARG','BRA','CHL','ECU','DOM','CRI','PAN','PRY','URY','BOL','VEN','GTM','HND','CUB'],
+  'Western Europe': ['DNK','FIN','NOR','PRT','AUT','DEU','ITA','GRC','ESP','FRA','NLD','SWE','BEL','IRL','CHE','GBR','ISL','LUX','MLT','CYP'],
+  'Eastern Europe': ['EST','CZE','ROU','HUN','POL','BGR','UKR','RUS','HRV','LTU','LVA','SVK','SVN','SRB','ALB','MKD','MNE','BIH','GEO','AZE','ARM'],
+  'North America': ['USA','CAN'],
+  'Oceania': ['AUS','NZL','FJI','PNG']
+};
+
+function getRegionAverages() {
+  const result = [];
+  for (const [region, isos] of Object.entries(regionMap)) {
+    let accSum=0, adpSum=0, cnt=0;
+    isos.forEach(iso => {
+      const c = countryByISO[iso];
+      if (c) { accSum += c.ai_acceptance_score; adpSum += c.high_tech_adoption; cnt++; }
+    });
+    if (cnt > 0) result.push({ region, acceptance: Math.round(accSum/cnt), adoption: Math.round(adpSum/cnt), count: cnt });
+  }
+  return result.sort((a,b) => b.acceptance - a.acceptance);
+}
+
+// ============================================================
+// CONFIDENCE DONUT CHART
+// ============================================================
+(function drawConfidenceDonut() {
+  const counts = { high:0, medium:0, low:0 };
+  AI_DATA.data.forEach(d => { counts[d.confidence] = (counts[d.confidence]||0)+1; });
+  document.getElementById('conf-high-count').textContent = counts.high;
+  document.getElementById('conf-med-count').textContent = counts.medium;
+  document.getElementById('conf-low-count').textContent = counts.low;
+
+  const w=180, h=180, radius=80, inner=50;
+  const svg = d3.select('#confidence-donut');
+  const g = svg.append('g').attr('transform',`translate(${w/2},${h/2})`);
+  const pie = d3.pie().sort(null).value(d=>d.value);
+  const arc = d3.arc().innerRadius(inner).outerRadius(radius);
+  const colors = { high:'#34d399', medium:'#fbbf24', low:'#fb7185' };
+  const data = [{ key:'high', value:counts.high },{ key:'medium', value:counts.medium },{ key:'low', value:counts.low }];
+
+  g.selectAll('path').data(pie(data)).join('path')
+    .attr('d', arc)
+    .attr('fill', d => colors[d.data.key])
+    .attr('stroke', 'rgba(10,14,26,0.8)')
+    .attr('stroke-width', 2);
+
+  g.append('text').attr('text-anchor','middle').attr('dy','-0.1em')
+    .attr('fill','#e2e8f0').attr('font-size','1.6rem').attr('font-weight','800').text('121');
+  g.append('text').attr('text-anchor','middle').attr('dy','1.3em')
+    .attr('fill','#94a3b8').attr('font-size','0.65rem').attr('font-weight','500').text('countries');
+})();
+
+// ============================================================
+// REGIONAL BAR CHART
+// ============================================================
+(function drawBarChart() {
+  const data = getRegionAverages();
+  const margin = { top:20, right:20, bottom:80, left:44 };
+  const containerWidth = document.getElementById('bar-chart-container').clientWidth || 500;
+  const w = Math.max(containerWidth, 320);
+  const h = 340;
+  const innerW = w - margin.left - margin.right;
+  const innerH = h - margin.top - margin.bottom;
+
+  const svg = d3.select('#bar-chart-container').append('svg')
+    .attr('viewBox', `0 0 ${w} ${h}`).attr('preserveAspectRatio','xMidYMid meet');
+  const g = svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+
+  const x0 = d3.scaleBand().domain(data.map(d=>d.region)).range([0,innerW]).paddingInner(0.25).paddingOuter(0.1);
+  const x1 = d3.scaleBand().domain(['acceptance','adoption']).range([0,x0.bandwidth()]).padding(0.08);
+  const y = d3.scaleLinear().domain([0,100]).range([innerH,0]);
+
+  // Grid lines
+  g.selectAll('.grid-line').data(y.ticks(5)).join('line')
+    .attr('x1',0).attr('x2',innerW).attr('y1',d=>y(d)).attr('y2',d=>y(d))
+    .attr('stroke','rgba(255,255,255,0.04)');
+
+  // Y axis
+  g.append('g').call(d3.axisLeft(y).ticks(5).tickSize(0).tickFormat(d=>d))
+    .call(g => g.select('.domain').remove())
+    .call(g => g.selectAll('text').attr('fill','#64748b').attr('font-size','0.65rem'));
+
+  // X axis
+  g.append('g').attr('transform',`translate(0,${innerH})`).call(d3.axisBottom(x0).tickSize(0))
+    .call(g => g.select('.domain').remove())
+    .call(g => g.selectAll('text').attr('fill','#94a3b8').attr('font-size','0.6rem').attr('text-anchor','end')
+      .attr('transform','rotate(-40)').attr('dx','-0.5em').attr('dy','0.4em'));
+
+  const barGroups = g.selectAll('.bar-group').data(data).join('g')
+    .attr('transform', d => `translate(${x0(d.region)},0)`);
+
+  // Acceptance bars
+  barGroups.append('rect')
+    .attr('x', x1('acceptance')).attr('width', x1.bandwidth())
+    .attr('y', d => y(d.acceptance)).attr('height', d => innerH - y(d.acceptance))
+    .attr('fill', '#38bdf8').attr('rx', 2).attr('opacity', 0.85);
+
+  // Adoption bars
+  barGroups.append('rect')
+    .attr('x', x1('adoption')).attr('width', x1.bandwidth())
+    .attr('y', d => y(d.adoption)).attr('height', d => innerH - y(d.adoption))
+    .attr('fill', '#6366f1').attr('rx', 2).attr('opacity', 0.85);
+
+  // Legend
+  const leg = svg.append('g').attr('transform',`translate(${margin.left + innerW/2 - 80},${h - 14})`);
+  leg.append('rect').attr('width',10).attr('height',10).attr('rx',2).attr('fill','#38bdf8');
+  leg.append('text').attr('x',14).attr('y',9).attr('fill','#94a3b8').attr('font-size','0.65rem').text('AI Acceptance');
+  leg.append('rect').attr('x',100).attr('width',10).attr('height',10).attr('rx',2).attr('fill','#6366f1');
+  leg.append('text').attr('x',114).attr('y',9).attr('fill','#94a3b8').attr('font-size','0.65rem').text('High-Tech Adoption');
+})();
+
+// ============================================================
+// SCATTER PLOT
+// ============================================================
+(function drawScatter() {
+  const margin = { top:24, right:24, bottom:48, left:48 };
+  const containerWidth = document.getElementById('scatter-chart-container').clientWidth || 500;
+  const w = Math.max(containerWidth, 320);
+  const h = 380;
+  const innerW = w - margin.left - margin.right;
+  const innerH = h - margin.top - margin.bottom;
+
+  const svg = d3.select('#scatter-chart-container').append('svg')
+    .attr('viewBox', `0 0 ${w} ${h}`).attr('preserveAspectRatio','xMidYMid meet');
+  const g = svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+
+  const x = d3.scaleLinear().domain([0,100]).range([0,innerW]);
+  const y = d3.scaleLinear().domain([25,90]).range([innerH,0]);
+  const r = d3.scaleSqrt().domain([1,5]).range([4,14]);
+  const confColor = { high:'#38bdf8', medium:'#fbbf24', low:'#64748b' };
+
+  // Quadrant lines
+  const midX = 50, midY = 55;
+  g.append('line').attr('x1',x(midX)).attr('x2',x(midX)).attr('y1',0).attr('y2',innerH)
+    .attr('stroke','rgba(255,255,255,0.06)').attr('stroke-dasharray','4,4');
+  g.append('line').attr('x1',0).attr('x2',innerW).attr('y1',y(midY)).attr('y2',y(midY))
+    .attr('stroke','rgba(255,255,255,0.06)').attr('stroke-dasharray','4,4');
+
+  // Quadrant labels
+  const ql = [
+    { label:'Aspiring Nations', tx:innerW*0.15, ty:22 },
+    { label:'Optimistic Adopters', tx:innerW*0.8, ty:22 },
+    { label:'Developing', tx:innerW*0.15, ty:innerH-8 },
+    { label:'Skeptical Leaders', tx:innerW*0.8, ty:innerH-8 }
+  ];
+  ql.forEach(q => g.append('text').attr('class','quadrant-label').attr('x',q.tx).attr('y',q.ty)
+    .attr('text-anchor','middle').text(q.label));
+
+  // Grid
+  g.selectAll('.xg').data(x.ticks(5)).join('line').attr('x1',d=>x(d)).attr('x2',d=>x(d)).attr('y1',0).attr('y2',innerH)
+    .attr('stroke','rgba(255,255,255,0.03)');
+  g.selectAll('.yg').data(y.ticks(5)).join('line').attr('x1',0).attr('x2',innerW).attr('y1',d=>y(d)).attr('y2',d=>y(d))
+    .attr('stroke','rgba(255,255,255,0.03)');
+
+  // Axes
+  g.append('g').attr('transform',`translate(0,${innerH})`).call(d3.axisBottom(x).ticks(5).tickSize(0))
+    .call(g => g.select('.domain').remove())
+    .call(g => g.selectAll('text').attr('fill','#64748b').attr('font-size','0.65rem'));
+  g.append('g').call(d3.axisLeft(y).ticks(5).tickSize(0))
+    .call(g => g.select('.domain').remove())
+    .call(g => g.selectAll('text').attr('fill','#64748b').attr('font-size','0.65rem'));
+
+  // Axis labels
+  svg.append('text').attr('x',margin.left+innerW/2).attr('y',h-6)
+    .attr('text-anchor','middle').attr('fill','#94a3b8').attr('font-size','0.7rem').text('High-Tech Adoption');
+  svg.append('text').attr('transform',`rotate(-90)`).attr('x',-(margin.top+innerH/2)).attr('y',14)
+    .attr('text-anchor','middle').attr('fill','#94a3b8').attr('font-size','0.7rem').text('AI Acceptance Score');
+
+  // Dots
+  const scatterTip = d3.select('body').append('div')
+    .style('position','fixed').style('pointer-events','none').style('padding','6px 12px')
+    .style('background','rgba(10,14,26,0.92)').style('border','1px solid rgba(56,189,248,0.3)')
+    .style('border-radius','6px').style('font-size','0.75rem').style('color','#e2e8f0')
+    .style('z-index','300').style('opacity','0').style('transition','opacity 0.15s')
+    .style('backdrop-filter','blur(8px)').style('font-family','Inter,sans-serif');
+
+  g.selectAll('circle').data(AI_DATA.data).join('circle')
+    .attr('cx', d => x(d.high_tech_adoption))
+    .attr('cy', d => y(d.ai_acceptance_score))
+    .attr('r', d => r(d.data_sources.length))
+    .attr('fill', d => confColor[d.confidence])
+    .attr('opacity', 0.7)
+    .attr('stroke', 'rgba(255,255,255,0.1)')
+    .attr('stroke-width', 0.5)
+    .style('cursor','pointer')
+    .on('mouseenter', function(event, d) {
+      d3.select(this).attr('opacity',1).attr('stroke','#38bdf8').attr('stroke-width',1.5);
+      scatterTip.style('opacity','1')
+        .html(`<strong>${d.country}</strong><br>Acceptance: ${d.ai_acceptance_score} &middot; Adoption: ${d.high_tech_adoption}<br>Confidence: ${d.confidence} &middot; Sources: ${d.data_sources.length}`);
+    })
+    .on('mousemove', function(event) {
+      scatterTip.style('left',(event.clientX+12)+'px').style('top',(event.clientY-10)+'px');
+    })
+    .on('mouseleave', function() {
+      d3.select(this).attr('opacity',0.7).attr('stroke','rgba(255,255,255,0.1)').attr('stroke-width',0.5);
+      scatterTip.style('opacity','0');
+    });
+})();
+
+// ============================================================
+// COUNTRY RANKINGS TABLE
+// ============================================================
+(function initRankingsTable() {
+  const sortedData = [...AI_DATA.data].sort((a,b) => b.ai_acceptance_score - a.ai_acceptance_score)
+    .map((d,i) => ({ ...d, rank: i+1 }));
+
+  let showAll = false;
+  let sortCol = 'rank';
+  let sortDir = 'asc';
+  let filterText = '';
+  let displayData = sortedData;
+
+  const tbody = document.getElementById('rankingsBody');
+  const showBtn = document.getElementById('showAllBtn');
+  const searchInput = document.getElementById('rankingsSearch');
+
+  function scoreColor(score) {
+    if (score >= 70) return 'rgba(52,211,153,0.15)';
+    if (score >= 55) return 'rgba(56,189,248,0.12)';
+    if (score >= 40) return 'rgba(251,191,36,0.1)';
+    return 'rgba(251,113,133,0.1)';
+  }
+  function scoreTextColor(score) {
+    if (score >= 70) return '#34d399';
+    if (score >= 55) return '#38bdf8';
+    if (score >= 40) return '#fbbf24';
+    return '#fb7185';
+  }
+  function confBadge(conf) {
+    const colors = { high:'#34d399', medium:'#fbbf24', low:'#fb7185' };
+    return `<span style="color:${colors[conf]};font-weight:600;text-transform:capitalize">${conf}</span>`;
+  }
+
+  function render() {
+    let data = displayData;
+    if (filterText) {
+      const ft = filterText.toLowerCase();
+      data = data.filter(d => d.country.toLowerCase().includes(ft));
+    }
+    const rows = showAll ? data : data.slice(0, 20);
+    tbody.innerHTML = rows.map(d => `<tr>
+      <td style="color:var(--text-muted);font-weight:600">${d.rank}</td>
+      <td style="font-weight:600">${d.country}</td>
+      <td><span class="score-cell" style="background:${scoreColor(d.ai_acceptance_score)};color:${scoreTextColor(d.ai_acceptance_score)}">${d.ai_acceptance_score}</span></td>
+      <td><span class="score-cell" style="background:rgba(99,102,241,0.12);color:#a5b4fc">${d.high_tech_adoption}</span></td>
+      <td>${confBadge(d.confidence)}</td>
+      <td style="color:var(--text-secondary)">${d.data_sources.length}</td>
+    </tr>`).join('');
+    showBtn.textContent = showAll ? 'Show Top 20' : `Show All ${data.length} Countries`;
+    showBtn.style.display = data.length <= 20 ? 'none' : 'block';
+  }
+
+  function sortData(col) {
+    if (sortCol === col) { sortDir = sortDir === 'asc' ? 'desc' : 'asc'; }
+    else { sortCol = col; sortDir = col === 'country' ? 'asc' : (col === 'rank' ? 'asc' : 'desc'); }
+
+    document.querySelectorAll('.rankings-table th').forEach(th => th.classList.remove('sorted-asc','sorted-desc'));
+    const th = document.querySelector(`.rankings-table th[data-col="${col}"]`);
+    if (th) th.classList.add(sortDir === 'asc' ? 'sorted-asc' : 'sorted-desc');
+
+    const mult = sortDir === 'asc' ? 1 : -1;
+    displayData = [...sortedData].sort((a,b) => {
+      if (col === 'rank') return mult * (a.rank - b.rank);
+      if (col === 'country') return mult * a.country.localeCompare(b.country);
+      if (col === 'acceptance') return mult * (a.ai_acceptance_score - b.ai_acceptance_score);
+      if (col === 'adoption') return mult * (a.high_tech_adoption - b.high_tech_adoption);
+      if (col === 'confidence') { const order={high:3,medium:2,low:1}; return mult*(order[a.confidence]-order[b.confidence]); }
+      if (col === 'sources') return mult * (a.data_sources.length - b.data_sources.length);
+      return 0;
+    });
+    render();
+  }
+
+  document.querySelectorAll('.rankings-table th').forEach(th => {
+    th.addEventListener('click', () => sortData(th.dataset.col));
+  });
+
+  showBtn.addEventListener('click', () => { showAll = !showAll; render(); });
+  searchInput.addEventListener('input', e => { filterText = e.target.value; render(); });
+
+  // Initial sort indicator
+  document.querySelector('.rankings-table th[data-col="rank"]').classList.add('sorted-asc');
+  render();
+})();
+
+// ============================================================
+// SCROLL ANIMATIONS
+// ============================================================
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

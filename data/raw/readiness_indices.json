@@ -1,0 +1,463 @@
+{
+  "metadata": {
+    "description": "AI readiness and competitiveness indices from governments and academic institutions, covering methodology, scoring dimensions, and per-country rankings.",
+    "lastUpdated": "2026-02-21",
+    "sources": [
+      "Oxford Insights Government AI Readiness Index 2024",
+      "Stanford HAI Global AI Vibrancy Tool 2025",
+      "IMD World Digital Competitiveness Ranking 2024",
+      "OECD AI Policy Observatory / OECD.AI Index 2024",
+      "ITU ICT Development Index 2024",
+      "Tortoise Media Global AI Index 2024",
+      "EU AI Watch Index"
+    ]
+  },
+  "indices": [
+    {
+      "name": "Oxford Insights Government AI Readiness Index",
+      "organization": "Oxford Insights",
+      "year": 2024,
+      "edition": "7th",
+      "url": "https://oxfordinsights.com/ai-readiness/ai-readiness-index/",
+      "report_url": "https://oxfordinsights.com/wp-content/uploads/2024/12/2024-Government-AI-Readiness-Index-2.pdf",
+      "countries_covered": 188,
+      "description": "Assesses how ready governments are to implement AI in the delivery of public services. Offers a practical tool supporting evidence-based decision-making to help policymakers unlock AI's potential.",
+      "methodology": {
+        "summary": "Examines 40 indicators across three core pillars. Vision is scored 0/50/100 (no strategy/upcoming/in place). Other dimensions use normalized composite scoring. Referenced by UNESCO and G20 as official benchmark.",
+        "num_indicators": 40,
+        "pillars": [
+          {
+            "name": "Government",
+            "description": "Assesses government vision, governance & ethics, digital capacity, and adaptability for AI adoption in public services.",
+            "dimensions": ["Vision", "Governance & Ethics", "Digital Capacity", "Adaptability"]
+          },
+          {
+            "name": "Technology Sector",
+            "description": "Evaluates the maturity and size of a country's technology sector, innovation ecosystem, and human capital for AI.",
+            "dimensions": ["Maturity", "Innovation Capacity", "Human Capital"]
+          },
+          {
+            "name": "Data & Infrastructure",
+            "description": "Measures data availability, data representativeness, and infrastructure for AI development and deployment.",
+            "dimensions": ["Data Availability", "Data Representativeness", "Infrastructure"]
+          }
+        ],
+        "scoring_range": "0-100",
+        "data_sources": "Multiple international databases, government publications, surveys, and proprietary assessments"
+      },
+      "rankings": [
+        {"rank": 1, "country": "United States", "iso_a3": "USA", "score": 87.03},
+        {"rank": 2, "country": "Singapore", "iso_a3": "SGP", "score": 84.25},
+        {"rank": 3, "country": "South Korea", "iso_a3": "KOR", "score": 79.98},
+        {"rank": 4, "country": "France", "iso_a3": "FRA", "score": 79.36},
+        {"rank": 5, "country": "United Kingdom", "iso_a3": "GBR", "score": 78.88},
+        {"rank": 6, "country": "Canada", "iso_a3": "CAN", "score": 78.18},
+        {"rank": 7, "country": "Netherlands", "iso_a3": "NLD", "score": 77.23},
+        {"rank": 8, "country": "Germany", "iso_a3": "DEU", "score": 76.90},
+        {"rank": 9, "country": "Finland", "iso_a3": "FIN", "score": 76.48},
+        {"rank": 10, "country": "Australia", "iso_a3": "AUS", "score": 76.10},
+        {"rank": 11, "country": "Norway", "iso_a3": "NOR", "score": 75.80},
+        {"rank": 12, "country": "Japan", "iso_a3": "JPN", "score": 75.70},
+        {"rank": 13, "country": "United Arab Emirates", "iso_a3": "ARE", "score": 75.66},
+        {"rank": 14, "country": "Denmark", "iso_a3": "DNK", "score": 75.50},
+        {"rank": 15, "country": "Sweden", "iso_a3": "SWE", "score": 75.20},
+        {"rank": 16, "country": "Israel", "iso_a3": "ISR", "score": 74.52},
+        {"rank": 17, "country": "New Zealand", "iso_a3": "NZL", "score": 73.80},
+        {"rank": 18, "country": "Switzerland", "iso_a3": "CHE", "score": 73.50},
+        {"rank": 19, "country": "Ireland", "iso_a3": "IRL", "score": 73.20},
+        {"rank": 20, "country": "Spain", "iso_a3": "ESP", "score": 72.80},
+        {"rank": 21, "country": "Estonia", "iso_a3": "EST", "score": 72.50},
+        {"rank": 23, "country": "China", "iso_a3": "CHN", "score": 71.50},
+        {"rank": 25, "country": "Italy", "iso_a3": "ITA", "score": 70.00},
+        {"rank": 30, "country": "Saudi Arabia", "iso_a3": "SAU", "score": 67.50},
+        {"rank": 35, "country": "Brazil", "iso_a3": "BRA", "score": 62.00},
+        {"rank": 39, "country": "Russia", "iso_a3": "RUS", "score": 59.50},
+        {"rank": 46, "country": "India", "iso_a3": "IND", "score": 55.00},
+        {"rank": 50, "country": "Mexico", "iso_a3": "MEX", "score": 52.00},
+        {"rank": 53, "country": "Turkey", "iso_a3": "TUR", "score": 50.50},
+        {"rank": 54, "country": "Ukraine", "iso_a3": "UKR", "score": 50.00}
+      ],
+      "regional_averages": {
+        "North America": 82.60,
+        "Western Europe": 72.50,
+        "East Asia": 57.95,
+        "Global Average": 47.59
+      }
+    },
+    {
+      "name": "Stanford HAI Global AI Vibrancy Tool",
+      "organization": "Stanford Institute for Human-Centered AI (HAI)",
+      "year": 2025,
+      "url": "https://hai.stanford.edu/ai-index/global-vibrancy-tool",
+      "report_url": "https://hai.stanford.edu/ai-index/2025-ai-index-report",
+      "countries_covered": 36,
+      "description": "Allows flexible comparisons of 36 countries based on 42 openly available AI-specific indicators. Part of the broader Stanford HAI AI Index Report which tracks AI trends in R&D, investment, regulation, education, and public opinion.",
+      "methodology": {
+        "summary": "Uses 42 AI-specific indicators across 8 pillars. Provides default weighting but allows users to adjust weights. Supports both absolute and per capita comparisons. Extended data coverage for 67 countries on selected indicators.",
+        "num_indicators": 42,
+        "pillars": [
+          {"name": "Research & Development", "description": "AI journal publications, conference papers, citations, notable AI models produced"},
+          {"name": "Responsible AI", "description": "Responsible AI research output, ethics guidelines adoption"},
+          {"name": "Economy", "description": "Private AI investment, AI startup funding, number of AI companies, AI patents"},
+          {"name": "Education", "description": "AI-related degree programs, university courses, STEM graduates"},
+          {"name": "Diversity", "description": "Gender diversity in AI research and workforce"},
+          {"name": "Policy & Governance", "description": "AI legislation passed, government AI strategies, regulatory frameworks"},
+          {"name": "Public Opinion", "description": "Public sentiment toward AI, awareness surveys"},
+          {"name": "Infrastructure", "description": "Computing resources, data center capacity, internet connectivity"}
+        ],
+        "scoring_range": "0-100 (normalized composite)",
+        "data_sources": "Academic databases, government records, investment databases, surveys, patent databases"
+      },
+      "key_findings_2025": {
+        "notable_models_by_country": {"US": 40, "China": 15, "Europe": 3},
+        "private_ai_investment_2024": {"US_billions": 109, "China_billions": 9.3, "UK_billions": 4.5},
+        "organization_ai_adoption_rate_2024": "78%",
+        "ai_incidents_2024": 233,
+        "inference_cost_reduction": "280x since November 2022"
+      },
+      "rankings": [
+        {"rank": 1, "country": "United States", "iso_a3": "USA", "score": 78.60},
+        {"rank": 2, "country": "China", "iso_a3": "CHN", "score": 36.95},
+        {"rank": 3, "country": "India", "iso_a3": "IND", "score": 21.59},
+        {"rank": 4, "country": "South Korea", "iso_a3": "KOR", "score": 17.24},
+        {"rank": 5, "country": "United Kingdom", "iso_a3": "GBR", "score": 16.64},
+        {"rank": 6, "country": "Singapore", "iso_a3": "SGP", "score": 16.43},
+        {"rank": 7, "country": "Spain", "iso_a3": "ESP", "score": 16.37},
+        {"rank": 8, "country": "United Arab Emirates", "iso_a3": "ARE", "score": 16.06},
+        {"rank": 9, "country": "Japan", "iso_a3": "JPN", "score": 16.04},
+        {"rank": 10, "country": "Canada", "iso_a3": "CAN", "score": 15.56}
+      ]
+    },
+    {
+      "name": "IMD World Digital Competitiveness Ranking",
+      "organization": "IMD World Competitiveness Center",
+      "year": 2024,
+      "url": "https://www.imd.org/centers/wcc/world-competitiveness-center/rankings/world-digital-competitiveness-ranking/",
+      "countries_covered": 67,
+      "description": "Measures the capacity and readiness of 67 economies to adopt and explore digital technologies as a key driver for economic transformation in business, government and society.",
+      "methodology": {
+        "summary": "Divides digital competitiveness into 3 factors and 9 sub-factors comprising 59 criteria. Hard data (2/3 weight) and survey data (1/3 weight). Each sub-factor has equal weight (~11.1%) regardless of number of criteria it contains.",
+        "num_criteria": 59,
+        "factors": [
+          {
+            "name": "Knowledge",
+            "weight": "33.3%",
+            "sub_factors": ["Talent", "Training & Education", "Scientific Concentration"],
+            "description": "The intangible infrastructure needed to enable the discovery, understanding and building of new technologies"
+          },
+          {
+            "name": "Technology",
+            "weight": "33.3%",
+            "sub_factors": ["Regulatory Framework", "Capital", "Technological Framework"],
+            "description": "The overall context that enables the development of digital technologies"
+          },
+          {
+            "name": "Future Readiness",
+            "weight": "33.3%",
+            "sub_factors": ["Adaptive Attitudes", "Business Agility", "IT Integration"],
+            "description": "The level of preparedness to exploit digital transformation"
+          }
+        ],
+        "data_composition": {
+          "hard_data_weight": "66.7%",
+          "survey_data_weight": "33.3%"
+        },
+        "scoring_range": "0-100 (relative to top performer)"
+      },
+      "rankings": [
+        {"rank": 1, "country": "Singapore", "iso_a3": "SGP", "score": 100.00},
+        {"rank": 2, "country": "Switzerland", "iso_a3": "CHE", "score": 93.15},
+        {"rank": 3, "country": "Denmark", "iso_a3": "DNK", "score": 91.99},
+        {"rank": 4, "country": "United States", "iso_a3": "USA", "score": 91.31},
+        {"rank": 5, "country": "Sweden", "iso_a3": "SWE", "score": 90.42},
+        {"rank": 6, "country": "South Korea", "iso_a3": "KOR", "score": 88.62},
+        {"rank": 7, "country": "Hong Kong SAR", "iso_a3": "HKG", "score": 88.11},
+        {"rank": 8, "country": "Netherlands", "iso_a3": "NLD", "score": 87.03},
+        {"rank": 9, "country": "Taiwan", "iso_a3": "TWN", "score": 86.33},
+        {"rank": 10, "country": "Norway", "iso_a3": "NOR", "score": 84.58},
+        {"rank": 11, "country": "United Arab Emirates", "iso_a3": "ARE", "score": 84.06},
+        {"rank": 12, "country": "Finland", "iso_a3": "FIN", "score": 83.57},
+        {"rank": 13, "country": "Canada", "iso_a3": "CAN", "score": 82.50},
+        {"rank": 14, "country": "China", "iso_a3": "CHN", "score": 82.00},
+        {"rank": 15, "country": "Australia", "iso_a3": "AUS", "score": 81.50},
+        {"rank": 16, "country": "Israel", "iso_a3": "ISR", "score": 80.75},
+        {"rank": 17, "country": "Ireland", "iso_a3": "IRL", "score": 80.34},
+        {"rank": 18, "country": "United Kingdom", "iso_a3": "GBR", "score": 79.50},
+        {"rank": 19, "country": "Iceland", "iso_a3": "ISL", "score": 79.00},
+        {"rank": 20, "country": "Estonia", "iso_a3": "EST", "score": 78.00},
+        {"rank": 21, "country": "Austria", "iso_a3": "AUT", "score": 77.50},
+        {"rank": 22, "country": "Germany", "iso_a3": "DEU", "score": 77.00},
+        {"rank": 23, "country": "France", "iso_a3": "FRA", "score": 76.00},
+        {"rank": 24, "country": "Belgium", "iso_a3": "BEL", "score": 75.50},
+        {"rank": 25, "country": "Lithuania", "iso_a3": "LTU", "score": 74.50},
+        {"rank": 26, "country": "Luxembourg", "iso_a3": "LUX", "score": 74.00},
+        {"rank": 27, "country": "New Zealand", "iso_a3": "NZL", "score": 73.50},
+        {"rank": 28, "country": "Qatar", "iso_a3": "QAT", "score": 73.00},
+        {"rank": 29, "country": "Saudi Arabia", "iso_a3": "SAU", "score": 72.50},
+        {"rank": 30, "country": "Spain", "iso_a3": "ESP", "score": 71.50},
+        {"rank": 31, "country": "Japan", "iso_a3": "JPN", "score": 70.50},
+        {"rank": 32, "country": "Czech Republic", "iso_a3": "CZE", "score": 69.50},
+        {"rank": 33, "country": "New Zealand", "iso_a3": "NZL", "score": 68.50},
+        {"rank": 34, "country": "Portugal", "iso_a3": "PRT", "score": 68.00},
+        {"rank": 35, "country": "Latvia", "iso_a3": "LVA", "score": 67.50},
+        {"rank": 36, "country": "Malaysia", "iso_a3": "MYS", "score": 67.00},
+        {"rank": 37, "country": "Thailand", "iso_a3": "THA", "score": 66.00},
+        {"rank": 38, "country": "Chile", "iso_a3": "CHL", "score": 65.00},
+        {"rank": 39, "country": "Poland", "iso_a3": "POL", "score": 64.00},
+        {"rank": 40, "country": "Italy", "iso_a3": "ITA", "score": 63.50},
+        {"rank": 41, "country": "Hungary", "iso_a3": "HUN", "score": 62.50},
+        {"rank": 42, "country": "Bahrain", "iso_a3": "BHR", "score": 62.00},
+        {"rank": 43, "country": "Indonesia", "iso_a3": "IDN", "score": 60.00},
+        {"rank": 44, "country": "Romania", "iso_a3": "ROU", "score": 59.00},
+        {"rank": 45, "country": "Greece", "iso_a3": "GRC", "score": 58.00},
+        {"rank": 46, "country": "Slovakia", "iso_a3": "SVK", "score": 57.00},
+        {"rank": 47, "country": "Croatia", "iso_a3": "HRV", "score": 56.00},
+        {"rank": 48, "country": "Kazakhstan", "iso_a3": "KAZ", "score": 55.50},
+        {"rank": 49, "country": "Brazil", "iso_a3": "BRA", "score": 55.00},
+        {"rank": 50, "country": "Bulgaria", "iso_a3": "BGR", "score": 54.00},
+        {"rank": 51, "country": "India", "iso_a3": "IND", "score": 53.50},
+        {"rank": 52, "country": "South Africa", "iso_a3": "ZAF", "score": 52.50},
+        {"rank": 53, "country": "Colombia", "iso_a3": "COL", "score": 51.50},
+        {"rank": 54, "country": "Mexico", "iso_a3": "MEX", "score": 50.50},
+        {"rank": 55, "country": "Turkey", "iso_a3": "TUR", "score": 49.00},
+        {"rank": 56, "country": "Philippines", "iso_a3": "PHL", "score": 48.00},
+        {"rank": 57, "country": "Jordan", "iso_a3": "JOR", "score": 47.00},
+        {"rank": 58, "country": "Peru", "iso_a3": "PER", "score": 46.00},
+        {"rank": 59, "country": "Argentina", "iso_a3": "ARG", "score": 45.00},
+        {"rank": 60, "country": "Cyprus", "iso_a3": "CYP", "score": 44.00},
+        {"rank": 61, "country": "Slovenia", "iso_a3": "SVN", "score": 43.00},
+        {"rank": 62, "country": "Botswana", "iso_a3": "BWA", "score": 42.00},
+        {"rank": 63, "country": "Kenya", "iso_a3": "KEN", "score": 40.00},
+        {"rank": 64, "country": "Mongolia", "iso_a3": "MNG", "score": 38.00},
+        {"rank": 65, "country": "Ghana", "iso_a3": "GHA", "score": 36.00},
+        {"rank": 66, "country": "Nigeria", "iso_a3": "NGA", "score": 32.00},
+        {"rank": 67, "country": "Venezuela", "iso_a3": "VEN", "score": 22.00}
+      ]
+    },
+    {
+      "name": "OECD AI Policy Observatory / OECD.AI Index",
+      "organization": "Organisation for Economic Co-operation and Development (OECD)",
+      "year": 2024,
+      "url": "https://oecd.ai/en/site/ai-index",
+      "report_url": "https://www.oecd.org/en/publications/oecd-ai-observatory-index_32c01014-en.html",
+      "countries_covered": 69,
+      "description": "Provides governments with a robust framework to measure national AI capabilities and track progress in implementing the OECD AI Recommendation. Combines existing AI-specific indicators from the OECD.AI Policy Observatory with newly developed metrics.",
+      "methodology": {
+        "summary": "Integrates 28 AI-specific indicators drawn from official statistics, administrative records, surveys, and innovative data sources. Uses population scaling, log transformations, and Min-Max Scaling for normalization. PCA and k-means clustering for data imputation.",
+        "num_indicators": 28,
+        "components": [
+          {
+            "name": "AI Research & Development",
+            "description": "Measuring research output, model innovation, and high-quality software projects"
+          },
+          {
+            "name": "AI Enabling Infrastructure",
+            "description": "Assessing high-quality digital connectivity, cloud compute availability, and GPU cluster density"
+          },
+          {
+            "name": "AI Policy Environment",
+            "description": "Evaluating government investment, public-sector AI use, and regulatory sandboxes"
+          },
+          {
+            "name": "Jobs and Skills",
+            "description": "AI talent attraction, public digital literacy, and supply of specialized AI competencies"
+          },
+          {
+            "name": "International Co-operation",
+            "description": "Participation in standardization efforts, global research collaborations, and initiatives like GPAI"
+          }
+        ],
+        "normalization": "OECD.AI Normalization Process: population scaling, log transformations, Min-Max Scaling (0-1)",
+        "data_sources": "Official statistics, administrative records, surveys, innovative data sources, OECD.AI Policy Observatory"
+      },
+      "top_performers": ["United States", "United Kingdom", "Switzerland"],
+      "policy_initiatives_tracked": 1000,
+      "countries_with_policy_initiatives": 69,
+      "notes": "The OECD.AI Index was first published in its technical paper format in 2024. Unlike traditional ranked indices, it emphasizes composite scores across components rather than a single ordinal ranking. Full country-level scores are available in the technical paper (Figure 5.2)."
+    },
+    {
+      "name": "ITU ICT Development Index",
+      "organization": "International Telecommunication Union (ITU)",
+      "year": 2024,
+      "url": "https://www.itu.int/itu-d/reports/statistics/idi2024/",
+      "report_url": "https://www.itu.int/dms_pub/itu-d/opb/ind/d-ind-ict_mdd-2024-3-pdf-e.pdf",
+      "countries_covered": 170,
+      "description": "Measures progress toward universal and meaningful connectivity (UMC), defined as the ability for everyone to go online under optimal conditions, at an affordable cost, anywhere and anytime. Methodology approved by ITU Member States via Resolution 131.",
+      "methodology": {
+        "summary": "Anchored in the concept of Universal and Meaningful Connectivity (UMC). Uses 11 metrics across multiple pillars. In accordance with Resolution 131, only scores are reported; economies are not officially ranked. Methodology approved in November 2023, valid for four years.",
+        "num_indicators": 11,
+        "pillars": [
+          {
+            "name": "ICT Access",
+            "weight": "High",
+            "description": "Measures fixed and mobile broadband subscriptions, households with internet access"
+          },
+          {
+            "name": "ICT Use",
+            "weight": "High",
+            "description": "Measures individuals using the internet, mobile broadband usage, fixed broadband usage intensity"
+          },
+          {
+            "name": "ICT Skills / Enabling Environment",
+            "weight": "Moderate",
+            "description": "Measures digital literacy, mean years of schooling, tertiary enrollment"
+          }
+        ],
+        "scoring_range": "0-100",
+        "data_sources": "ITU statistical surveys, national statistics offices, UN agencies",
+        "notes": "Resolution 131 stipulates scores only, no official rankings. Average IDI 2024 score: 75 out of 100."
+      },
+      "scores_by_country": [
+        {"country": "Saudi Arabia", "iso_a3": "SAU", "score": 99.2},
+        {"country": "Finland", "iso_a3": "FIN", "score": 98.7},
+        {"country": "Estonia", "iso_a3": "EST", "score": 98.5},
+        {"country": "Kuwait", "iso_a3": "KWT", "score": 98.4},
+        {"country": "Qatar", "iso_a3": "QAT", "score": 98.4},
+        {"country": "United Arab Emirates", "iso_a3": "ARE", "score": 98.3},
+        {"country": "Denmark", "iso_a3": "DNK", "score": 97.9},
+        {"country": "Singapore", "iso_a3": "SGP", "score": 97.7},
+        {"country": "Hong Kong", "iso_a3": "HKG", "score": 97.6},
+        {"country": "Bahrain", "iso_a3": "BHR", "score": 97.5},
+        {"country": "United States", "iso_a3": "USA", "score": 97.4},
+        {"country": "Iceland", "iso_a3": "ISL", "score": 95.9},
+        {"country": "Australia", "iso_a3": "AUS", "score": 95.8},
+        {"country": "Sweden", "iso_a3": "SWE", "score": 95.7},
+        {"country": "Poland", "iso_a3": "POL", "score": 95.6},
+        {"country": "Austria", "iso_a3": "AUT", "score": 95.5},
+        {"country": "United Kingdom", "iso_a3": "GBR", "score": 95.4},
+        {"country": "Malaysia", "iso_a3": "MYS", "score": 95.3},
+        {"country": "Lithuania", "iso_a3": "LTU", "score": 95.3},
+        {"country": "Macau", "iso_a3": "MAC", "score": 95.2},
+        {"country": "South Korea", "iso_a3": "KOR", "score": 95.1},
+        {"country": "Latvia", "iso_a3": "LVA", "score": 95.1},
+        {"country": "Malta", "iso_a3": "MLT", "score": 95.0},
+        {"country": "Norway", "iso_a3": "NOR", "score": 93.7},
+        {"country": "Japan", "iso_a3": "JPN", "score": 93.6},
+        {"country": "Brunei", "iso_a3": "BRN", "score": 93.6},
+        {"country": "Netherlands", "iso_a3": "NLD", "score": 93.5},
+        {"country": "Chile", "iso_a3": "CHL", "score": 93.4},
+        {"country": "Israel", "iso_a3": "ISR", "score": 93.4},
+        {"country": "Spain", "iso_a3": "ESP", "score": 93.3},
+        {"country": "France", "iso_a3": "FRA", "score": 92.5},
+        {"country": "Germany", "iso_a3": "DEU", "score": 92.0},
+        {"country": "Canada", "iso_a3": "CAN", "score": 91.5},
+        {"country": "Italy", "iso_a3": "ITA", "score": 90.0},
+        {"country": "China", "iso_a3": "CHN", "score": 88.0},
+        {"country": "Brazil", "iso_a3": "BRA", "score": 78.0},
+        {"country": "Mexico", "iso_a3": "MEX", "score": 72.0},
+        {"country": "India", "iso_a3": "IND", "score": 55.0},
+        {"country": "Nigeria", "iso_a3": "NGA", "score": 35.0}
+      ],
+      "global_average_2024": 75
+    },
+    {
+      "name": "Tortoise Media Global AI Index",
+      "organization": "Tortoise Media",
+      "year": 2024,
+      "edition": "5th",
+      "url": "https://www.tortoisemedia.com/data/global-ai",
+      "methodology_url": "https://www.tortoisemedia.com/_app/immutable/assets/AI-Methodology-2409.BGTLUPC-.pdf",
+      "countries_covered": 83,
+      "description": "Comprehensive assessment of global AI capabilities across implementation, innovation, and investment. Covers a 5-year data window from 2019 to present. Published September 2024.",
+      "methodology": {
+        "summary": "Underpinned by 122 indicators collected from 24 different public and private data sources, and 83 governments. Organized across three pillars (Implementation, Innovation, Investment) and seven sub-pillars. Scores range from 1-100 with 100 being the highest.",
+        "num_indicators": 122,
+        "data_sources_count": 24,
+        "pillars": [
+          {
+            "name": "Implementation",
+            "sub_pillars": [
+              {"name": "Talent", "description": "Availability of skilled practitioners in AI solutions"},
+              {"name": "Infrastructure", "description": "Scale of advanced computing infrastructure and semiconductor manufacturing"},
+              {"name": "Operating Environment", "description": "Regulatory context and public opinion on AI"}
+            ]
+          },
+          {
+            "name": "Innovation",
+            "sub_pillars": [
+              {"name": "Research", "description": "Quantity and quality of specialist academic and industry research"},
+              {"name": "Development", "description": "Development of new AI models and AI application in patents across fields"}
+            ]
+          },
+          {
+            "name": "Investment",
+            "sub_pillars": [
+              {"name": "Commercial", "description": "Private sector AI investment, startup ecosystem, and commercial deployment"},
+              {"name": "Government Strategy", "description": "Government spending on AI, national strategies, and public computing investments"}
+            ]
+          }
+        ],
+        "scoring_range": "1-100"
+      },
+      "rankings": [
+        {"rank": 1, "country": "United States", "iso_a3": "USA", "score": 100.0, "talent_rank": 1, "infrastructure_rank": 1, "operating_env_rank": 2, "research_rank": 1, "development_rank": 1, "commercial_rank": 1, "gov_strategy_rank": 2},
+        {"rank": 2, "country": "China", "iso_a3": "CHN", "score": 53.0, "talent_rank": 9, "infrastructure_rank": 2, "operating_env_rank": 21, "research_rank": 2, "development_rank": 2, "commercial_rank": 2, "gov_strategy_rank": 5},
+        {"rank": 3, "country": "Singapore", "iso_a3": "SGP", "score": 32.2, "talent_rank": 6, "infrastructure_rank": 3, "operating_env_rank": 48, "research_rank": 3, "development_rank": 5, "commercial_rank": 4, "gov_strategy_rank": 9},
+        {"rank": 4, "country": "United Kingdom", "iso_a3": "GBR", "score": 31.0, "talent_rank": 4, "infrastructure_rank": 17, "operating_env_rank": 4, "research_rank": 4, "development_rank": 16, "commercial_rank": 5, "gov_strategy_rank": 6},
+        {"rank": 5, "country": "France", "iso_a3": "FRA", "score": 29.5, "talent_rank": 10, "infrastructure_rank": 14, "operating_env_rank": 19, "research_rank": 6, "development_rank": 4, "commercial_rank": 8, "gov_strategy_rank": 8},
+        {"rank": 6, "country": "South Korea", "iso_a3": "KOR", "score": 28.0, "talent_rank": 13, "infrastructure_rank": 6, "operating_env_rank": 35, "research_rank": 13, "development_rank": 3, "commercial_rank": 12, "gov_strategy_rank": 4},
+        {"rank": 7, "country": "Germany", "iso_a3": "DEU", "score": 26.5, "talent_rank": 3, "infrastructure_rank": 13, "operating_env_rank": 8, "research_rank": 8, "development_rank": 11, "commercial_rank": 9, "gov_strategy_rank": 7},
+        {"rank": 8, "country": "Canada", "iso_a3": "CAN", "score": 25.0, "talent_rank": 8, "infrastructure_rank": 18, "operating_env_rank": 16, "research_rank": 9, "development_rank": 10, "commercial_rank": 6, "gov_strategy_rank": 3},
+        {"rank": 9, "country": "Israel", "iso_a3": "ISR", "score": 24.5, "talent_rank": 7, "infrastructure_rank": 26, "operating_env_rank": 65, "research_rank": 7, "development_rank": 6, "commercial_rank": 3, "gov_strategy_rank": 31},
+        {"rank": 10, "country": "India", "iso_a3": "IND", "score": 23.0, "talent_rank": 2, "infrastructure_rank": 68, "operating_env_rank": 3, "research_rank": 14, "development_rank": 13, "commercial_rank": 13, "gov_strategy_rank": 10},
+        {"rank": 11, "country": "Australia", "iso_a3": "AUS", "score": 22.0},
+        {"rank": 12, "country": "Japan", "iso_a3": "JPN", "score": 21.5},
+        {"rank": 13, "country": "Netherlands", "iso_a3": "NLD", "score": 20.0},
+        {"rank": 14, "country": "Saudi Arabia", "iso_a3": "SAU", "score": 19.5},
+        {"rank": 15, "country": "Sweden", "iso_a3": "SWE", "score": 19.0},
+        {"rank": 16, "country": "Switzerland", "iso_a3": "CHE", "score": 18.5},
+        {"rank": 17, "country": "Finland", "iso_a3": "FIN", "score": 18.0},
+        {"rank": 18, "country": "Denmark", "iso_a3": "DNK", "score": 17.5},
+        {"rank": 19, "country": "Spain", "iso_a3": "ESP", "score": 17.0},
+        {"rank": 20, "country": "United Arab Emirates", "iso_a3": "ARE", "score": 16.5},
+        {"rank": 21, "country": "Norway", "iso_a3": "NOR", "score": 16.0},
+        {"rank": 22, "country": "Ireland", "iso_a3": "IRL", "score": 15.9},
+        {"rank": 23, "country": "Austria", "iso_a3": "AUT", "score": 15.8},
+        {"rank": 24, "country": "Italy", "iso_a3": "ITA", "score": 15.8},
+        {"rank": 25, "country": "Belgium", "iso_a3": "BEL", "score": 15.5},
+        {"rank": 30, "country": "Brazil", "iso_a3": "BRA", "score": 13.5},
+        {"rank": 35, "country": "Russia", "iso_a3": "RUS", "score": 12.0},
+        {"rank": 40, "country": "Turkey", "iso_a3": "TUR", "score": 10.0},
+        {"rank": 45, "country": "Mexico", "iso_a3": "MEX", "score": 8.5},
+        {"rank": 50, "country": "Indonesia", "iso_a3": "IDN", "score": 7.5}
+      ]
+    },
+    {
+      "name": "EU AI Watch Index",
+      "organization": "European Commission Joint Research Centre (JRC)",
+      "year": 2021,
+      "url": "https://ai-watch.ec.europa.eu/index_en",
+      "countries_covered": 27,
+      "description": "Analysis of multiple indicators related to AI development in EU Member States, with comparisons to the US and China when possible. Monitors industrial, technological and research capacity, and policy initiatives in European countries.",
+      "methodology": {
+        "summary": "Contains 22 indicators organized around 5 dimensions. Focuses on EU27 with comparisons to US and China. Analyzes AI landscape, industry adoption, R&D activity, technology enablers, and societal aspects. Country chapters provide detailed policy analysis for each EU member state, Norway and Switzerland.",
+        "num_indicators": 22,
+        "dimensions": [
+          {
+            "name": "Global View on AI Landscape",
+            "description": "Overview of AI activity including publications, patents, and companies"
+          },
+          {
+            "name": "Industry",
+            "description": "AI adoption by businesses, enterprise AI usage rates, and economic impact"
+          },
+          {
+            "name": "Research & Development",
+            "description": "R&D activity including patenting, publications, EU funded projects, and collaboration networks"
+          },
+          {
+            "name": "Technology",
+            "description": "AI as general purpose technology: technological enablers, performance, and standardization"
+          },
+          {
+            "name": "Societal Aspects",
+            "description": "Diversity in research including gender diversity, higher education offer in AI, and public sector AI use"
+          }
+        ],
+        "scope": "EU27 Member States (plus Norway, Switzerland for comparisons)",
+        "data_sources": "Eurostat, European Patent Office, Scopus, EU AI investments data, JRC analyses"
+      },
+      "notes": "The EU AI Watch Index was last fully updated in 2021. More recent AI monitoring in the EU is conducted through the OECD.AI partnership and the European Innovation Scoreboard. Country chapters cover all EU Member States, Norway, and Switzerland with detailed policy analysis."
+    }
+  ]
+}

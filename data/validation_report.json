@@ -1,0 +1,871 @@
+{
+  "metadata": {
+    "report_type": "Data Validation and Cross-Check Report",
+    "generated_date": "2026-02-21",
+    "validator": "data-validator agent",
+    "files_validated": [
+      "data/raw/survey_institutions.json",
+      "data/raw/readiness_indices.json",
+      "data/raw/enterprise_adoption.json"
+    ]
+  },
+
+  "source_credibility_assessment": [
+    {
+      "source": "Ipsos AI Monitor 2024",
+      "organization": "Ipsos",
+      "credibility_rating": "HIGH",
+      "methodology_rigor": "HIGH",
+      "justification": "Ipsos is a top-3 global polling firm. Standardized methodology (Global Advisor platform), large sample (~1000/country, 32 countries), demographic weighting applied. Well-documented margin of error (~3.1%). Caveat: online-only methodology skews toward more urban/educated populations in developing countries.",
+      "data_year": 2024,
+      "data_freshness": "CURRENT"
+    },
+    {
+      "source": "Google/Ipsos Multi-Country AI Survey 2025",
+      "organization": "Google / Ipsos",
+      "credibility_rating": "HIGH",
+      "methodology_rigor": "HIGH",
+      "justification": "Same Ipsos Global Advisor platform. Google sponsorship adds resources but potential framing bias toward positive AI narratives. 21 countries, ~1000/country. Longitudinal tracking enables trend analysis.",
+      "data_year": 2024,
+      "data_freshness": "CURRENT"
+    },
+    {
+      "source": "Pew Research Center Global AI Survey 2025",
+      "organization": "Pew Research Center",
+      "credibility_rating": "VERY HIGH",
+      "methodology_rigor": "VERY HIGH",
+      "justification": "Pew is the gold standard for public opinion research. Nationally representative samples using phone AND face-to-face methods (not just online). 25 countries, 31,938 total respondents. Mixed-mode methodology reduces online bias. Largest non-US sample in this dataset.",
+      "data_year": 2025,
+      "data_freshness": "CURRENT"
+    },
+    {
+      "source": "Edelman Trust Barometer 2025 - AI Flash Poll",
+      "organization": "Edelman Trust Institute",
+      "credibility_rating": "MEDIUM-HIGH",
+      "methodology_rigor": "MEDIUM",
+      "justification": "Edelman is a reputable PR/communications firm with established trust research program. However, only 5 countries covered, online-only methodology, and as a PR firm there may be framing effects. Useful for trust-specific metrics but limited geographic coverage.",
+      "data_year": 2025,
+      "data_freshness": "CURRENT"
+    },
+    {
+      "source": "Edelman Trust Barometer 2024",
+      "organization": "Edelman",
+      "credibility_rating": "MEDIUM-HIGH",
+      "methodology_rigor": "MEDIUM-HIGH",
+      "justification": "Broader coverage (28 countries, 32,000 respondents) than the 2025 flash poll. Established longitudinal survey. Online methodology. Well-known brand in trust research.",
+      "data_year": 2023,
+      "data_freshness": "SLIGHTLY OUTDATED - survey conducted November 2023, now >2 years old"
+    },
+    {
+      "source": "Lloyd's Register Foundation World Risk Poll 2021",
+      "organization": "Lloyd's Register Foundation / Gallup",
+      "credibility_rating": "HIGH",
+      "methodology_rigor": "VERY HIGH",
+      "justification": "Gallup World Poll methodology is globally recognized for representativeness. Face-to-face and telephone interviews across 121 countries with ~125,000 respondents. Strongest global coverage in the dataset. However, data is from 2021 - significantly outdated for fast-moving AI landscape.",
+      "data_year": 2021,
+      "data_freshness": "OUTDATED - 5 years old, pre-ChatGPT era"
+    },
+    {
+      "source": "Ipsos AI Monitor 2025",
+      "organization": "Ipsos",
+      "credibility_rating": "HIGH",
+      "methodology_rigor": "HIGH",
+      "justification": "Updated version of 2024 monitor. Same robust methodology. 30 countries. Recent data (March-April 2025).",
+      "data_year": 2025,
+      "data_freshness": "CURRENT"
+    },
+    {
+      "source": "WEF/Ipsos Global AI Perception Survey 2024",
+      "organization": "WEF / Ipsos",
+      "credibility_rating": "HIGH",
+      "methodology_rigor": "HIGH",
+      "justification": "World Economic Forum partnership with Ipsos. Cited in Stanford AI Index. Longitudinal data (2022-2024) enables trend validation. 26 countries.",
+      "data_year": 2024,
+      "data_freshness": "CURRENT"
+    },
+    {
+      "source": "Oxford Insights Government AI Readiness Index 2024",
+      "organization": "Oxford Insights",
+      "credibility_rating": "HIGH",
+      "methodology_rigor": "HIGH",
+      "justification": "7th edition, referenced by UNESCO and G20. 188 countries, 40 indicators across 3 pillars. Well-documented scoring methodology. Widely cited in policy circles.",
+      "data_year": 2024,
+      "data_freshness": "CURRENT"
+    },
+    {
+      "source": "Stanford HAI Global AI Vibrancy Tool 2025",
+      "organization": "Stanford HAI",
+      "credibility_rating": "VERY HIGH",
+      "methodology_rigor": "VERY HIGH",
+      "justification": "Stanford HAI is the premier academic institution for AI research analysis. 42 indicators, 36 countries. Open methodology with adjustable weights. Part of the authoritative annual AI Index Report.",
+      "data_year": 2025,
+      "data_freshness": "CURRENT"
+    },
+    {
+      "source": "IMD World Digital Competitiveness Ranking 2024",
+      "organization": "IMD",
+      "credibility_rating": "HIGH",
+      "methodology_rigor": "HIGH",
+      "justification": "IMD is a leading business school with decades of competitiveness ranking experience. 67 countries, 59 criteria. Two-thirds hard data, one-third survey data. Well-established methodology.",
+      "data_year": 2024,
+      "data_freshness": "CURRENT"
+    },
+    {
+      "source": "ITU ICT Development Index 2024",
+      "organization": "ITU (UN agency)",
+      "credibility_rating": "VERY HIGH",
+      "methodology_rigor": "VERY HIGH",
+      "justification": "Official UN agency for telecommunications. 170 countries. Methodology approved by ITU Member States. Focuses on ICT infrastructure rather than AI specifically, but provides essential connectivity baseline data.",
+      "data_year": 2024,
+      "data_freshness": "CURRENT"
+    },
+    {
+      "source": "Tortoise Media Global AI Index 2024",
+      "organization": "Tortoise Media",
+      "credibility_rating": "MEDIUM-HIGH",
+      "methodology_rigor": "HIGH",
+      "justification": "5th edition, 83 countries, 122 indicators from 24 data sources. Comprehensive methodology. Tortoise Media is a smaller organization compared to others, but the index is well-regarded. Published September 2024.",
+      "data_year": 2024,
+      "data_freshness": "CURRENT"
+    },
+    {
+      "source": "EU AI Watch Index",
+      "organization": "European Commission JRC",
+      "credibility_rating": "HIGH",
+      "methodology_rigor": "HIGH",
+      "justification": "EU Joint Research Centre is an authoritative governmental body. However, limited to EU27 countries. Only 22 indicators.",
+      "data_year": 2021,
+      "data_freshness": "OUTDATED - last fully updated in 2021"
+    },
+    {
+      "source": "McKinsey Global AI Survey 2025",
+      "organization": "McKinsey & Company",
+      "credibility_rating": "HIGH",
+      "methodology_rigor": "MEDIUM-HIGH",
+      "justification": "McKinsey is a top-tier consulting firm. 1,993 respondents across 105 countries. However, McKinsey surveys tend to skew toward larger, more digitally mature organizations. Self-reported adoption rates may overstate actual deployment depth.",
+      "data_year": 2025,
+      "data_freshness": "CURRENT"
+    },
+    {
+      "source": "Microsoft Work Trend Index 2024",
+      "organization": "Microsoft / LinkedIn",
+      "credibility_rating": "MEDIUM-HIGH",
+      "methodology_rigor": "HIGH",
+      "justification": "Large sample (31,000 across 31 countries). Conducted by Edelman Data & Intelligence. However, Microsoft has clear commercial interest in promoting AI adoption. Focuses on knowledge workers, not all workers.",
+      "data_year": 2024,
+      "data_freshness": "CURRENT"
+    },
+    {
+      "source": "IBM Global AI Adoption Index 2023",
+      "organization": "IBM",
+      "credibility_rating": "MEDIUM-HIGH",
+      "methodology_rigor": "MEDIUM-HIGH",
+      "justification": "8,584 IT professionals across 20 countries. Conducted by Morning Consult. Focuses on large organizations (1000+ employees), so not representative of SMBs. IBM has commercial interest in AI adoption. Data from 2023.",
+      "data_year": 2023,
+      "data_freshness": "SLIGHTLY OUTDATED - 2023 data, >2 years from current date"
+    },
+    {
+      "source": "KPMG AI Quarterly Pulse Survey",
+      "organization": "KPMG",
+      "credibility_rating": "MEDIUM-HIGH",
+      "methodology_rigor": "MEDIUM",
+      "justification": "Big 4 consultancy. Quarterly tracking is valuable for trend analysis. However, sample size and methodology details are not fully disclosed. US-focused.",
+      "data_year": 2025,
+      "data_freshness": "CURRENT"
+    },
+    {
+      "source": "Deloitte State of AI in the Enterprise 2026",
+      "organization": "Deloitte",
+      "credibility_rating": "HIGH",
+      "methodology_rigor": "HIGH",
+      "justification": "Big 4 consultancy with strong research arm. 3,235 respondents across 24 countries and 6 industries. Well-structured methodology. Recent data (Aug-Sep 2025).",
+      "data_year": 2025,
+      "data_freshness": "CURRENT"
+    }
+  ],
+
+  "validated_countries": [
+    {
+      "country": "United States",
+      "iso_a3": "USA",
+      "source_count": 12,
+      "sources": ["Ipsos 2024", "Google/Ipsos 2025", "Pew 2025", "Edelman 2025", "Edelman 2024", "Lloyd's 2021", "Oxford Insights", "Stanford HAI", "IMD", "ITU", "Tortoise", "McKinsey", "IBM", "Microsoft", "KPMG", "Deloitte", "Stanford HAI Investment"],
+      "multi_source_support": "VERY STRONG",
+      "data_quality": "HIGH",
+      "notes": "Best-covered country in the entire dataset. Data available from virtually all sources."
+    },
+    {
+      "country": "China",
+      "iso_a3": "CHN",
+      "source_count": 8,
+      "sources": ["Ipsos 2024", "Edelman 2025", "Lloyd's 2021", "Oxford Insights", "Stanford HAI", "IMD", "ITU", "Tortoise", "IBM", "Microsoft"],
+      "multi_source_support": "VERY STRONG",
+      "data_quality": "MEDIUM-HIGH",
+      "notes": "Strong coverage but some survey data may be affected by online censorship and social desirability bias in Chinese respondents."
+    },
+    {
+      "country": "United Kingdom",
+      "iso_a3": "GBR",
+      "source_count": 10,
+      "sources": ["Ipsos 2024", "Google/Ipsos 2025", "Pew 2025", "Edelman 2025", "Edelman 2024", "Oxford Insights", "Stanford HAI", "IMD", "ITU", "Tortoise"],
+      "multi_source_support": "VERY STRONG",
+      "data_quality": "HIGH"
+    },
+    {
+      "country": "Germany",
+      "iso_a3": "DEU",
+      "source_count": 9,
+      "sources": ["Ipsos 2024", "Google/Ipsos 2025", "Pew 2025", "Edelman 2025", "Oxford Insights", "Stanford HAI", "IMD", "ITU", "Tortoise", "IBM", "Microsoft"],
+      "multi_source_support": "VERY STRONG",
+      "data_quality": "HIGH"
+    },
+    {
+      "country": "India",
+      "iso_a3": "IND",
+      "source_count": 9,
+      "sources": ["Ipsos 2024", "Google/Ipsos 2025", "Pew 2025", "Oxford Insights", "Stanford HAI", "IMD", "ITU", "Tortoise", "IBM", "Microsoft"],
+      "multi_source_support": "VERY STRONG",
+      "data_quality": "MEDIUM-HIGH",
+      "notes": "Online surveys represent more urban/educated population. Face-to-face surveys (Pew) provide better national representation. Large gap between India's high enterprise adoption (IBM: 59%) and low AI readiness index scores suggests adoption is concentrated in IT sector, not broadly based."
+    },
+    {
+      "country": "Japan",
+      "iso_a3": "JPN",
+      "source_count": 8,
+      "sources": ["Ipsos 2024", "Google/Ipsos 2025", "Pew 2025", "Oxford Insights", "IMD", "ITU", "Tortoise", "IBM", "Microsoft"],
+      "multi_source_support": "VERY STRONG",
+      "data_quality": "HIGH"
+    },
+    {
+      "country": "South Korea",
+      "iso_a3": "KOR",
+      "source_count": 8,
+      "sources": ["Ipsos 2024", "Google/Ipsos 2025", "Pew 2025", "Lloyd's 2021", "Oxford Insights", "Stanford HAI", "IMD", "ITU", "Tortoise"],
+      "multi_source_support": "VERY STRONG",
+      "data_quality": "HIGH"
+    },
+    {
+      "country": "Singapore",
+      "iso_a3": "SGP",
+      "source_count": 7,
+      "sources": ["Ipsos 2024", "Google/Ipsos 2025", "Oxford Insights", "Stanford HAI", "IMD", "ITU", "Tortoise", "IBM"],
+      "multi_source_support": "STRONG",
+      "data_quality": "HIGH"
+    },
+    {
+      "country": "Brazil",
+      "iso_a3": "BRA",
+      "source_count": 8,
+      "sources": ["Ipsos 2024", "Google/Ipsos 2025", "Pew 2025", "Edelman 2025", "Oxford Insights", "IMD", "ITU", "Tortoise", "IBM"],
+      "multi_source_support": "VERY STRONG",
+      "data_quality": "HIGH"
+    },
+    {
+      "country": "France",
+      "iso_a3": "FRA",
+      "source_count": 8,
+      "sources": ["Ipsos 2024", "Google/Ipsos 2025", "Pew 2025", "Oxford Insights", "IMD", "ITU", "Tortoise", "IBM", "Microsoft"],
+      "multi_source_support": "VERY STRONG",
+      "data_quality": "HIGH"
+    },
+    {
+      "country": "Canada",
+      "iso_a3": "CAN",
+      "source_count": 7,
+      "sources": ["Ipsos 2024", "Google/Ipsos 2025", "Pew 2025", "Oxford Insights", "IMD", "ITU", "Tortoise", "Stanford HAI Investment"],
+      "multi_source_support": "STRONG",
+      "data_quality": "HIGH"
+    },
+    {
+      "country": "Australia",
+      "iso_a3": "AUS",
+      "source_count": 7,
+      "sources": ["Ipsos 2024", "Google/Ipsos 2025", "Pew 2025", "Oxford Insights", "IMD", "ITU", "Tortoise", "IBM", "Deloitte"],
+      "multi_source_support": "STRONG",
+      "data_quality": "HIGH"
+    },
+    {
+      "country": "Italy",
+      "iso_a3": "ITA",
+      "source_count": 7,
+      "sources": ["Ipsos 2024", "Google/Ipsos 2025", "Pew 2025", "Oxford Insights", "IMD", "ITU", "Tortoise", "IBM"],
+      "multi_source_support": "STRONG",
+      "data_quality": "HIGH"
+    },
+    {
+      "country": "Spain",
+      "iso_a3": "ESP",
+      "source_count": 7,
+      "sources": ["Ipsos 2024", "Google/Ipsos 2025", "Pew 2025", "Oxford Insights", "Stanford HAI", "IMD", "ITU", "Tortoise", "IBM"],
+      "multi_source_support": "STRONG",
+      "data_quality": "HIGH"
+    },
+    {
+      "country": "Mexico",
+      "iso_a3": "MEX",
+      "source_count": 6,
+      "sources": ["Ipsos 2024", "Google/Ipsos 2025", "Pew 2025", "Oxford Insights", "IMD", "ITU", "Tortoise", "IBM"],
+      "multi_source_support": "STRONG",
+      "data_quality": "MEDIUM-HIGH"
+    },
+    {
+      "country": "Indonesia",
+      "iso_a3": "IDN",
+      "source_count": 5,
+      "sources": ["Ipsos 2024", "Pew 2025", "IMD", "Tortoise", "McKinsey ASEAN"],
+      "multi_source_support": "MODERATE",
+      "data_quality": "MEDIUM"
+    },
+    {
+      "country": "Turkey",
+      "iso_a3": "TUR",
+      "source_count": 5,
+      "sources": ["Ipsos 2024", "Pew 2025", "Oxford Insights", "IMD", "Tortoise"],
+      "multi_source_support": "MODERATE",
+      "data_quality": "MEDIUM"
+    },
+    {
+      "country": "Nigeria",
+      "iso_a3": "NGA",
+      "source_count": 5,
+      "sources": ["Google/Ipsos 2025", "Pew 2025", "IMD", "Edelman 2024"],
+      "multi_source_support": "MODERATE",
+      "data_quality": "MEDIUM",
+      "notes": "Low internet penetration makes online surveys less representative. Pew face-to-face data is more reliable for this country."
+    },
+    {
+      "country": "South Africa",
+      "iso_a3": "ZAF",
+      "source_count": 5,
+      "sources": ["Ipsos 2024", "Google/Ipsos 2025", "Pew 2025", "IMD"],
+      "multi_source_support": "MODERATE",
+      "data_quality": "MEDIUM"
+    },
+    {
+      "country": "Kenya",
+      "iso_a3": "KEN",
+      "source_count": 4,
+      "sources": ["Pew 2025", "Lloyd's 2021", "IMD", "Edelman 2024"],
+      "multi_source_support": "MODERATE",
+      "data_quality": "MEDIUM",
+      "notes": "Limited enterprise data. Survey data from Pew (face-to-face) is most reliable."
+    },
+    {
+      "country": "Peru",
+      "iso_a3": "PER",
+      "source_count": 3,
+      "sources": ["Ipsos 2024", "IMD", "IBM"],
+      "multi_source_support": "WEAK",
+      "data_quality": "MEDIUM"
+    },
+    {
+      "country": "Colombia",
+      "iso_a3": "COL",
+      "source_count": 3,
+      "sources": ["Ipsos 2024", "IMD", "IBM", "Microsoft"],
+      "multi_source_support": "WEAK",
+      "data_quality": "MEDIUM"
+    },
+    {
+      "country": "Thailand",
+      "iso_a3": "THA",
+      "source_count": 4,
+      "sources": ["Ipsos 2024", "IMD", "McKinsey ASEAN", "Microsoft"],
+      "multi_source_support": "MODERATE",
+      "data_quality": "MEDIUM"
+    },
+    {
+      "country": "Malaysia",
+      "iso_a3": "MYS",
+      "source_count": 3,
+      "sources": ["Ipsos 2024", "IMD", "ITU", "Microsoft"],
+      "multi_source_support": "WEAK",
+      "data_quality": "MEDIUM"
+    },
+    {
+      "country": "United Arab Emirates",
+      "iso_a3": "ARE",
+      "source_count": 6,
+      "sources": ["Google/Ipsos 2025", "Oxford Insights", "Stanford HAI", "IMD", "ITU", "IBM"],
+      "multi_source_support": "STRONG",
+      "data_quality": "HIGH"
+    },
+    {
+      "country": "Israel",
+      "iso_a3": "ISR",
+      "source_count": 5,
+      "sources": ["Pew 2025", "Oxford Insights", "IMD", "ITU", "Tortoise", "Stanford HAI Investment"],
+      "multi_source_support": "MODERATE",
+      "data_quality": "HIGH"
+    }
+  ],
+
+  "discrepancies": [
+    {
+      "id": "DISC-001",
+      "country": "United States",
+      "metric": "AI sentiment / excitement vs concern",
+      "source_a": {
+        "name": "Ipsos AI Monitor 2024",
+        "value": "34% excited about AI",
+        "date": "April-May 2024"
+      },
+      "source_b": {
+        "name": "Pew Research 2025",
+        "value": "52% more concerned than excited, only 10% more excited",
+        "date": "Jan-Apr 2025"
+      },
+      "source_c": {
+        "name": "Edelman Trust 2025",
+        "value": "32% trust AI, 49% reject AI",
+        "date": "October 2025"
+      },
+      "difference_pct": "N/A - different question framings but directionally consistent",
+      "severity": "LOW",
+      "assessment": "CONSISTENT. All three sources agree that the US public is skeptical/cautious about AI. Low excitement (34% Ipsos), high concern (52% Pew), low trust (32% Edelman). Different metrics but converge on the same narrative. No significant discrepancy."
+    },
+    {
+      "id": "DISC-002",
+      "country": "China",
+      "metric": "AI enthusiasm / optimism",
+      "source_a": {
+        "name": "Ipsos AI Monitor 2024",
+        "value": "80% excited about AI",
+        "date": "April-May 2024"
+      },
+      "source_b": {
+        "name": "Edelman Trust 2025",
+        "value": "87% trust AI",
+        "date": "October 2025"
+      },
+      "source_c": {
+        "name": "Lloyd's/Gallup 2021",
+        "value": "Only 9.4% say AI will mostly harm (Eastern Asia region 57% mostly help)",
+        "date": "2021"
+      },
+      "difference_pct": "~7 points between excitement (80%) and trust (87%)",
+      "severity": "LOW",
+      "assessment": "CONSISTENT. All sources confirm China has the highest AI optimism globally. The 7-point gap between Ipsos excitement (80%) and Edelman trust (87%) is within expected variation given different question framings and time periods. Edelman notes trust increased 9 points since 2023, which explains the higher 2025 figure."
+    },
+    {
+      "id": "DISC-003",
+      "country": "Brazil",
+      "metric": "AI sentiment direction",
+      "source_a": {
+        "name": "Ipsos AI Monitor 2024",
+        "value": "56% excited about AI",
+        "date": "April-May 2024"
+      },
+      "source_b": {
+        "name": "Edelman Trust 2025",
+        "value": "67% trust AI",
+        "date": "October 2025"
+      },
+      "source_c": {
+        "name": "Pew Research 2025",
+        "value": "48% more concerned than excited",
+        "date": "Jan-Apr 2025"
+      },
+      "difference_pct": ">15% apparent discrepancy between Edelman (67% trust) and Pew (48% concerned)",
+      "severity": "MEDIUM",
+      "assessment": "APPARENT DISCREPANCY but explainable. Ipsos and Edelman show moderate-to-high AI positivity in Brazil. Pew's 48% 'more concerned than excited' does NOT mean 48% are negative - it means concern slightly outweighs excitement, while many are equally concerned and excited. Additionally, Pew used face-to-face methodology (more nationally representative, includes rural/less educated populations) while Ipsos/Edelman used online surveys (urban/educated bias). This methodological difference likely explains the gap. FLAG: The Pew face-to-face data is likely more representative of actual Brazilian sentiment."
+    },
+    {
+      "id": "DISC-004",
+      "country": "India",
+      "metric": "Enterprise AI adoption vs Government AI readiness",
+      "source_a": {
+        "name": "IBM Global AI Adoption Index",
+        "value": "59% enterprise active deployment (highest globally)",
+        "date": "2023"
+      },
+      "source_b": {
+        "name": "Oxford Insights Gov AI Readiness",
+        "value": "Rank 46, Score 55.00 (below global average of 47.59 for readiness)",
+        "date": "2024"
+      },
+      "source_c": {
+        "name": "Stanford HAI Vibrancy",
+        "value": "Rank 3, Score 21.59",
+        "date": "2025"
+      },
+      "difference_pct": ">15% gap in relative positioning",
+      "severity": "HIGH",
+      "assessment": "SIGNIFICANT DISCREPANCY requiring explanation. India ranks #1 in enterprise AI adoption (IBM) but only #46 in government AI readiness (Oxford). This is plausible given India's strong IT services sector (driving high enterprise adoption) combined with weaker government infrastructure, digital divide, and infrastructure gaps. Stanford ranking India #3 in vibrancy reflects research output and talent, not broad readiness. CONCLUSION: Not a data error - reflects genuine dual nature of India's AI landscape (strong private sector, weak public infrastructure)."
+    },
+    {
+      "id": "DISC-005",
+      "country": "Global",
+      "metric": "Enterprise AI adoption rate",
+      "source_a": {
+        "name": "McKinsey 2025",
+        "value": "88% adoption",
+        "date": "2025"
+      },
+      "source_b": {
+        "name": "Deloitte 2025",
+        "value": "71% using GenAI",
+        "date": "2025"
+      },
+      "source_c": {
+        "name": "IBM 2023",
+        "value": "42% actively deployed",
+        "date": "2023"
+      },
+      "difference_pct": "46 percentage points between McKinsey (88%) and IBM (42%)",
+      "severity": "HIGH",
+      "assessment": "EXPECTED METHODOLOGICAL DISCREPANCY - not a data error. The enterprise_adoption.json file already documents this: McKinsey counts 'any AI use in any function' (broadest definition), Deloitte measures GenAI specifically, and IBM measures 'active deployment at enterprise scale (1000+ employees)' (strictest definition). Additionally, IBM data is from 2023, before the GenAI surge. When definitions and timeframes are aligned, the progression from 42% (2023 strict) to 71-88% (2025 broad) is plausible and shows rapid growth."
+    },
+    {
+      "id": "DISC-006",
+      "country": "Australia",
+      "metric": "Enterprise AI adoption and transformation",
+      "source_a": {
+        "name": "IBM Global AI Adoption Index",
+        "value": "29% active deployment",
+        "date": "2023"
+      },
+      "source_b": {
+        "name": "Deloitte State of AI 2026",
+        "value": "12% say GenAI already transforming (below global 25%)",
+        "date": "2025"
+      },
+      "difference_pct": "17 points gap between adoption (29%) and transformation (12%)",
+      "severity": "LOW",
+      "assessment": "CONSISTENT. Both sources agree Australia lags in AI adoption/transformation relative to peers. The 'active deployment' (29%) being higher than 'already transforming' (12%) makes sense - many organizations deploy AI without it being truly transformative. Directionally aligned."
+    },
+    {
+      "id": "DISC-007",
+      "country": "South Korea",
+      "metric": "Public AI sentiment",
+      "source_a": {
+        "name": "Ipsos 2024",
+        "value": "73% excited about AI",
+        "date": "2024"
+      },
+      "source_b": {
+        "name": "Pew 2025",
+        "value": "Only 16% more concerned than excited",
+        "date": "2025"
+      },
+      "source_c": {
+        "name": "Lloyd's/Gallup 2021",
+        "value": "70% say AI will mostly help (most positive globally)",
+        "date": "2021"
+      },
+      "difference_pct": "Consistent across all sources",
+      "severity": "LOW",
+      "assessment": "HIGHLY CONSISTENT. All three sources spanning 2021-2025 confirm South Korea is among the most AI-positive countries globally. Strong multi-source validation."
+    },
+    {
+      "id": "DISC-008",
+      "country": "France",
+      "metric": "Enterprise adoption vs public readiness",
+      "source_a": {
+        "name": "IBM Global AI Adoption Index",
+        "value": "26% active enterprise deployment (one of lowest)",
+        "date": "2023"
+      },
+      "source_b": {
+        "name": "Oxford Insights Gov AI Readiness",
+        "value": "Rank 4, Score 79.36 (one of highest)",
+        "date": "2024"
+      },
+      "difference_pct": ">15% gap in relative positioning",
+      "severity": "MEDIUM",
+      "assessment": "NOTABLE DISCREPANCY. France ranks #4 in government AI readiness but has one of the lowest enterprise adoption rates (26%). This likely reflects France's strong government AI strategy (national AI plan, investment in AI research) combined with slower private-sector adoption, possibly due to regulatory caution and labor market dynamics. Not a data error but highlights a policy-practice gap."
+    },
+    {
+      "id": "DISC-009",
+      "country": "Japan",
+      "metric": "AI nervousness",
+      "source_a": {
+        "name": "Ipsos AI Monitor 2024",
+        "value": "Only 9% nervous about AI (lowest globally by far)",
+        "date": "2024"
+      },
+      "source_b": {
+        "name": "Ipsos AI Monitor 2024",
+        "value": "47% excited about AI (moderate)",
+        "date": "2024"
+      },
+      "difference_pct": "38 points gap between excitement and nervousness",
+      "severity": "MEDIUM - ANOMALY",
+      "assessment": "UNUSUAL PATTERN but likely accurate. Japan's extremely low nervousness (9%) combined with only moderate excitement (47%) suggests widespread indifference rather than strong positive or negative feelings. This aligns with cultural research showing Japanese respondents tend toward neutral/middle responses. The pattern is unusual but culturally explainable and consistent with Japan's technology-pragmatic culture."
+    }
+  ],
+
+  "anomalies_detected": [
+    {
+      "id": "ANOM-001",
+      "type": "Implausible Value",
+      "location": "readiness_indices.json > IMD Rankings",
+      "description": "New Zealand appears TWICE in IMD rankings: at rank 27 (score 73.50) and rank 33 (score 68.50). This is a data collection error.",
+      "severity": "HIGH",
+      "recommendation": "Remove duplicate entry. Rank 27 (score 73.50) is likely the correct entry based on NZ's typical position in digital competitiveness rankings."
+    },
+    {
+      "id": "ANOM-002",
+      "type": "Missing Data Pattern",
+      "location": "survey_institutions.json > Pew Research countries",
+      "description": "Multiple Pew Research countries have empty results objects: Argentina, Mexico, South Africa, Turkey, Hungary, Netherlands, Poland, Sweden. These countries were surveyed (sample_size: 1000) but no results data was collected.",
+      "severity": "MEDIUM",
+      "recommendation": "These likely represent countries where only partial Pew results were available from the source. The collector may not have had access to all country-level breakdowns. Flag as incomplete rather than invalid."
+    },
+    {
+      "id": "ANOM-003",
+      "type": "Null Values",
+      "location": "survey_institutions.json > Edelman 2025 > Brazil and Germany",
+      "description": "Edelman Trust Barometer 2025 has null values for embrace_ai and reject_ai in Brazil and Germany entries. Only trust_in_ai is populated.",
+      "severity": "LOW",
+      "recommendation": "Likely reflects partial data availability from the Edelman flash poll report. The trust_in_ai metric is still valid. Flag as partial data."
+    },
+    {
+      "id": "ANOM-004",
+      "type": "Null Values in Quantitative Data",
+      "location": "survey_institutions.json > Lloyd's 2021 > China",
+      "description": "China's ai_mostly_help value is null, while ai_mostly_harm is 9.4 (an unusual decimal for a percentage that should be integer). The regional figure (Eastern Asia: 57% mostly help) is used instead with a note.",
+      "severity": "LOW",
+      "recommendation": "The 9.4% figure may be from a finer-grained analysis. Accept the regional proxy (57% mostly help) for China. Flag the decimal as unusual but not necessarily wrong."
+    },
+    {
+      "id": "ANOM-005",
+      "type": "Data Completeness Gap",
+      "location": "survey_institutions.json > Ipsos 2024",
+      "description": "Country-level data from Ipsos 2024 has inconsistent field coverage. Some countries have 2-3 metrics, others have 5. For example, China has only 3 metrics (excited, nervous, benefits) while Indonesia has 5 (adds understanding and job replacement).",
+      "severity": "LOW",
+      "recommendation": "This is typical of survey reports that highlight only notable findings per country. Not a data quality issue but limits cross-country comparability."
+    },
+    {
+      "id": "ANOM-006",
+      "type": "Missing Rank",
+      "location": "readiness_indices.json > Oxford Insights rankings",
+      "description": "Rank 22 is skipped in the Oxford Insights rankings (jumps from rank 21 Estonia to rank 23 China). This could indicate an omitted country or a data collection gap.",
+      "severity": "LOW",
+      "recommendation": "The gap likely means the collector only included select countries, not the full ranking. Not a data integrity issue for included countries."
+    },
+    {
+      "id": "ANOM-007",
+      "type": "Temporal Inconsistency",
+      "location": "enterprise_adoption.json > KPMG survey",
+      "description": "KPMG data references Q1-Q4 2026 data (AI agent deployment: 11% Q1 2026 to 26% Q4 2026), but current date is February 2026. Q4 2026 data cannot exist yet.",
+      "severity": "HIGH",
+      "recommendation": "This is either projected/forecast data mislabeled as actual, or the survey dates are incorrect. Flag as potentially unreliable. Should be verified against the original KPMG report."
+    },
+    {
+      "id": "ANOM-008",
+      "type": "Scale Comparison Issue",
+      "location": "readiness_indices.json > Stanford HAI vs IMD scores",
+      "description": "Stanford HAI and IMD both use 0-100 scales but produce vastly different scores for the same countries. USA: Stanford 78.6 vs IMD 91.3. China: Stanford 37.0 vs IMD 82.0. The scales are not directly comparable despite the same range.",
+      "severity": "MEDIUM",
+      "recommendation": "Document that these indices use fundamentally different methodologies and should NOT be compared by absolute score. Rankings/ordinal positions are more comparable than raw scores."
+    }
+  ],
+
+  "data_consistency_checks": {
+    "iso_code_consistency": {
+      "status": "PASS with minor issues",
+      "issues": [
+        {
+          "issue": "Hong Kong appears as 'Hong Kong SAR' (IMD) and 'Hong Kong' (ITU) with ISO code HKG in both cases",
+          "severity": "LOW",
+          "recommendation": "Standardize to 'Hong Kong SAR' with iso_a3 'HKG'"
+        },
+        {
+          "issue": "Taiwan appears in IMD with iso_a3 'TWN' but not in other indices",
+          "severity": "LOW",
+          "recommendation": "Note that Taiwan/Chinese Taipei is excluded from some UN-affiliated indices due to political considerations"
+        },
+        {
+          "issue": "All other ISO A3 codes verified as correct across all three files",
+          "severity": "NONE"
+        }
+      ]
+    },
+    "country_name_consistency": {
+      "status": "PASS",
+      "issues": [
+        {
+          "issue": "'South Korea' used consistently across all files (not 'Republic of Korea')",
+          "severity": "NONE",
+          "note": "Consistent usage is good"
+        },
+        {
+          "issue": "'United Arab Emirates' / 'UAE' used - full name in indices, abbreviated in enterprise_adoption",
+          "severity": "LOW",
+          "recommendation": "Standardize to full name 'United Arab Emirates' throughout"
+        },
+        {
+          "issue": "'Czech Republic' in IMD vs no entry elsewhere - some sources use 'Czechia'",
+          "severity": "LOW"
+        }
+      ]
+    },
+    "iso_code_accuracy": {
+      "status": "PASS",
+      "notes": "All ISO A3 codes verified as correct: USA, CHN, GBR, DEU, IND, JPN, KOR, SGP, BRA, FRA, CAN, AUS, ITA, ESP, MEX, IDN, TUR, NGA, ZAF, KEN, PER, COL, THA, MYS, ARE, ISR, etc. No incorrect codes found."
+    }
+  },
+
+  "outdated_data": [
+    {
+      "source": "Lloyd's Register Foundation World Risk Poll",
+      "organization": "Lloyd's Register Foundation / Gallup",
+      "data_year": 2021,
+      "years_old": 5,
+      "status": "SIGNIFICANTLY OUTDATED",
+      "impact": "This data predates the ChatGPT launch (November 2022) and the subsequent explosion in AI awareness and adoption. Public perceptions of AI have shifted dramatically since 2021. Use with extreme caution and clearly label as pre-GenAI baseline data.",
+      "recommendation": "Retain as historical baseline only. Do NOT treat as representative of current attitudes. Clearly label as '2021 (pre-ChatGPT era)' in any visualizations."
+    },
+    {
+      "source": "EU AI Watch Index",
+      "organization": "European Commission JRC",
+      "data_year": 2021,
+      "years_old": 5,
+      "status": "SIGNIFICANTLY OUTDATED",
+      "impact": "Last fully updated in 2021. EU AI landscape has changed dramatically with the EU AI Act (2024), AI gigafactory investments, and rapid industry transformation.",
+      "recommendation": "Consider excluding from analysis or using only for historical context. The OECD.AI Index (2024) provides more current EU-relevant data."
+    },
+    {
+      "source": "Edelman Trust Barometer 2024 (Annual Report)",
+      "organization": "Edelman",
+      "data_year": 2023,
+      "years_old": 2.3,
+      "status": "BORDERLINE OUTDATED",
+      "impact": "Survey conducted November 2023, now just over 2 years old. AI attitudes have shifted since then, though less dramatically than pre/post-ChatGPT.",
+      "recommendation": "Still usable but note that the 2025 Edelman Flash Poll provides more current data for 5 countries."
+    },
+    {
+      "source": "IBM Global AI Adoption Index",
+      "organization": "IBM",
+      "data_year": 2023,
+      "years_old": 2.2,
+      "status": "BORDERLINE OUTDATED",
+      "impact": "Enterprise AI adoption has accelerated significantly since 2023. IBM's 42% figure likely underestimates current adoption.",
+      "recommendation": "Use McKinsey 2025 and Deloitte 2025 as primary enterprise adoption references. Retain IBM data for country-level granularity but note temporal limitations."
+    }
+  ],
+
+  "unreliable_data": [
+    {
+      "data_point": "KPMG Q4 2026 AI agent deployment (26%)",
+      "reason": "Data from the future - Q4 2026 has not occurred yet as of February 2026. Likely projected/forecast data mislabeled as actual.",
+      "recommendation": "Flag as projection/forecast, not actual data. Verify against original KPMG source."
+    },
+    {
+      "data_point": "IMD duplicate New Zealand entry",
+      "reason": "New Zealand appears at both rank 27 and rank 33 with different scores (73.50 and 68.50). Data collection error.",
+      "recommendation": "Use rank 27 / score 73.50 entry only. Remove duplicate."
+    },
+    {
+      "data_point": "Pew countries with empty results",
+      "reason": "8 countries surveyed by Pew have no results data recorded. Data collection was incomplete.",
+      "recommendation": "Do not include these countries in Pew-based analyses. Their absence should not be interpreted as negative findings."
+    },
+    {
+      "data_point": "Lloyd's 2021 China ai_mostly_harm: 9.4%",
+      "reason": "Decimal percentage is unusual for this type of survey. May be a calculation artifact or transcription error.",
+      "recommendation": "Round to 9% or use the regional Eastern Asia figure (57% mostly help, 13% mostly harm) as proxy."
+    }
+  ],
+
+  "cross_validation_summary": {
+    "strong_consensus_findings": [
+      "China consistently ranks as the most AI-optimistic country globally (Ipsos 80% excited, Edelman 87% trust, Lloyd's lowest concern, Edelman 2024 embrace majority)",
+      "US/UK/Canada/Australia are consistently AI-cautious in public sentiment (Ipsos 34-39% excited, Pew 42-52% more concerned, Edelman 32-36% trust)",
+      "US dominates in AI readiness/capability metrics (Oxford #1, Stanford #1, Tortoise #1, IMD #4, highest private investment)",
+      "Singapore consistently ranks among top 3-6 in readiness indices (Oxford #2, Tortoise #3, IMD #1, Stanford #6)",
+      "Emerging economies (India, Indonesia, Thailand, Saudi Arabia, Nigeria) show higher AI enthusiasm but lower infrastructure readiness",
+      "Enterprise AI adoption has accelerated dramatically from ~42% (2023) to 71-88% (2025) across multiple sources",
+      "Global AI private investment is dominated by the US ($109.1B in 2024, ~50% of global total)"
+    ],
+    "areas_of_divergence": [
+      "India's position varies dramatically by metric: #1 enterprise adoption (IBM), #3 AI vibrancy (Stanford), but #46 government readiness (Oxford) and #51 digital competitiveness (IMD)",
+      "France shows a policy-practice gap: #4 government readiness but 26% enterprise adoption",
+      "Enterprise adoption rates vary 42-88% depending on source methodology - absolute numbers are not comparable across sources",
+      "Brazil shows divergent sentiment depending on methodology: face-to-face surveys show more concern, online surveys show more optimism"
+    ]
+  },
+
+  "recommendations": [
+    {
+      "id": "REC-001",
+      "priority": "HIGH",
+      "recommendation": "Remove or clearly flag Lloyd's Register Foundation 2021 and EU AI Watch 2021 data as historical baselines only. These predate the GenAI revolution and do not reflect current AI perceptions.",
+      "impact": "Prevents misleading conclusions about current attitudes based on outdated data"
+    },
+    {
+      "id": "REC-002",
+      "priority": "HIGH",
+      "recommendation": "Fix the duplicate New Zealand entry in IMD rankings. Retain rank 27 / score 73.50 only.",
+      "impact": "Data integrity"
+    },
+    {
+      "id": "REC-003",
+      "priority": "HIGH",
+      "recommendation": "Verify KPMG Q4 2026 data and label as projection/forecast if it refers to future dates.",
+      "impact": "Prevents using forecast data as factual"
+    },
+    {
+      "id": "REC-004",
+      "priority": "MEDIUM",
+      "recommendation": "When comparing enterprise adoption rates across sources, ALWAYS note the definitional differences (McKinsey 'any AI use' vs IBM 'active deployment at enterprise scale'). Do not average or directly compare these figures.",
+      "impact": "Prevents misleading cross-source comparisons"
+    },
+    {
+      "id": "REC-005",
+      "priority": "MEDIUM",
+      "recommendation": "For countries with online-only survey data and low internet penetration (India, Indonesia, Nigeria, Kenya), add caveats about urban/educated sample bias. Prefer Pew face-to-face data where available.",
+      "impact": "Improves data interpretation accuracy"
+    },
+    {
+      "id": "REC-006",
+      "priority": "MEDIUM",
+      "recommendation": "Standardize country names across all files: use full names (United Arab Emirates not UAE), consistent naming (Hong Kong SAR), and add iso_a2 codes for additional cross-referencing.",
+      "impact": "Enables easier programmatic cross-referencing"
+    },
+    {
+      "id": "REC-007",
+      "priority": "LOW",
+      "recommendation": "When presenting readiness index scores, do NOT compare absolute scores across different indices (e.g., Stanford vs IMD vs Oxford). Instead compare rankings/ordinal positions or normalize within each index.",
+      "impact": "Prevents misleading numerical comparisons"
+    },
+    {
+      "id": "REC-008",
+      "priority": "LOW",
+      "recommendation": "Consider weighting Pew Research and Gallup/Lloyd's data more heavily for public opinion, as they use probability-based sampling (phone/face-to-face), unlike most other sources that use online convenience sampling.",
+      "impact": "Improves representativeness of public opinion conclusions"
+    },
+    {
+      "id": "REC-009",
+      "priority": "MEDIUM",
+      "recommendation": "Note that China's survey data may be influenced by social desirability bias and online censorship environment. The consistently extremely positive results (80-87% across sources) should be interpreted with this caveat.",
+      "impact": "Provides important context for interpretation"
+    },
+    {
+      "id": "REC-010",
+      "priority": "HIGH",
+      "recommendation": "For the visualization/analysis, prioritize the following source hierarchy for public opinion: 1) Pew Research 2025 (best methodology), 2) Ipsos 2024/2025 (broadest coverage), 3) Edelman 2025 (trust-specific), 4) Google/Ipsos 2025, 5) Lloyd's 2021 (historical only). For readiness indices: 1) Oxford Insights 2024 (broadest coverage), 2) Tortoise 2024 (most indicators), 3) Stanford HAI 2025, 4) IMD 2024.",
+      "impact": "Establishes clear data priority framework for downstream analysis"
+    }
+  ],
+
+  "overall_assessment": {
+    "data_quality_rating": "GOOD",
+    "data_coverage": "25+ countries with multi-source coverage, 50+ countries with at least some data",
+    "major_gaps": [
+      "Africa is severely underrepresented: only Nigeria, South Africa, and Kenya have meaningful data",
+      "Central Asia and Middle East (beyond UAE and Saudi Arabia) have minimal coverage",
+      "Southeast Asia has moderate coverage but lacks depth (enterprise adoption data sparse)",
+      "Eastern Europe beyond Poland and Hungary has minimal survey data"
+    ],
+    "strengths": [
+      "Strong multi-source triangulation for major economies (US, UK, China, Germany, Japan, South Korea, India, Brazil, France, Canada)",
+      "Good temporal spread: data from 2021-2025 enables trend analysis",
+      "Mix of survey methodologies (online, phone, face-to-face) provides methodological diversity",
+      "Enterprise data from multiple consulting firms enables cross-validation",
+      "Readiness indices from 5+ independent organizations provide robust capability assessment"
+    ],
+    "conclusion": "The dataset is fit for purpose for analyzing global AI attitudes, readiness, and adoption, with appropriate caveats. Key concerns are: (1) outdated data from 2021 sources, (2) one duplicate data entry (NZ in IMD), (3) one future-dated entry (KPMG Q4 2026), and (4) incomplete Pew data for 8 countries. After addressing these issues, the data provides a solid foundation for cross-country comparison and visualization."
+  }
+}
