@@ -7,8 +7,6 @@
 
 An interactive data visualization exploring global attitudes toward artificial intelligence across **121 countries**, compiled from **46 data sources** including surveys, government readiness indices, and enterprise adoption reports.
 
-![Preview](preview.png)
-
 **[View Live Demo](https://die-hu.github.io/Global-AI-Acceptance-Index/)**
 
 ---
