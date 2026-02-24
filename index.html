@@ -223,7 +223,8 @@ nav .nav-inner{height:56px}
 .hero-stats{gap:24px}
 .hero-stat-value{font-size:1.5rem}
 .container{padding:0 16px}
-.globe-container{padding:16px;min-height:400px}
+.globe-container{padding:8px 0;min-height:auto}
+#globe-svg{max-width:100%}
 .insights-grid{grid-template-columns:1fr}
 .tiers-grid{grid-template-columns:1fr}
 .footer-inner{flex-direction:column;text-align:center}
@@ -932,6 +933,39 @@ function flyToRegion(region) {
 }
 
 // ============================================================
+// FLY TO COUNTRY
+// ============================================================
+function flyToCountry(iso_a3) {
+  if (!worldData || isFlying) return;
+  pauseAutoRotate();
+  // Find the feature for this country
+  var numId = null;
+  for (var k in ISO_NUM_TO_A3) {
+    if (ISO_NUM_TO_A3[k] === iso_a3) { numId = k; break; }
+  }
+  if (!numId) return;
+  var countries = topojson.feature(worldData, worldData.objects.countries);
+  var feature = countries.features.find(function(f) { return String(f.id) === String(numId); });
+  if (!feature) return;
+  var centroid = d3.geoCentroid(feature);
+  var targetRotate = [-centroid[0], -centroid[1]];
+  var targetScale = Math.min(maxScale, currentScale * 1.3);
+  isFlying = true;
+  var startRotate = projection.rotate();
+  var startScale = currentScale;
+  var interpR = d3.interpolate(startRotate, [targetRotate[0], targetRotate[1], 0]);
+  var interpS = d3.interpolate(startScale, targetScale);
+  d3.transition().duration(800).ease(d3.easeCubicInOut)
+    .tween('flyCountry', function() { return function(t) {
+      projection.rotate(interpR(t));
+      currentScale = interpS(t);
+      projection.scale(currentScale);
+      updateGlobe();
+    }; })
+    .on('end', function() { isFlying = false; });
+}
+
+// ============================================================
 // RESPONSIVE GLOBE SIZING
 // ============================================================
 function resizeGlobe() {
@@ -983,9 +1017,17 @@ function selectCountry(iso_a3) {
     '<div class="data-panel-bar"><div class="data-panel-bar-fill" style="width:' + c.breakdown.neutral + '%;background:' + neutColor + '"></div></div></div>' : '') +
     '<div class="data-panel-sources"><h4>Data Sources (' + c.data_sources.length + ')</h4>' + sourcesHTML + '</div>';
 
-  // On mobile scroll to panel
+  // Fly to country centroid and zoom in slightly
+  flyToCountry(iso_a3);
+
+  // On mobile, gently scroll down to hint at data panel below
   if (window.innerWidth < 768) {
-    document.getElementById('dataPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(function() {
+      var panel = document.getElementById('dataPanel');
+      var panelTop = panel.getBoundingClientRect().top + window.scrollY;
+      var offset = panelTop - window.innerHeight * 0.7;
+      window.scrollTo({ top: Math.max(0, offset), behavior: 'smooth' });
+    }, 600);
   }
 }
 
