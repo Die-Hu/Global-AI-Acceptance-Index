@@ -228,13 +228,16 @@ nav .nav-inner{height:56px}
 .tiers-grid{grid-template-columns:1fr}
 .footer-inner{flex-direction:column;text-align:center}
 .footer-right{text-align:center}
-.data-panel{border-radius:var(--radius-lg) var(--radius-lg) 0 0;position:fixed;bottom:0;left:0;right:0;z-index:50;
-max-height:60vh;overflow-y:auto;transform:translateY(calc(100% - 60px));transition:transform 0.3s ease}
-.data-panel.mobile-open{transform:translateY(0)}
-.data-panel-handle{display:block;width:40px;height:4px;background:rgba(255,255,255,0.2);border-radius:2px;margin:8px auto;cursor:grab}
-.globe-section{padding:20px 0 100px}
-.search-bar{padding:0 16px}
-.search-results{padding:0 16px}
+.data-panel{position:relative;top:0;margin-top:16px;border-radius:var(--radius-lg)}
+.data-panel-handle{display:none}
+.search-bar{display:none}
+.search-results{display:none}
+.data-panel-header{padding:12px 16px 8px}
+.data-panel-header h3{font-size:0.6rem;margin-bottom:0}
+.data-panel-country{font-size:1.1rem;margin-top:2px}
+.data-panel-body{padding:16px}
+.data-panel-empty{padding:20px 16px}
+.globe-section{padding:20px 0 40px}
 }
 @media(min-width:768px){
 .data-panel-handle{display:none}
@@ -980,10 +983,9 @@ function selectCountry(iso_a3) {
     '<div class="data-panel-bar"><div class="data-panel-bar-fill" style="width:' + c.breakdown.neutral + '%;background:' + neutColor + '"></div></div></div>' : '') +
     '<div class="data-panel-sources"><h4>Data Sources (' + c.data_sources.length + ')</h4>' + sourcesHTML + '</div>';
 
-  // On mobile open panel
-  const panel = document.getElementById('dataPanel');
+  // On mobile scroll to panel
   if (window.innerWidth < 768) {
-    panel.classList.add('mobile-open');
+    document.getElementById('dataPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
 
