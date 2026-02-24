@@ -968,17 +968,21 @@ function flyToCountry(iso_a3) {
 // ============================================================
 // RESPONSIVE GLOBE SIZING
 // ============================================================
+let lastContainerWidth = 0;
 function resizeGlobe() {
   const container = document.querySelector('.globe-container');
   if (!container) return;
-  const w = container.clientWidth - 48;
+  const isMobile = window.innerWidth < 768;
+  const pad = isMobile ? 0 : 48;
+  const w = container.clientWidth - pad;
+  // Only recalc when container width actually changed (ignore scroll-triggered resize)
+  if (Math.abs(w - lastContainerWidth) < 5) return;
+  lastContainerWidth = w;
   const size = Math.min(w, 600);
   const newScale = (size / 600) * 270;
-  if (Math.abs(newScale - currentScale) > 5) {
-    currentScale = Math.max(minScale, Math.min(maxScale, newScale));
-    projection.scale(currentScale);
-    updateGlobe();
-  }
+  currentScale = Math.max(minScale, Math.min(maxScale, newScale));
+  projection.scale(currentScale);
+  updateGlobe();
 }
 window.addEventListener('resize', resizeGlobe);
 
